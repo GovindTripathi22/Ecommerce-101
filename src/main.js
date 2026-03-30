@@ -17,7 +17,7 @@ class LuxeRadianceApp {
   // Initialize Smooth Scroll (Lenis)
   initLenis() {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
@@ -38,25 +38,25 @@ class LuxeRadianceApp {
 
   // Orchestrate GSAP Animations
   initAnimations() {
-    // Hero Reveal
-    gsap.to('.hero-content', {
+    // Hero Reveal (Original Style with subtle slide)
+    gsap.to('.hero-reveal', {
       opacity: 1,
       y: 0,
-      duration: 1.5,
+      duration: 1.8,
       ease: 'expo.out',
-      delay: 0.5
+      delay: 0.3
     });
 
     // Staggered Section Reveals
     const revealUps = document.querySelectorAll('.reveal-up');
     revealUps.forEach((el) => {
       gsap.fromTo(el, 
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
           duration: 1.2,
-          ease: 'power3.out',
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
             start: 'top 85%',
@@ -66,38 +66,22 @@ class LuxeRadianceApp {
       );
     });
 
-    // Glass Card Hover Parallax (Subtle)
-    const glassCards = document.querySelectorAll('.glass');
-    glassCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-
-        gsap.to(card, {
-          rotateX: rotateX,
-          rotateY: rotateY,
-          duration: 0.5,
-          ease: 'power2.out'
-        });
-      });
-
-      card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-          rotateX: 0,
-          rotateY: 0,
-          duration: 0.5,
-          ease: 'power2.out'
-        });
+    // Subtle Parallax for Grid Images
+    document.querySelectorAll('.group img').forEach(img => {
+      gsap.to(img, {
+        y: -10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: img,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
       });
     });
   }
 
-  // Proxy-based API Fetching
+  // Fetch Products from Node.js API
   async fetchProducts() {
     const container = document.getElementById('product-container');
     if (!container) return;
@@ -107,21 +91,20 @@ class LuxeRadianceApp {
       const products = await response.json();
 
       container.innerHTML = products.map(product => `
-        <div class="group cursor-pointer-card reveal-up">
-            <div class="relative overflow-hidden rounded-2xl mb-4 bg-surface-container aspect-[3/4]">
+        <div class="min-w-[300px] flex-none group snap-start cursor-pointer-card reveal-up">
+            <div class="relative overflow-hidden rounded-3xl mb-6 bg-surface-container aspect-[4/5]">
                 <img src="${product.image}" 
                      alt="${product.title}" 
                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
-                <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
-                <button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-lg opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-white">
-                    <span class="material-symbols-outlined text-primary">add_shopping_cart</span>
+                <button class="absolute bottom-6 right-6 bg-white p-4 rounded-full shadow-xl opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-primary hover:text-white">
+                    <span class="material-symbols-outlined">add_shopping_cart</span>
                 </button>
             </div>
-            <div class="space-y-1">
-                <span class="text-[10px] tracking-widest text-secondary font-bold uppercase">${product.category}</span>
+            <div class="space-y-1 px-2">
+                <span class="text-[10px] tracking-widest text-on-surface-variant font-bold uppercase">${product.category}</span>
                 <div class="flex justify-between items-start">
-                    <h4 class="font-headline text-lg group-hover:text-accent transition-colors">${product.title}</h4>
-                    <span class="font-medium text-secondary">$${product.price.toFixed(2)}</span>
+                    <h4 class="font-serif text-xl group-hover:text-primary transition-colors">${product.title}</h4>
+                    <span class="font-bold text-on-surface">$${product.price.toFixed(2)}</span>
                 </div>
             </div>
         </div>
@@ -132,7 +115,6 @@ class LuxeRadianceApp {
       
     } catch (error) {
       console.error('Failed to fetch products:', error);
-      // Fallback UI or static alert
     }
   }
 
@@ -140,13 +122,27 @@ class LuxeRadianceApp {
     const cartBtn = document.getElementById('cart-btn');
     if (cartBtn) {
         cartBtn.addEventListener('click', () => {
-            gsap.to(cartBtn, { scale: 0.9, duration: 0.1, yoyo: true, repeat: 1 });
+            gsap.fromTo(cartBtn, { scale: 1 }, { scale: 0.8, duration: 0.1, yoyo: true, repeat: 1 });
+        });
+    }
+
+    // Carousel Navigation Logic
+    const container = document.getElementById('product-container');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    if (container && prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            container.scrollBy({ left: -350, behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', () => {
+            container.scrollBy({ left: 350, behavior: 'smooth' });
         });
     }
   }
 }
 
-// Initialize the Boutique
+// Initialize the Boutique with the Original Design
 document.addEventListener('DOMContentLoaded', () => {
   new LuxeRadianceApp();
 });
