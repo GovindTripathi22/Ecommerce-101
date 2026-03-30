@@ -1,326 +1,193 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUXE RADIANCE | Curated Elegance</title>
-    
-    <!-- Premium Typography & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="/src/style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
 </head>
-<body class="bg-surface text-on-surface">
-    <!-- TopNavBar -->
-    <header class="fixed top-0 w-full z-50 bg-orange-50/80 dark:bg-stone-950/80 backdrop-blur-xl shadow-sm shadow-orange-900/5 dark:shadow-none">
-        <div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
-            <div class="text-2xl font-serif font-bold tracking-widest text-orange-900 dark:text-orange-100">LUXE RADIANCE</div>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a class="text-orange-800 dark:text-orange-200 border-b-2 border-orange-400 font-medium pb-1 font-serif italic text-lg tracking-tight" href="#">Home</a>
-                <a class="text-orange-900/70 dark:text-stone-400 font-medium hover:text-orange-600 transition-colors font-serif italic text-lg tracking-tight" href="#">Shop</a>
-                <a class="text-orange-900/70 dark:text-stone-400 font-medium hover:text-orange-600 transition-colors font-serif italic text-lg tracking-tight" href="#">Collections</a>
-                <a class="text-orange-900/70 dark:text-stone-400 font-medium hover:text-orange-600 transition-colors font-serif italic text-lg tracking-tight" href="#">Journal</a>
-            </nav>
-            <div class="flex items-center space-x-6">
-                <div class="hidden lg:flex items-center bg-white/40 dark:bg-stone-800/40 rounded-lg px-3 py-1.5">
-                    <span class="material-symbols-outlined text-orange-700">search</span>
-                    <input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body outline-none" placeholder="Search curated goods..." type="text">
-                </div>
-                <div class="flex items-center space-x-4">
-                    <button class="hover:bg-white/40 dark:hover:bg-stone-800/40 rounded-lg p-2 transition-all duration-300 text-orange-700">
-                        <span class="material-symbols-outlined">favorite</span>
-                    </button>
-                    <button class="hover:bg-white/40 dark:hover:bg-stone-800/40 rounded-lg p-2 transition-all duration-300 text-orange-700">
-                        <span class="material-symbols-outlined">shopping_bag</span>
-                    </button>
-                    <button class="hover:bg-white/40 dark:hover:bg-stone-800/40 rounded-lg p-2 transition-all duration-300 text-orange-700">
-                        <span class="material-symbols-outlined">person</span>
-                    </button>
-                </div>
+<body class="bg-background">
+    <!-- Liquid Background Elements -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div class="liquid absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] opacity-30"></div>
+        <div class="liquid absolute bottom-[-10%] right-[-10%] w-[35vw] h-[35vw] opacity-20" style="animation-delay: -5s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-blur h-20 flex items-center px-6 md:px-12 justify-between">
+        <div class="flex items-center gap-12">
+            <h1 class="text-2xl font-headline font-bold tracking-tight text-primary">LUXE RADIANCE</h1>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-secondary">
+                <a href="#" class="hover:text-primary transition-colors">Home</a>
+                <a href="#" class="hover:text-primary transition-colors">Shop</a>
+                <a href="#" class="hover:text-primary transition-colors">Collections</a>
+                <a href="#" class="hover:text-primary transition-colors">Journal</a>
             </div>
         </div>
-    </header>
+        <div class="flex items-center gap-6">
+            <div class="hidden lg:flex items-center glass rounded-full px-4 py-1.5 focus-within:ring-2 ring-primary/20 transition-all">
+                <span class="material-symbols-outlined text-[20px] text-secondary">search</span>
+                <input type="text" placeholder="Search curated goods..." class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder:text-secondary/50">
+            </div>
+            <button class="p-2 hover:bg-black/5 rounded-full transition-colors relative">
+                <span class="material-symbols-outlined">favorite</span>
+            </button>
+            <button id="cart-btn" class="p-2 hover:bg-black/5 rounded-full transition-colors relative">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-accent rounded-full border-2 border-white"></span>
+            </button>
+            <button class="md:hidden p-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
 
-    <main class="pt-20">
-        <!-- Hero Section -->
-        <section class="relative h-[870px] flex items-center overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_705SXdwwCvFt1YAJgx_SLdYkohs30IzWyaq44GZVLkY-WZww2rPJoxW6mBXitIS6yCOZt9uV3G7lAESnM8P82wCF-zclyDMvZ67I4qGoCMnidiWcDwCYN3ooukl3metMlrvx1CTOl8ljINzdEQNRIdD8C9DlAkvBvgKvlI85cBbXS5seZ5E05tb5E4R-axoDgraEriuuxz0VwNNjsq67y2PTiXXTWgd-QkPVgnjjCHMKx7PgZTEQypwR2l1F5zr6jMerHWxxMg" alt="luxury high-end kitchen">
-                <div class="absolute inset-0 bg-gradient-to-r from-orange-900/40 to-transparent"></div>
-            </div>
-            <div class="container mx-auto px-8 relative z-10">
-                <div class="max-w-2xl bg-white/10 backdrop-blur-md p-12 rounded-xl border border-white/20">
-                    <span class="text-secondary-fixed font-label tracking-[0.2em] uppercase text-sm mb-4 block">The Art of Living</span>
-                    <h1 class="text-7xl font-headline text-white leading-tight mb-8">Curated Elegance <br><i class="font-normal">for Every Space</i></h1>
-                    <div class="flex space-x-6">
-                        <button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-10 py-4 rounded-xl font-medium text-lg hover:shadow-xl transition-all scale-[1.02]">
-                            Explore Home
-                        </button>
-                        <button class="bg-white/20 hover:bg-white/30 text-white px-10 py-4 rounded-xl font-medium text-lg backdrop-blur-sm transition-all">
-                            New Arrivals
-                        </button>
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Hero Section -->
+            <section class="relative min-h-[90vh] flex items-center px-6 md:px-12 py-20 overflow-hidden">
+                <div class="absolute inset-0 -z-10">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000" 
+                         alt="Premium Interior" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
+                </div>
+                
+                <div class="max-w-3xl hero-content opacity-0 translate-y-10">
+                    <span class="inline-block text-accent font-semibold tracking-[0.2em] text-xs mb-4">THE ART OF LIVING</span>
+                    <h2 class="text-5xl md:text-7xl font-headline leading-[1.1] mb-8 chromatic-text">
+                        Curated <span class="italic">Elegance</span><br>for Every Space
+                    </h2>
+                    <p class="text-lg text-secondary mb-10 max-w-lg leading-relaxed">
+                        Discover a thoughtfully chosen collection of artisan products designed to bring radiance and sophistication to your daily rituals.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="btn-primary">Explore Home</button>
+                        <button class="btn-ghost">New Arrivals</button>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Categories: Bento Grid Style -->
-        <section class="py-24 px-8 max-w-screen-2xl mx-auto">
-            <div class="mb-16 text-center">
-                <h2 class="text-4xl font-headline text-on-surface mb-4">Discover the Collections</h2>
-                <p class="text-on-surface-variant font-body max-w-xl mx-auto">Explore our masterfully selected categories, where each piece is chosen for its radiant quality and enduring style.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-[800px]">
-                <div class="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden group">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1BF4v4DrNvjMAb5cvaM_9KHhodvtR8FOB2fqw9U3FhmjxQ0BpcYz8NgOmrJvRAqs6x4dQUPqJZqh2apQKTKlGMeX2jY2eAqjD234MyghSBL3F2rQtFO0KgLg-PXqxqmIsF98NPfXY-a9z1uHlJeqylgClSSTRrbVVTsPxLYGHBwHgbg1Ee7GpNHH4b20BBIMjo6SsAtKbCgJavAqqeYthXhirUsNyg1XpnvyycvVKCzAv36Q7gaKV3yjZzIny1f5DhDwiEAp2Cg" alt="minimalist living room">
-                    <div class="absolute inset-0 bg-black/20 flex flex-col justify-end p-10">
-                        <h3 class="text-3xl text-white font-headline">Home & Kitchen</h3>
-                        <a class="text-white/80 font-label mt-2 hover:text-white transition-colors" href="#kitchen">Shop Collection →</a>
+            <!-- Collections (Bento Grid) -->
+            <section class="py-24 px-6 md:px-12 bg-surface-container">
+                <div class="mb-16 flex justify-between items-end">
+                    <div class="reveal-up">
+                        <h3 class="text-3xl font-headline mb-4">Discover the Collections</h3>
+                        <p class="text-secondary max-w-md">Each piece tells a story of craftsmanship and intentional design.</p>
                     </div>
-                </div>
-                <div class="md:col-span-2 relative rounded-xl overflow-hidden group">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAU1PnzHtBdGc_WV4DEmHlxDJ3qMwvasYvtCd5_B2OMAft_lQDNdRkDsC7cbwUp9Z-fYUo9qnk1xMzPWqJTVgwqDoELKMTRWToobobo4o42q08cHYXVsXt-9A49iuzqROP7SGOnNGi9fJSdvd43tMj732QPCUDkt7EpoaHhs35DuL90nt5fEj6dmZy7A8e5JGI1ekmUHFtZs6hjgef3uSySFJz3GvGKFcnyOckWiqZwzbuqBiGqn_NuCZU0fj3XOujN5OsNAe4Vg" alt="skincare bottles">
-                    <div class="absolute inset-0 bg-black/10 flex flex-col justify-end p-8">
-                        <h3 class="text-2xl text-white font-headline">Beauty & Skincare</h3>
-                        <a class="text-white/80 font-label mt-2 hover:text-white transition-colors" href="#beauty">Shop Collection →</a>
-                    </div>
-                </div>
-                <div class="relative rounded-xl overflow-hidden group">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhIM6SEdvrKfTZ8jpkMbsyRA76occg4GH0Yw1BUJprxHqOcUABnUFybiJlu438jZoVuVPomfLhgn36blc2tQBNKo9U1zmtlzjZOGoLEM5B-6GX858RTnw3repyk6T8D6vEjpV29oT1OcR5rHIqaYWcFp_kfKl5hlM7l3oLLDmp0sMtschHA2-91YI21-QVNowNCGgwh3qXGoISwFan_HB-RfAIMyivJtyiVwfOQNjx3R9Is3jxxYeco0ktxslM-Wn7qgtGEfjMDA" alt="spa area">
-                    <div class="absolute inset-0 bg-black/30 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline">Personal Care</h3>
-                    </div>
-                </div>
-                <div class="relative rounded-xl overflow-hidden group">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzIV4gmaaXIyRo8lwabtQSeTM2M29hwbi8KY24wEIFZXVv8OuFDcIw7U4HsBbLwlYO_MUQwW-c7KHjXetVym7HsQgn0k1XkcayosuYVu_5In87RKVMwoIkIvc1ZdQNTv2Ty1C30h_lExcGfpXlSLk1w9C2pRju1Udr2QRHCmhewAbH_L5-OMYxW-IbpyKtD7WzFb038f_gI0LkXLoJjPRgv0GDdV5LW3UrEDcoUnTUIdhSfXCgMvDzlDKONw_iLxz_xsMMLCmU5A" alt="tech lifestyle">
-                    <div class="absolute inset-0 bg-black/30 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline">Tech Lifestyle</h3>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Carousel: Home & Kitchen -->
-        <section class="py-20 bg-surface-container-low overflow-hidden" id="kitchen">
-            <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12">
-                <div>
-                    <span class="text-primary font-label text-sm uppercase tracking-widest block mb-2">Essential Living</span>
-                    <h2 class="text-4xl font-headline">Home & Kitchen</h2>
-                </div>
-                <a class="text-on-surface-variant font-body hover:text-primary transition-colors flex items-center" href="#">
-                    View all <span class="material-symbols-outlined ml-2">trending_flat</span>
-                </a>
-            </div>
-            <div class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-8">
-                <!-- Product Card 1 -->
-                <div class="min-w-[320px] bg-surface-container-lowest rounded-xl p-4 shadow-sm group">
-                    <div class="h-80 rounded-lg overflow-hidden mb-6 bg-surface-variant">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB-l1IHfd-t0BMfuRzQoPqIsOMDoRQeuHNHaW-8suhqJ49n5hvF4rjyslgu94H-gFC1hqndxhtLhJc6E843pnokRrVt2xObYAO7SzuJR7FKZi7Ss_pN8YMqU1oC-bWdg9h9Y7h-lvNxM9fSIbuKH5VlT4I1jX8qRxt7SV_giTLyaIfQaG8uCp9zDo2s-aqtdN9uoB3M5oA09kTEpCu-wMJ4pb2fTqkVe9jXEyknj1aQ_yivqhMH1ZHN42c1neS4Ol7Fe16Q8Id5w" alt="ceramic teapot">
-                    </div>
-                    <p class="text-xs text-on-surface-variant font-label mb-1">CRAFTSMAN SERIES</p>
-                    <h4 class="font-body font-semibold text-lg mb-2">Hand-Thrown Ceramic Teapot</h4>
-                    <div class="flex justify-between items-center">
-                        <span class="text-primary font-bold">$124.00</span>
-                        <button class="bg-secondary-container p-2 rounded-full hover:bg-secondary-fixed transition-colors">
-                            <span class="material-symbols-outlined text-on-secondary-container">add_shopping_cart</span>
-                        </button>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="min-w-[320px] bg-surface-container-lowest rounded-xl p-4 shadow-sm group">
-                    <div class="h-80 rounded-lg overflow-hidden mb-6 bg-surface-variant">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnHEN0zvq7NbR3U0F2nPxIZLS20fTmCzhYRLXqeX0eEAj1gBM7vJLqv3IAq-a3v-VHeyc1tlkNbkf-3BqQvwNittHDWK00Ser7pegBqg7KYuJOA_ylWfMlqXXFRjhTbA4qYzJSwIoA_iQ-LDtrRVJCLaZLHmhlpSHbuvJXI6AzVXy8aBAzcQeMNlR15DrD-vJYA2SzuT2KzLvmjWxe_TqP_o15DU1ZDdvdHmTcclTMs_42q-bY8mwT3wkoI7FUAmttr2UgQtLodA" alt="copper skillet">
-                    </div>
-                    <p class="text-xs text-on-surface-variant font-label mb-1">GASTRONOMY</p>
-                    <h4 class="font-body font-semibold text-lg mb-2">Artisan Copper Skillet Set</h4>
-                    <div class="flex justify-between items-center">
-                        <span class="text-primary font-bold">$345.00</span>
-                        <button class="bg-secondary-container p-2 rounded-full hover:bg-secondary-fixed transition-colors">
-                            <span class="material-symbols-outlined text-on-secondary-container">add_shopping_cart</span>
-                        </button>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="min-w-[320px] bg-surface-container-lowest rounded-xl p-4 shadow-sm group">
-                    <div class="h-80 rounded-lg overflow-hidden mb-6 bg-surface-variant">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA9FUhK4M3gBTUX-K5FWYKA2Q75k5uyRUhGDwGOsYVujDFsZuq4jGnC8jX5psDizXcMaUYDQDjOvJg8YlQUr8uj8oT9lVKVj3QbwdScDYQdyouP90KUP41CazcpVHgLqmO2J6GVtNrGkENE1Ksu3XHBMsOkgA0XMHivS1lKoasl-NPIodZDeHAk9KDGjpHe7H-FYWIk-DihtWuSQMR5WARAn9Fos7s4lfSJ_EpA8x3hqp649slR9j9V3CKSCWluxh_bN0jn71mbw" alt="glass coffee brewer">
-                    </div>
-                    <p class="text-xs text-on-surface-variant font-label mb-1">MORNING RITUAL</p>
-                    <h4 class="font-body font-semibold text-lg mb-2">Glass Pour-Over System</h4>
-                    <div class="flex justify-between items-center">
-                        <span class="text-primary font-bold">$68.00</span>
-                        <button class="bg-secondary-container p-2 rounded-full hover:bg-secondary-fixed transition-colors">
-                            <span class="material-symbols-outlined text-on-secondary-container">add_shopping_cart</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Grid: Beauty & Skincare -->
-        <section class="py-24 px-8 max-w-screen-2xl mx-auto" id="beauty">
-            <div class="flex flex-col md:flex-row gap-16 items-start">
-                <div class="md:w-1/3 sticky top-32">
-                    <span class="text-tertiary font-label text-sm uppercase tracking-widest block mb-4">The Glow Edit</span>
-                    <h2 class="text-5xl font-headline mb-8">Beauty & <br><i>Skincare</i></h2>
-                    <p class="text-on-surface-variant font-body mb-10 leading-relaxed">Pure ingredients, scientifically proven results. Discover our collection of radiant skin essentials curated for the discerning individual.</p>
-                    <button class="border-b-2 border-primary text-primary font-bold py-2 hover:tracking-widest transition-all uppercase text-sm tracking-widest">Discover the Ritual</button>
-                </div>
-                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-10">
-                    <!-- Beauty Item 1 -->
-                    <div class="group">
-                        <div class="aspect-[4/5] rounded-xl overflow-hidden bg-tertiary-fixed mb-6">
-                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOXUUM0gerzvpWP1BawmqXj1zIArUuh7zVZ1l_TyYyReRhVTXnb9_E3ynTh9VoNt6GvXyg3khDXPoQtNN3RR9cmBBAqKyGEwaPYYnsEYO6zoz4kRxT21AwhXAFx6eepxxMYyFMaSZF2U7-nWJThTXkZWnLFWa9aQ-AwFE5JhCtG8JZ25TnBUF52oLhvfmtSSjPmTmT9cGlJa-_xHsGNt-qn0X2NMywngoAzRmPXmdy8UZNjSnXSY0zikGVmVNFovzbvWbEr-Cyhg" alt="face serum">
-                        </div>
-                        <h4 class="font-headline text-xl mb-1">Aura Hydrating Serum</h4>
-                        <p class="text-on-surface-variant text-sm mb-4">Triple-molecular weight hyaluronic acid.</p>
-                        <span class="text-primary font-bold">$72.00</span>
-                    </div>
-                    <!-- Beauty Item 2 -->
-                    <div class="group">
-                        <div class="aspect-[4/5] rounded-xl overflow-hidden bg-tertiary-fixed mb-6">
-                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBys3KF7LovpFeeYSTrP07iZn22tWkK6VkrLv-dYinfnQIx_tuMm-aBP0s9xbG7PL2u4-x-tNu3Gyx7ud9lryD9oHxL9H9KAX9wR15lMaFJMmkU0buMhRKUW_xt4uS5bSfc2dbzWMUZtO-otNhm09UI6b1oKVUuaoA7yFJp4kJzPZtOFhQRz6CMNt4BqQoCyYUvstNEAhgdT9JVXQZmTSQS2j_jiFxP-dvG_RcTSwKSbX6sc_xtBkD_6iBb5IKCNoTuuDx1FWdDUA" alt="night cream">
-                        </div>
-                        <h4 class="font-headline text-xl mb-1">Luminous Night Cream</h4>
-                        <p class="text-on-surface-variant text-sm mb-4">Regenerating peptides and bakuchiol.</p>
-                        <span class="text-primary font-bold">$95.00</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Life Stages: Baby & Pets -->
-        <section class="py-24 bg-surface-container">
-            <div class="px-8 max-w-screen-2xl mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
-                    <div class="relative">
-                        <div class="w-4/5 rounded-3xl overflow-hidden shadow-2xl">
-                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH5_k2koF37ewhXaD-H7WkvxoBINnFXDGpF3hfP7MDZ_oDnzBbWXjixmr_cy8Mgy32jAHessFpwAYRA-6LHjchr-7OKR4tUlU9qxxGsKNhD47jkGcvBFsr_MLC98cmMSZHNWEgeXax6PUhUPHvaR8CNzwcHYTaNf9BJ9eWSkyoIcpDnuLW8ZlESL4V_-QKvJ--HjiQayYeN3JoeEwng0RyOWCDD5yyCgVhqCERmQ6Y-WGuU-utX3JXkutQ-QYAaaEciHmFcda-Ow" alt="nursery">
-                        </div>
-                        <div class="absolute -bottom-10 -right-6 w-1/2 bg-white p-8 rounded-2xl shadow-xl">
-                            <span class="text-primary font-label text-xs uppercase mb-2 block">For the Little Ones</span>
-                            <h3 class="text-2xl font-headline mb-4">Baby Products</h3>
-                            <ul class="space-y-2 text-sm text-on-surface-variant font-body">
-                                <li>• Organic Cotton Linens</li>
-                                <li>• Sustainably Sourced Wood Toys</li>
-                                <li>• Gentle Skin Care</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="pl-0 lg:pl-12">
-                        <h2 class="text-5xl font-headline mb-6 leading-tight">Nurturing <br>New Beginnings</h2>
-                        <p class="text-lg text-on-surface-variant font-body mb-8">We believe in providing the purest start for your family. Our baby collection features non-toxic, heirloom-quality pieces that grow with them.</p>
-                        <div class="flex gap-4">
-                            <div class="bg-surface-container-lowest p-6 rounded-xl w-1/3">
-                                <span class="material-symbols-outlined text-primary mb-2">child_care</span>
-                                <p class="font-bold text-sm">Gentle Essentials</p>
-                            </div>
-                            <div class="bg-surface-container-lowest p-6 rounded-xl w-1/3">
-                                <span class="material-symbols-outlined text-primary mb-2">bedtime</span>
-                                <p class="font-bold text-sm">Better Sleep</p>
-                            </div>
-                            <div class="bg-surface-container-lowest p-6 rounded-xl w-1/3">
-                                <span class="material-symbols-outlined text-primary mb-2">nature_people</span>
-                                <p class="font-bold text-sm">Eco-Friendly</p>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="#" class="group flex items-center gap-2 font-medium hover:text-accent transition-colors reveal-up underline-offset-4 underline">
+                        View All Collections <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
                 </div>
 
-                <!-- Pet Section -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    <div class="order-2 lg:order-1">
-                        <h2 class="text-5xl font-headline mb-6 leading-tight">Refined Living <br>for Pets</h2>
-                        <p class="text-lg text-on-surface-variant font-body mb-8">Elevated accessories that complement your home aesthetic while providing ultimate comfort for your loyal companions.</p>
-                        <div class="grid grid-cols-2 gap-6">
-                            <div class="group relative overflow-hidden rounded-xl h-48">
-                                <img class="w-full h-full object-cover group-hover:scale-110 transition-duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_fwdMs2mcPss0DKO9iD2jfeUcvE3fui8hITpN_zjmRZRlrCSuVJlM-i_5FH4v80jxKayRmhi_QxB_h0Iw22lcGE0tfrzS69F4c_sv_fpMF9tAjOdhq-kx_kReW9Ge7dAeGcfpG2vrBsFNvf8OqQTnBYvB57xDD6ZML5kZlTENceRrsEscZPlJW1B6U_ciGH_8kJ4AeW8FTNoBVdluf1iK7YNstMKLiETcqmsQjECteFvnNKhizokKpJRjZwZiCsaxRmiBnvvoYw" alt="dog bowl">
-                                <div class="absolute inset-0 bg-black/20 flex items-center justify-center"><span class="text-white font-headline">Dining</span></div>
-                            </div>
-                            <div class="group relative overflow-hidden rounded-xl h-48">
-                                <img class="w-full h-full object-cover group-hover:scale-110 transition-duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn9yy6j0FDqsByBSRCdJ9ojU6rYrArYYD0YWvCOZ9ASZIPJIfk5lo4MctbMMUL04UgKGUcBeceSo_PjaYhAv3hX48uFsBfVC0eCMtqXM1jw4uVnwPIo5by5jnnU5nZpBKbWm5idhCK9Yh9ygPXTgrVGa1joJv8ZLm9rfdI2uklQi-bPRwnGgWqDLYJERAujzKURX2o4_8dO4LCPBdZVBNqKGn_QN-PqLrRhqb4qCq4ut9LmltH-at7Gx2v_m5Gxy_w1PKJbvT8mw" alt="pet bed">
-                                <div class="absolute inset-0 bg-black/20 flex items-center justify-center"><span class="text-white font-headline">Leisure</span></div>
-                            </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-[600px]">
+                    <div class="md:col-span-2 md:row-span-2 group overflow-hidden rounded-2xl glass cursor-pointer reveal-up">
+                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1200" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-2xl font-headline text-white mb-2">Home & Kitchen</h4>
+                            <p class="text-white/80 text-sm mb-4">Functional beauty for the heart of your home.</p>
+                            <span class="text-white font-medium flex items-center gap-2">Explore <span class="material-symbols-outlined text-sm">north_east</span></span>
                         </div>
                     </div>
-                    <div class="relative order-1 lg:order-2">
-                        <div class="w-4/5 ml-auto rounded-3xl overflow-hidden shadow-2xl">
-                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgRKo1V5pMM7s5_VDNqko4DyWP_etGubc5oQktKfOmxCyAWIAw15fwlz-P_zVjvZK4If64gtygN5MTpNoBZbXHNN2Hg7gETMG8TRQA2w9SxeIzNf7eEJxAjvV5NNdJA-p8ml4JaRtp5Wt5JDImpeUniAxawV6nVLb8BzYbZdWZTAX9--gm7lx2PUPCSI3exXidLc40YrJB8A26UjAMu9f4ejXqEPBRxI6XxSxiaa7xPa1TyY5QnlW64fJnIx3JkITJfjZW4auXyg" alt="pet lifestyle">
+                    <div class="md:col-span-2 group overflow-hidden rounded-2xl glass cursor-pointer reveal-up">
+                        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80&w=1200" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8 text-white">
+                            <h4 class="text-xl font-headline mb-1">Personal Care</h4>
+                            <span class="font-medium flex items-center gap-2 text-sm">Explore <span class="material-symbols-outlined text-sm">north_east</span></span>
                         </div>
-                        <div class="absolute -bottom-10 -left-6 w-1/2 bg-white p-8 rounded-2xl shadow-xl">
-                            <span class="text-primary font-label text-xs uppercase mb-2 block">Pet Supplies</span>
-                            <h3 class="text-2xl font-headline mb-4">Companion Collection</h3>
-                            <button class="bg-primary text-white px-6 py-2 rounded-lg text-sm font-bold uppercase tracking-widest">Shop Pets</button>
+                    </div>
+                    <div class="group overflow-hidden rounded-2xl glass cursor-pointer reveal-up">
+                        <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&q=80&w=800" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 p-6 flex items-end">
+                            <h4 class="text-lg font-headline text-white">Beauty</h4>
+                        </div>
+                    </div>
+                    <div class="group overflow-hidden rounded-2xl glass cursor-pointer reveal-up">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 p-6 flex items-end">
+                            <h4 class="text-lg font-headline text-white">Tech</h4>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Newsletter Section -->
-        <section class="py-24 px-8 mb-20">
-            <div class="max-w-screen-xl mx-auto bg-primary-container rounded-[3rem] p-16 relative overflow-hidden flex flex-col md:flex-row items-center gap-12">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-secondary-container/20 rounded-full -mr-32 -mt-32"></div>
-                <div class="relative z-10 md:w-1/2">
-                    <h2 class="text-4xl md:text-5xl font-headline text-on-primary-container leading-tight mb-6">Join the <br><i>Radiant Curator</i> Circle</h2>
-                    <p class="text-on-primary-container/80 font-body mb-8 text-lg">Receive weekly curated edits, early access to limited collections, and lifestyle insights directly to your inbox.</p>
-                    <form class="flex flex-col sm:flex-row gap-4">
-                        <input class="flex-1 px-6 py-4 rounded-xl border-none bg-white focus:ring-2 focus:ring-primary font-body outline-none" placeholder="Email address" type="email">
-                        <button class="bg-on-primary-container text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-black transition-colors">Subscribe</button>
-                    </form>
+            <!-- Shop Section -->
+            <section id="shop" class="py-24 px-6 md:px-12 bg-background">
+                <div class="max-w-2xl mb-16 reveal-up">
+                    <h3 class="text-4xl font-headline mb-6">Signature Pieces</h3>
+                    <p class="text-lg text-secondary leading-relaxed">
+                        Hand-selected essentials that define the LUXE RADIANCE lifestyle.
+                    </p>
                 </div>
-                <div class="md:w-1/2">
-                    <img class="rounded-2xl shadow-2xl transform rotate-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkZ3w-YJ3tLth9K5imNHg8UonvPxufaVS70CS0oU8mCSk5vLpgOFbahW4xRCGL29p5TufQQ3t3sckZAH7kNdOaQHi1yi8IO8EvRR44ULytYMmy6GOZlrhO4j2mN7ZZTLBEI0fcCg2iZMyy9H5zR0wDasYRj2hpSB5J4Q-Z885F7gacx7mV3k4EPON_Xli2cQKepoP5Nfnk2Kb6sJIot9T7N2b8YhlccXycLYVP4f-Fj1pxGpfIu2eVqTvJrk-B6z2hLjCJBtGaYg" alt="magazine">
+                
+                <div id="product-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Products injected by JS -->
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <!-- Newsletter -->
+            <section class="py-24 px-6 md:px-12">
+                <div class="glass max-w-5xl mx-auto rounded-3xl p-12 md:p-24 flex flex-col items-center text-center reveal-up">
+                    <span class="material-symbols-outlined text-5xl text-accent mb-6 animate-float">mail</span>
+                    <h3 class="text-4xl font-headline mb-6">Join the Radiance Circle</h3>
+                    <p class="text-secondary max-w-md mb-8">Receive exclusive styling guides, new collection previews, and invitations to private events.</p>
+                    <div class="flex w-full max-w-md gap-2">
+                        <input type="email" placeholder="Email address" class="flex-1 bg-white/50 border border-outline-variant rounded-lg px-4 py-3 focus:ring-2 ring-primary/20 outline-none">
+                        <button class="btn-primary px-8">Join</button>
+                    </div>
+                    <p class="mt-6 text-xs text-secondary/50">By joining, you agree to our Privacy Policy and Terms of Service.</p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="py-20 px-6 md:px-12 bg-primary text-white">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+                    <div class="md:col-span-2">
+                        <h1 class="text-3xl font-headline font-bold mb-8">LUXE RADIANCE</h1>
+                        <p class="text-white/60 max-w-sm mb-8">Elevating the everyday through curated design and timeless elegance. Founded on the principle that your space should reflect your inner radiance.</p>
+                        <div class="flex gap-6">
+                            <a href="#" class="text-white/60 hover:text-white transition-colors">Instagram</a>
+                            <a href="#" class="text-white/60 hover:text-white transition-colors">Pinterest</a>
+                            <a href="#" class="text-white/60 hover:text-white transition-colors">Journal</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="font-bold mb-6">Shop</h5>
+                        <ul class="space-y-4 text-white/60 text-sm">
+                            <li><a href="#" class="hover:text-white">Home & Kitchen</a></li>
+                            <li><a href="#" class="hover:text-white">Beauty & Skincare</a></li>
+                            <li><a href="#" class="hover:text-white">Personal Care</a></li>
+                            <li><a href="#" class="hover:text-white">Tech Lifestyle</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold mb-6">Client Help</h5>
+                        <ul class="space-y-4 text-white/60 text-sm">
+                            <li><a href="#" class="hover:text-white">Shipping & Returns</a></li>
+                            <li><a href="#" class="hover:text-white">Order Tracking</a></li>
+                            <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                            <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
+                    <p>&copy; 2026 LUXE RADIANCE. All rights reserved.</p>
+                    <div class="flex gap-8">
+                        <a href="#" class="hover:text-white">Terms of Service</a>
+                        <a href="#" class="hover:text-white">Privacy Policy</a>
+                        <a href="#" class="hover:text-white">Accessibility</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </main>
-
-    <!-- Footer -->
-    <footer class="w-full rounded-t-[2rem] mt-20 bg-orange-100 dark:bg-stone-900">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 max-w-screen-2xl mx-auto">
-            <div class="col-span-1 md:col-span-1">
-                <div class="font-serif text-xl text-orange-900 dark:text-orange-100 mb-6">LUXE RADIANCE</div>
-                <p class="text-orange-800/60 dark:text-stone-500 text-sm font-body leading-relaxed mb-8">A modern boutique dedicated to the art of fine living and radiant quality. Every item in our shop is hand-picked by our lead curators.</p>
-                <div class="flex space-x-4">
-                    <a class="text-orange-800 dark:text-orange-300 hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">public</span></a>
-                    <a class="text-orange-800 dark:text-orange-300 hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">share</span></a>
-                    <a class="text-orange-800 dark:text-orange-300 hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">mail</span></a>
-                </div>
-            </div>
-            <div>
-                <h4 class="font-sans text-sm tracking-wide uppercase text-orange-800 dark:text-orange-300 mb-6 font-bold">Shop Collections</h4>
-                <ul class="space-y-4">
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Home & Kitchen</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Beauty & Skincare</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Pet Supplies</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Fitness</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-sans text-sm tracking-wide uppercase text-orange-800 dark:text-orange-300 mb-6 font-bold">Company</h4>
-                <ul class="space-y-4">
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Our Story</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Journal</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Sustainability</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Terms</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-sans text-sm tracking-wide uppercase text-orange-800 dark:text-orange-300 mb-6 font-bold">Help & Support</h4>
-                <ul class="space-y-4">
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Shipping</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Privacy</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">FAQ</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="px-12 py-8 border-t border-orange-200/30 text-center">
-            <p class="text-orange-800/60 dark:text-stone-500 font-sans text-sm tracking-wide uppercase">© 2024 Radiant Curator Boutique. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script type="module" src="/src/main.js"></script>
 </body>

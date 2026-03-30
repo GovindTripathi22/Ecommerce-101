@@ -16,13 +16,32 @@ router.get('/products', (req, res) => {
       title: 'Artisan Copper Skillet Set',
       price: 345.00,
       image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCnHEN0zvq7NbR3U0F2nPxIZLS20fTmCzhYRLXqeX0eEAj1gBM7vJLqv3IAq-a3v-VHeyc1tlkNbkf-3BqQvwNittHDWK00Ser7pegBqg7KYuJOA_ylWfMlqXXFRjhTbA4qYzJSwIoA_iQ-LDtrRVJCLaZLHmhlpSHbuvJXI6AzVXy8aBAzcQeMNlR15DrD-vJYA2SzuT2KzLvmjWxe_TqP_o15DU1ZDdvdHmTcclTMs_42q-bY8mwT3wkoI7FUAmttr2UgQtLodA'
+    },
+    {
+        id: 3,
+        category: 'WELLNESS',
+        title: 'Botanical Infusion Kit',
+        price: 85.00,
+        image: 'https://images.unsplash.com/photo-1544171255-235b2aa2b65a?auto=format&fit=crop&q=80&w=800'
+    },
+    {
+        id: 4,
+        category: 'INTERIOR',
+        title: 'Silk Weave Throw',
+        price: 195.00,
+        image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800'
     }
   ];
   res.status(200).json(products);
 });
 
 router.get('/categories', (req, res) => {
-  const categories = ['Home & Kitchen', 'Beauty & Skincare', 'Personal Care', 'Tech Lifestyle'];
+  const categories = [
+    { id: 'home', name: 'Home & Kitchen', icon: 'home' },
+    { id: 'beauty', name: 'Beauty & Skincare', icon: 'spa' },
+    { id: 'tech', name: 'Tech Lifestyle', icon: 'devices' },
+    { id: 'personal', name: 'Personal Care', icon: 'face' }
+  ];
   res.status(200).json(categories);
 });
 
