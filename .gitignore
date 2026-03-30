@@ -1,0 +1,9 @@
+node_modules
+dist
+.env
+.DS_Store
+*.log
+.gemini
+design-system
+# Although the design-system folder was created by me, it's good practice to gitignore it unless the user wants it.
+# Actually, I'll keep it for now as it's part of the project documentation.
