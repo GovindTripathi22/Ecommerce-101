@@ -59,7 +59,60 @@ const testimonials = [
   { id: 8, name: 'Fatima R.', location: 'Al Ain', quote: 'Seamless Shopping Experience', text: 'Easy to navigate website and smooth checkout process. Very satisfied.', region: 'ae' }
 ];
 
+const categoryThemes = {
+  'home-kitchen': {
+    primary: '#914d00',
+    secondary: '#f28c28',
+    title: 'Modern Kitchen',
+    subtitle: 'Culinary excellence & lifestyle essentials',
+    image: '/assets/bento-home.png'
+  },
+  'health-personal-care': {
+    primary: '#006a6a',
+    secondary: '#00cfcf',
+    title: 'Personal Vitality',
+    subtitle: 'Advanced wellness & health curations',
+    image: '/assets/bento-health.png'
+  },
+  'beauty-skincare': {
+    primary: '#701b2f',
+    secondary: '#ffb2bd',
+    title: 'Artisanal Beauty',
+    subtitle: 'Pristine formulas for a radiant glow',
+    image: '/assets/bento-beauty.png'
+  },
+  'pet-supplies': {
+    primary: '#3a6a00',
+    secondary: '#8ce33a',
+    title: 'Pet Curations',
+    subtitle: 'Sophisticated gear for your loyal companions',
+    image: '/assets/bento-pets.png'
+  },
+  'baby-products': {
+    primary: '#004a77',
+    secondary: '#7fbaff',
+    title: 'Baby Essentials',
+    subtitle: 'Nordic design for the next generation',
+    image: '/assets/bento-baby.png'
+  },
+  'electronics-accessories': {
+    primary: '#1f1b17',
+    secondary: '#bf8f00',
+    title: 'Tech Companions',
+    subtitle: 'High-performance digital essentials',
+    image: '/assets/bento-tech.png'
+  },
+  'sports-fitness': {
+    primary: '#006e2a',
+    secondary: '#55f985',
+    title: 'Peak Performance',
+    subtitle: 'Minimalist gear for elite training',
+    image: '/assets/bento-sports.png'
+  }
+};
+
 router.get('/products', (req, res) => res.json(products));
 router.get('/testimonials', (req, res) => res.json(testimonials));
+router.get('/themes', (req, res) => res.json(categoryThemes));
 
 export default router;

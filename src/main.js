@@ -8,17 +8,73 @@ class LuxeRadianceApp {
       smoothWheel: true
     });
 
+    this.isBoutique = window.location.pathname.includes('category.html');
+    this.currentCategory = new URLSearchParams(window.location.search).get('c');
+    
     this.init();
   }
 
   async init() {
-    this.setupSmoothScroll();
-    await this.fetchData();
+    this.initLenis();
+    this.initScrollReveal();
+    
+    if (this.isBoutique && this.currentCategory) {
+      await this.initBoutique();
+    } else {
+      await this.fetchData();
+    }
     this.animateReveals();
     this.bindEvents();
   }
 
-  setupSmoothScroll() {
+  async initBoutique() {
+    try {
+      const [productsRes, themesRes] = await Promise.all([
+        fetch('/api/products'),
+        fetch('/api/themes')
+      ]);
+      
+      const products = await productsRes.json();
+      const themes = await themesRes.json();
+      
+      const theme = themes[this.currentCategory];
+      if (theme) {
+          this.applyTheme(theme);
+          this.renderBoutiqueProducts(products, this.currentCategory);
+      }
+    } catch (err) {
+      console.error('Boutique sync failed:', err);
+    }
+  }
+
+  applyTheme(theme) {
+    document.documentElement.style.setProperty('--category-primary', theme.primary);
+    document.documentElement.style.setProperty('--category-secondary', theme.secondary);
+    
+    const titleEl = document.getElementById('category-title');
+    const subtitleEl = document.getElementById('category-subtitle');
+    const imageEl = document.getElementById('category-image');
+    const showcaseEl = document.getElementById('category-image-showcase');
+    const labelEl = document.getElementById('category-label');
+
+    if (titleEl) titleEl.innerText = theme.title;
+    if (subtitleEl) subtitleEl.innerText = theme.subtitle;
+    if (imageEl) imageEl.src = theme.image;
+    if (showcaseEl) showcaseEl.src = theme.image;
+    if (labelEl) labelEl.innerText = `MRT ${theme.title} Pillar`;
+    
+    document.title = `${theme.title} | MRT International`;
+  }
+
+  renderBoutiqueProducts(products, category) {
+    const container = document.getElementById('category-products-container');
+    if (!container) return;
+    
+    const filtered = products.filter(p => p.category === category);
+    container.innerHTML = filtered.map(product => this.createProductCard(product)).join('');
+  }
+
+  initLenis() {
     const raf = (time) => {
       this.lenis.raf(time);
       requestAnimationFrame(raf);
