@@ -97,6 +97,14 @@
 ::-webkit-scrollbar-track {
   @apply bg-surface-container;
 }
-::-webkit-scrollbar-thumb {
-  @apply bg-outline-variant/50 rounded-full hover:bg-outline-variant;
+  /* 
+     Logo Organic Integration 
+     Ensures logo feels 'printed' on glass rather than a sticker.
+  */
+  .logo-organic {
+    @apply h-8 md:h-10 w-auto transition-all duration-700 hover:scale-105;
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+  }
 }
