@@ -1,38 +1,53 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en" class="light">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>LUXE RADIANCE | Curated Elegance</title>
-    <!-- Fonts -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Global sourcing company, Online shopping UAE, E-commerce store international, Affordable online products, Dropshipping store UAE, Buy trending products online, Best online deals UAE, International trading company">
+    <title>MRT International Holding LLC | Global Sourcing</title>
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <!-- Scripts & Styles -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 </head>
 <body class="bg-surface text-on-surface">
     <!-- TopNavBar -->
-    <header class="fixed top-0 w-full z-50 bg-orange-50/80 dark:bg-stone-950/80 backdrop-blur-xl shadow-sm shadow-orange-900/5 dark:shadow-none">
+    <header class="fixed top-0 w-full z-50 glass-nav border-b border-outline-variant/10">
         <div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
-            <div class="text-2xl font-serif font-bold tracking-widest text-orange-900 dark:text-orange-100">LUXE RADIANCE</div>
+            <div class="flex items-center">
+                <img src="/assets/logo.png" alt="MRT International" class="h-10 w-auto logo-glow cursor-pointer hover:scale-105 transition-transform duration-500">
+            </div>
+            
             <nav class="hidden md:flex items-center space-x-8">
-                <a class="text-orange-800 dark:text-orange-200 border-b-2 border-orange-400 font-medium pb-1 font-serif italic text-lg tracking-tight" href="#">Home</a>
-                <a class="text-orange-900/70 dark:text-stone-400 font-medium hover:text-orange-600 transition-colors font-serif italic text-lg tracking-tight" href="#">Shop</a>
-                <a class="text-orange-900/70 dark:text-stone-400 font-medium hover:text-orange-600 transition-colors font-serif italic text-lg tracking-tight" href="#">Collections</a>
-                <a class="text-orange-900/70 dark:text-stone-400 font-medium hover:text-orange-600 transition-colors font-serif italic text-lg tracking-tight" href="#">Journal</a>
+                <a href="#" class="text-on-surface border-b-2 border-primary font-medium pb-1 serif italic text-lg tracking-tight">Home</a>
+                <a href="#about" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">About</a>
+                <a href="#categories" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Categories</a>
+                <a href="#reviews" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Reviews</a>
             </nav>
+
             <div class="flex items-center space-x-6">
-                <div class="hidden lg:flex items-center bg-white/40 dark:bg-stone-800/40 rounded-lg px-3 py-1.5">
-                    <span class="material-symbols-outlined text-orange-700">search</span>
-                    <input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body" placeholder="Search curated goods..." type="text">
+                <!-- Search -->
+                <div class="hidden lg:flex items-center bg-surface-container-high/40 rounded-lg px-3 py-1.5 border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-primary text-xl">search</span>
+                    <input type="text" placeholder="Search curated goods..." class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body ml-2 outline-none">
                 </div>
+                
                 <div class="flex items-center space-x-4">
-                    <button class="hover:bg-white/40 dark:hover:bg-stone-800/40 rounded-lg p-2 transition-all duration-300 text-orange-700">
-                        <span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+                    <button class="hover:bg-surface-container-high rounded-lg p-2 transition-all duration-300 text-primary group">
+                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">favorite</span>
                     </button>
-                    <button id="cart-btn" class="hover:bg-white/40 dark:hover:bg-stone-800/40 rounded-lg p-2 transition-all duration-300 text-orange-700">
-                        <span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+                    <button class="hover:bg-surface-container-high rounded-lg p-2 transition-all duration-300 text-primary group">
+                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">shopping_bag</span>
                     </button>
-                    <button id="profile-toggle" class="hover:bg-white/40 dark:hover:bg-stone-800/40 rounded-lg p-2 transition-all duration-300 text-orange-700">
-                        <span class="material-symbols-outlined" data-icon="person">person</span>
+                    <button class="hover:bg-surface-container-high rounded-lg p-2 transition-all duration-300 text-primary group">
+                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">person</span>
                     </button>
                 </div>
             </div>
@@ -43,308 +58,283 @@
         <!-- Hero Section -->
         <section class="relative h-[870px] flex items-center overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img class="w-full h-full object-cover" data-alt="luxury high-end kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_705SXdwwCvFt1YAJgx_SLdYkohs30IzWyaq44GZVLkY-WZww2rPJoxW6mBXitIS6yCOZt9uV3G7lAESnM8P82wCF-zclyDMvZ67I4qGoCMnidiWcDwCYN3ooukl3metMlrvx1CTOl8ljINzdEQNRIdD8C9DlAkvBvgKvlI85cBbXS5seZ5E05tb5E4R-axoDgraEriuuxz0VwNNjsq67y2PTiXXTWgd-QkPVgnjjCHMKx7PgZTEQypwR2l1F5zr6jMerHWxxMg">
-                <div class="absolute inset-0 bg-gradient-to-r from-orange-900/40 to-transparent"></div>
+                <img src="/assets/mrt-hero.png" alt="Luxury Living" class="w-full h-full object-cover grayscale-[20%] sepia-[10%] contrast-[1.1]">
+                <div class="absolute inset-0 bg-gradient-to-r from-background/70 to-transparent flex"></div>
             </div>
-            <div class="container mx-auto px-8 relative z-10 hero-reveal opacity-0 translate-y-8">
-                <div class="max-w-2xl bg-white/10 backdrop-blur-md p-12 rounded-xl border border-white/20">
-                    <span class="text-secondary-fixed font-label tracking-[0.2em] uppercase text-sm mb-4 block">The Art of Living</span>
-                    <h1 class="text-7xl font-headline text-white leading-tight mb-8">Curated Elegance <br><i class="font-normal">for Every Space</i></h1>
-                    <div class="flex space-x-6">
-                        <button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-10 py-4 rounded-xl font-medium text-lg hover:shadow-xl transition-all scale-[1.02]">
-                            Explore Home
-                        </button>
-                        <button class="bg-white/20 hover:bg-white/30 text-white px-10 py-4 rounded-xl font-medium text-lg backdrop-blur-sm transition-all">
-                            New Arrivals
-                        </button>
+            
+            <div class="container mx-auto px-8 relative z-10">
+                <div class="max-w-2xl bg-white/5 backdrop-blur-md p-12 rounded-3xl border border-white/20 reveal-up shadow-2xl">
+                    <span class="text-primary font-label tracking-[0.3em] uppercase text-sm mb-4 block font-bold">Curated Excellence</span>
+                    <h1 class="text-7xl font-headline text-on-background leading-tight mb-8">Refining <br><i class="font-normal text-5xl italic text-primary">Global Lifestyle</i></h1>
+                    <p class="text-on-surface-variant font-body mb-8 text-xl leading-relaxed text-on-background/90">Your trusted gateway for seamless online shopping and strategic global sourcing. Connecting discerning consumers to boutique quality, worldwide.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-primary text-on-primary px-10 py-4 rounded-xl text-sm font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl">Explore Portfolio</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Categories -->
-        <section class="py-24 px-8 max-w-screen-2xl mx-auto">
+        <!-- Category Bento Grid -->
+        <section class="py-24 px-8 max-w-screen-2xl mx-auto" id="categories">
             <div class="mb-16 text-center reveal-up">
-                <h2 class="text-4xl font-headline text-on-surface mb-4">Discover the Collections</h2>
-                <p class="text-on-surface-variant font-body max-w-xl mx-auto">Explore our masterfully selected categories, where each piece is chosen for its radiant quality and enduring style.</p>
+                <span class="text-primary font-label text-sm uppercase tracking-[0.3em] block mb-4 font-bold tracking-widest">The Pillars</span>
+                <h2 class="text-5xl font-headline text-on-surface mb-4">A Legacy of Quality</h2>
+                <p class="text-on-surface-variant font-body max-w-xl mx-auto text-lg leading-relaxed">Discover our 7 core categories, each reflecting our commitment to strategic sourcing and premium aesthetics.</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 min-h-[600px]">
-                <div class="relative rounded-xl overflow-hidden group reveal-up aspect-square">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1BF4v4DrNvjMAb5cvaM_9KHhodvtR8FOB2fqw9U3FhmjxQ0BpcYz8NgOmrJvRAqs6x4dQUPqJZqh2apQKTKlGMeX2jY2eAqjD234MyghSBL3F2rQtFO0KgLg-PXqxqmIsF98NPfXY-a9z1uHlJeqylgClSSTRrbVVTsPxLYGHBwHgbg1Ee7GpNHH4b20BBIMjo6SsAtKbCgJavAqqeYthXhirUsNyg1XpnvyycvVKCzAv36Q7gaKV3yjZzIny1f5DhDwiEAp2Cg">
-                    <div class="absolute inset-0 bg-black/20 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline">Home & Kitchen</h3>
-                        <a class="text-white/80 font-label mt-2 hover:text-white transition-colors" href="#kitchen">Shop Now →</a>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-auto md:h-[1000px]">
+                <!-- Home & Lifestyle -->
+                <div class="md:col-span-2 relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/bento-home.png" alt="Home Lifestyle" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-700 flex flex-col justify-end p-8">
+                        <h3 class="text-3xl text-white font-headline drop-shadow-md">Home & Lifestyle</h3>
                     </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden group reveal-up aspect-square">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1M2B5jUu7Hq9D0Z9vY1V2X3B4W5E6F7G8H9I0J1K2L3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z7A8B9C0D1E2F3G4H5I6J7K8L9M0N1O2P3Q4R5S6T7U8V9W0X1Y2">
-                    <div class="absolute inset-0 bg-black/10 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline">Health & Care</h3>
-                        <a class="text-white/80 font-label mt-2 hover:text-white transition-colors" href="#health-section">Shop Now →</a>
+                <!-- Health & Wellness -->
+                <div class="relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/bento-health.png" alt="Health Wellness" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
+                        <h3 class="text-xl text-white font-headline drop-shadow-md">Health & Wellness</h3>
                     </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden group reveal-up aspect-square">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAU1PnzHtBdGc_WV4DEmHlxDJ3qMwvasYvtCd5_B2OMAft_lQDNdRkDsC7cbwUp9Z-fYUo9qnk1xMzPWqJTVgwqDoELKMTRWToobobo4o42q08cHYXVsXt-9A49iuzqROP7SGOnNGi9fJSdvd43tMj732QPCUDkt7EpoaHhs35DuL90nt5fEj6dmZy7A8e5JGI1ekmUHFtZs6hjgef3uSySFJz3GvGKFcnyOckWiqZwzbuqBiGqn_NuCZU0fj3XOujN5OsNAe4Vg">
-                    <div class="absolute inset-0 bg-black/10 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline">Beauty & Glow</h3>
-                        <a class="text-white/80 font-label mt-2 hover:text-white transition-colors" href="#beauty">Shop Now →</a>
+                <!-- Everyday Essentials -->
+                <div class="relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/bento-essentials.png" alt="Everyday Essentials" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
+                        <h3 class="text-xl text-white font-headline drop-shadow-md">Everyday Essentials</h3>
                     </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden group reveal-up aspect-square">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-zB2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B8C9D0E1F2G3H4I5J6K7L8M9N0O1P2Q3R4S5T6U7V8W9X0Y1">
-                    <div class="absolute inset-0 bg-black/30 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline">Pet Supplies</h3>
-                        <a class="text-white/80 font-label mt-2 hover:text-white transition-colors" href="#pet-section">Shop Now →</a>
+                <!-- Trending Online -->
+                <div class="relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/bento-trending.png" alt="Trending Online" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
+                        <h3 class="text-xl text-white font-headline drop-shadow-md">Trending Online</h3>
                     </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden group reveal-up aspect-square">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-zB2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B8C9D0E1F2G3H4I5J6K7L8M9N0O1P2Q3R4S5T6U7V8W9X0Y1">
-                    <div class="absolute inset-0 bg-black/30 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline">Baby Products</h3>
-                        <a class="text-white/80 font-label mt-2 hover:text-white transition-colors" href="#baby-section">Shop Now →</a>
+                <!-- Affiliate Deals -->
+                <div class="md:col-span-2 relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/bento-deals.png" alt="Affiliate Deals" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-700 flex flex-col justify-end p-8">
+                        <h3 class="text-3xl text-white font-headline drop-shadow-md">Affiliate & Deals</h3>
                     </div>
                 </div>
-                <div class="relative rounded-xl overflow-hidden group reveal-up aspect-square">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-zB2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B8C9D0E1F2G3H4I5J6K7L8M9N0O1P2Q3R4S5T6U7V8W9X0Y1">
-                    <div class="absolute inset-0 bg-black/30 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline">Electronics</h3>
-                        <a class="text-white/80 font-label mt-2 hover:text-white transition-colors" href="#electronics-section">Shop Now →</a>
+                <!-- Tech Lifestyle -->
+                <div class="relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/bento-tech.png" alt="Tech Lifestyle" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
+                        <h3 class="text-xl text-white font-headline drop-shadow-md">Tech Lifestyle</h3>
                     </div>
                 </div>
-                <div class="md:col-span-2 relative rounded-xl overflow-hidden group reveal-up aspect-[2/1]">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuE-zB2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S9T0U1V2W3X4Y5Z6A7B8C9D0E1F2G3H4I5J6K7L8M9N0O1P2Q3R4S5T6U7V8W9X0Y1">
-                    <div class="absolute inset-0 bg-black/30 flex flex-col justify-end p-10">
-                        <h3 class="text-3xl text-white font-headline">Sports & Fitness</h3>
-                        <a class="text-white/80 font-label mt-2 hover:text-white transition-colors" href="#sports-section">Shop Now →</a>
+                <!-- Beauty & Glow -->
+                <div class="md:col-span-4 relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/bento-beauty.png" alt="Beauty & Glow" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" style="object-position: center;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-10">
+                        <h3 class="text-4xl text-white font-headline drop-shadow-md">Beauty & Glow</h3>
+                        <p class="text-white/80 font-body max-w-lg mt-2">Discover our minimalist collection of skin essentials curated for the discerning individual.</p>
                     </div>
                 </div>
             </div>
-        </section>
         </section>
 
-        <!-- Product Carousel: Home & Kitchen (Now Dynamic) -->
-        <section class="py-20 bg-surface-container-low overflow-hidden" id="kitchen">
-            <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12">
+        <!-- Category Product Sections (Carousels) -->
+        <div id="category-product-sections">
+            <!-- Home & Lifestyle SECTION -->
+            <section class="py-24 bg-surface-container-low overflow-hidden">
+                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
+                    <h2 class="text-4xl font-headline italic">Modern <i>Sanctuary</i></h2>
+                    <div class="flex items-center space-x-6">
+                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="home-lifestyle-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="home-lifestyle-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                    </div>
+                </div>
+                <div id="home-lifestyle-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container">
+                    <div class="animate-pulse flex space-x-6"><div class="min-w-[300px] h-[450px] bg-surface-container-high rounded-3xl"></div></div>
+                </div>
+            </section>
+
+            <!-- Health & Wellness SECTION -->
+            <section class="py-24 bg-surface overflow-hidden">
+                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
+                    <h2 class="text-4xl font-headline italic">Vitality & <i>Balance</i></h2>
+                    <div class="flex items-center space-x-6">
+                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="health-wellness-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="health-wellness-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                    </div>
+                </div>
+                <div id="health-wellness-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
+            </section>
+
+            <!-- Everyday Essentials SECTION -->
+            <section class="py-24 bg-surface-container-low overflow-hidden">
+                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
+                    <h2 class="text-4xl font-headline italic">Refined <i>Basics</i></h2>
+                    <div class="flex items-center space-x-6">
+                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="everyday-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="everyday-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                    </div>
+                </div>
+                <div id="everyday-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
+            </section>
+
+            <!-- Beauty SECTION -->
+            <section class="py-24 bg-surface-container-low overflow-hidden">
+                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
+                    <h2 class="text-4xl font-headline italic">Artisanal <i>Beauty</i></h2>
+                    <div class="flex items-center space-x-6">
+                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="beauty-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="beauty-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                    </div>
+                </div>
+                <div id="beauty-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
+            </section>
+
+            <!-- Tech SECTION -->
+            <section class="py-24 bg-surface overflow-hidden">
+                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
+                    <h2 class="text-4xl font-headline italic">Sleek <i>Performance</i></h2>
+                    <div class="flex items-center space-x-6">
+                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="tech-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="tech-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                    </div>
+                </div>
+                <div id="tech-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
+            </section>
+
+            <!-- Deals SECTION -->
+            <section class="py-24 bg-surface-container-low overflow-hidden">
+                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
+                    <h2 class="text-4xl font-headline italic">Curated <i>Opportunities</i></h2>
+                    <div class="flex items-center space-x-6">
+                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="deals-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="deals-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                    </div>
+                </div>
+                <div id="deals-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
+            </section>
+        </div>
+
+        <!-- About Us -->
+        <section class="py-32 bg-surface" id="about">
+            <div class="px-8 max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                <div class="relative reveal-up">
+                    <div class="w-full rounded-[3rem] overflow-hidden shadow-2xl transition-transform hover:scale-[1.01] duration-[2s]">
+                        <img src="/assets/bento-home.png" alt="MRT Sourcing" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-12 -right-8 w-4/5 bg-white/80 backdrop-blur-xl p-10 rounded-3xl shadow-2xl border border-white">
+                        <h3 class="text-3xl font-headline mb-4 text-primary italic">Global Bridge</h3>
+                        <p class="text-base text-on-surface-variant font-body leading-relaxed">Our approach focuses on scalable e-commerce solutions that prioritize boutique quality and trust across borders.</p>
+                    </div>
+                </div>
                 <div class="reveal-up">
-                    <span class="text-primary font-label text-sm uppercase tracking-widest block mb-2">Essential Living</span>
-                    <h2 class="text-4xl font-headline">Home & Kitchen</h2>
-                </div>
-                <div class="flex gap-4 reveal-up">
-                    <button id="prev-btn" class="material-symbols-outlined border border-outline p-2 rounded-full hover:bg-primary hover:text-white transition-all">chevron_left</button>
-                    <button id="next-btn" class="material-symbols-outlined border border-outline p-2 rounded-full hover:bg-primary hover:text-white transition-all">chevron_right</button>
-                    <a class="text-on-surface-variant font-body hover:text-primary transition-colors flex items-center ml-4" href="#">
-                        View all <span class="material-symbols-outlined ml-2">trending_flat</span>
-                    </a>
-                </div>
-            </div>
-            <div id="product-container" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-8 snap-x">
-                <!-- Products injected by JS -->
-            </div>
-        </section>
-
-        <!-- Product Grid: Beauty & Skincare -->
-        <section class="py-24 px-8 max-w-screen-2xl mx-auto" id="beauty">
-            <div class="flex flex-col md:flex-row gap-16 items-start">
-                <div class="md:w-1/3 sticky top-32 reveal-up">
-                    <span class="text-tertiary font-label text-sm uppercase tracking-widest block mb-4">The Glow Edit</span>
-                    <h2 class="text-5xl font-headline mb-8">Beauty & <br><i>Skincare</i></h2>
-                    <p class="text-on-surface-variant font-body mb-10 leading-relaxed">Pure ingredients, scientifically proven results. Discover our collection of radiant skin essentials curated for the discerning individual.</p>
-                    <button class="border-b-2 border-primary text-primary font-bold py-2 hover:tracking-widest transition-all">DISCOVER THE RITUAL</button>
-                </div>
-                <div id="beauty-container" class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-10">
-                    <!-- Beauty products can also be dynamic or template-based -->
+                    <span class="text-primary font-label text-sm uppercase tracking-[0.4em] block mb-6 font-bold">Strategic Insight</span>
+                    <h2 class="text-6xl font-headline mb-8 leading-tight">Connecting Products <br>to <i>Lifestyles</i></h2>
+                    <p class="text-xl text-on-surface-variant font-body mb-10 leading-relaxed opacity-90">Built on a strong foundation of integrity, professionalism, and strategic insight, MRT International Holding LLC simplifies the complex world of global sourcing into a curated digital experience.</p>
+                    <div class="grid grid-cols-2 gap-10 mt-12 border-t border-outline-variant/10 pt-10">
+                        <div>
+                            <h4 class="text-primary font-bold text-3xl mb-2">16+</h4>
+                            <p class="text-xs text-on-surface-variant uppercase tracking-[0.2em] font-bold">Curated Items</p>
+                        </div>
+                        <div>
+                            <h4 class="text-primary font-bold text-3xl mb-2">Infinite</h4>
+                            <p class="text-xs text-on-surface-variant uppercase tracking-[0.2em] font-bold">Connections</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Category Expansion Sections -->
-        <section class="py-20 bg-stone-50 overflow-hidden" id="health-section">
-            <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12">
-                <div class="reveal-up">
-                    <span class="text-secondary font-label text-sm uppercase tracking-widest block mb-2">Wellness & Care</span>
-                    <h2 class="text-4xl font-headline">Health & Personal Care</h2>
+        <!-- Customer Reflections -->
+        <section class="py-32 bg-surface-container-low" id="reviews">
+            <div class="px-8 max-w-screen-2xl mx-auto">
+                <div class="mb-20 text-center reveal-up">
+                    <span class="text-primary font-label text-sm uppercase tracking-[0.4em] block mb-6 font-bold tracking-widest">Feedback</span>
+                    <h2 class="text-6xl font-headline mb-6 italic">Global Reflections</h2>
+                    <p class="text-on-surface-variant max-w-xl mx-auto text-lg leading-relaxed">Trusted by a worldwide community for our commitment to quality and reliable delivery.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-20">
+                    <div class="p-4">
+                        <div class="flex items-center mb-10 reveal-up">
+                            <span class="text-5xl mr-6 filter grayscale drop-shadow-sm">🇺🇸</span>
+                            <h3 class="text-4xl font-headline tracking-tight">United States</h3>
+                        </div>
+                        <div id="testimonials-us" class="space-y-8"></div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center mb-10 reveal-up">
+                            <span class="text-5xl mr-6 filter grayscale drop-shadow-sm">🇦🇪</span>
+                            <h3 class="text-4xl font-headline tracking-tight">UAE</h3>
+                        </div>
+                        <div id="testimonials-ae" class="space-y-8"></div>
+                    </div>
                 </div>
             </div>
-            <div id="health-container" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-8 snap-x"></div>
         </section>
 
-        <section class="py-20 bg-white overflow-hidden" id="pet-section">
-            <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12">
-                <div class="reveal-up">
-                    <span class="text-primary font-label text-sm uppercase tracking-widest block mb-2">Companions</span>
-                    <h2 class="text-4xl font-headline">Pet Supplies</h2>
-                </div>
-            </div>
-            <div id="pet-container" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-8 snap-x"></div>
-        </section>
-
-        <section class="py-20 bg-stone-50 overflow-hidden" id="baby-section">
-            <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12">
-                <div class="reveal-up">
-                    <span class="text-tertiary font-label text-sm uppercase tracking-widest block mb-2">Little Ones</span>
-                    <h2 class="text-4xl font-headline">Baby Products</h2>
-                </div>
-            </div>
-            <div id="baby-container" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-8 snap-x"></div>
-        </section>
-
-        <section class="py-20 bg-white overflow-hidden" id="electronics-section">
-            <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12">
-                <div class="reveal-up">
-                    <span class="text-orange-900 font-label text-sm uppercase tracking-widest block mb-2">Connectivity</span>
-                    <h2 class="text-4xl font-headline">Electronics Accessories</h2>
-                </div>
-            </div>
-            <div id="electronics-container" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-8 snap-x"></div>
-        </section>
-
-        <section class="py-20 bg-stone-50 overflow-hidden" id="sports-section">
-            <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12">
-                <div class="reveal-up">
-                    <span class="text-secondary font-label text-sm uppercase tracking-widest block mb-2">Active Lifestyle</span>
-                    <h2 class="text-4xl font-headline">Sports & Fitness</h2>
-                </div>
-            </div>
-            <div id="sports-container" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-8 snap-x"></div>
-        </section>
-
-        <!-- Newsletter -->
-        <section class="py-24 px-8 mb-20">
-            <div class="max-w-screen-xl mx-auto bg-primary-container rounded-[3rem] p-16 relative overflow-hidden flex flex-col md:flex-row items-center gap-12 reveal-up">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-secondary-container/20 rounded-full -mr-32 -mt-32"></div>
-                <div class="relative z-10 md:w-1/2">
-                    <h2 class="text-4xl md:text-5xl font-headline text-on-primary-container leading-tight mb-6">Join the <br><i>Radiant Curator</i> Circle</h2>
-                    <p class="text-on-primary-container/80 font-body mb-8 text-lg">Receive weekly curated edits, early access to limited collections, and lifestyle insights.</p>
-                    <form class="flex flex-col sm:flex-row gap-4">
-                        <input class="flex-1 px-6 py-4 rounded-xl border-none bg-white focus:ring-2 focus:ring-primary font-body" placeholder="Email address" type="email">
-                        <button class="bg-on-primary-container text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-black transition-colors">Subscribe</button>
-                    </form>
-                </div>
-                <div class="md:w-1/2">
-                    <img class="rounded-2xl shadow-2xl transform rotate-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkZ3w-YJ3tLth9K5imNHg8UonvPxufaVS70CS0oU8mCSk5vLpgOFbahW4xRCGL29p5TufQQ3t3sckZAH7kNdOaQHi1yi8IO8EvRR44ULytYMmy6GOZlrhO4j2mN7ZZTLBEI0fcCg2iZMyy9H5zR0wDasYRj2hpSB5J4Q-Z885F7gacx7mV3k4EPON_Xli2cQKepoP5Nfnk2Kb6sJIot9T7N2b8YhlccXycLYVP4f-Fj1pxGpfIu2eVqTvJrk-B6z2hLjCJBtGaYg">
+        <!-- CTA Section -->
+        <section class="py-32 px-8 mb-24 bg-primary-container/10 overflow-hidden relative" id="cta">
+            <div class="max-w-screen-xl mx-auto rounded-[4rem] p-20 relative flex flex-col items-center bg-white/40 backdrop-blur-2xl border border-white shadow-2xl reveal-up">
+                <div class="relative z-10 w-full text-center">
+                    <span class="text-primary font-bold uppercase tracking-[0.5em] text-xs mb-6 block">Join the Legacy</span>
+                    <h2 class="text-6xl font-headline text-primary leading-tight mb-8 italic">The Gateway to Tomorrow</h2>
+                    <p class="text-on-surface-variant font-body mb-12 text-2xl max-w-2xl mx-auto leading-relaxed">Collaborate with us for exclusive updates and explore strategic global partnership opportunities.</p>
+                    <div class="flex flex-wrap gap-6 justify-center">
+                        <button class="bg-primary text-on-primary px-12 py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm hover:scale-110 hover:shadow-2xl transition-all duration-500">Explore Collection</button>
+                        <button class="bg-surface text-primary border border-primary/20 px-12 py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm hover:bg-primary/5 transition-all duration-500 shadow-sm">Partner Network</button>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Profile View (Initially Hidden) -->
-    <section id="profile-view" class="hidden pt-32 pb-24 px-8 max-w-screen-xl mx-auto min-h-screen">
-        <div class="flex flex-col md:flex-row gap-12">
-            <!-- Sidebar -->
-            <aside class="md:w-1/4 space-y-6">
-                <div class="bg-white dark:bg-stone-900 p-8 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-800 text-center">
-                    <div class="w-24 h-24 bg-orange-100 rounded-full mx-auto mb-4 flex items-center justify-center text-orange-600">
-                        <span class="material-symbols-outlined text-4xl">person</span>
-                    </div>
-                    <h3 class="font-headline text-2xl">Julianne Moore</h3>
-                    <p class="text-on-surface-variant font-body text-sm">Member since 2024</p>
-                </div>
-                <nav class="space-y-2">
-                    <button class="w-full text-left px-6 py-3 rounded-xl bg-orange-100 text-orange-900 font-bold flex items-center">
-                        <span class="material-symbols-outlined mr-3">account_circle</span> Profile Overview
-                    </button>
-                    <button class="w-full text-left px-6 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors flex items-center">
-                        <span class="material-symbols-outlined mr-3">package_2</span> Order History
-                    </button>
-                    <button class="w-full text-left px-6 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors flex items-center">
-                        <span class="material-symbols-outlined mr-3">favorite</span> Saved Items
-                    </button>
-                    <button class="w-full text-left px-6 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors flex items-center">
-                        <span class="material-symbols-outlined mr-3">settings</span> Account Settings
-                    </button>
-                    <button id="logout-btn" class="w-full text-left px-6 py-3 rounded-xl text-red-600 hover:bg-red-50 transition-colors flex items-center">
-                        <span class="material-symbols-outlined mr-3">logout</span> Logout
-                    </button>
-                </nav>
-            </aside>
-
-            <!-- Main Content -->
-            <div class="md:w-3/4 space-y-8">
-                <div class="bg-white dark:bg-stone-900 p-10 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800">
-                    <h2 class="text-3xl font-headline mb-8">Account Details</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <label class="block text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2">First Name</label>
-                            <p class="font-body text-lg pb-2 border-b border-stone-100 dark:border-stone-800">Julianne</p>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2">Last Name</label>
-                            <p class="font-body text-lg pb-2 border-b border-stone-100 dark:border-stone-800">Moore</p>
-                        </div>
-                        <div class="md:col-span-2">
-                            <label class="block text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2">Email Address</label>
-                            <p class="font-body text-lg pb-2 border-b border-stone-100 dark:border-stone-800">julianne.m@luxeradiance.com</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white dark:bg-stone-900 p-10 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800">
-                    <h2 class="text-3xl font-headline mb-8">Recent Orders</h2>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center p-4 bg-stone-50 dark:bg-stone-800/50 rounded-xl">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center text-stone-400">
-                                    <span class="material-symbols-outlined">inventory_2</span>
-                                </div>
-                                <div>
-                                    <p class="font-bold">#ORD-45892</p>
-                                    <p class="text-sm text-on-surface-variant">Placed March 24, 2026</p>
-                                </div>
-                            </div>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full uppercase tracking-tighter">Delivered</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mt-12 text-center">
-            <button id="back-to-shop" class="text-primary font-bold hover:tracking-widest transition-all inline-flex items-center">
-                <span class="material-symbols-outlined mr-2">arrow_back</span> Return to Collection
-            </button>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="w-full rounded-t-[2rem] mt-20 bg-orange-100 dark:bg-stone-900">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 max-w-screen-2xl mx-auto">
-            <div class="col-span-1 md:col-span-1">
-                <div class="font-serif text-xl text-orange-900 dark:text-orange-100 mb-6">LUXE RADIANCE</div>
-                <p class="text-orange-800/60 dark:text-stone-500 text-sm font-body leading-relaxed mb-8">A modern boutique dedicated to the art of fine living and radiant quality.</p>
-                <div class="flex space-x-4">
-                    <a class="text-orange-800 dark:text-orange-300 hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">public</span></a>
-                    <a class="text-orange-800 dark:text-orange-300 hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">share</span></a>
-                    <a class="text-orange-800 dark:text-orange-300 hover:scale-110 transition-transform" href="#"><span class="material-symbols-outlined">mail</span></a>
+    <footer class="w-full rounded-t-[5rem] mt-20 bg-surface-container-high border-t border-outline-variant/10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16 px-16 py-24 max-w-screen-2xl mx-auto">
+            <div class="col-span-1">
+                <img src="/assets/logo.png" alt="MRT International" class="h-10 w-auto mb-10 logo-glow">
+                <p class="text-on-surface-variant text-lg font-body leading-relaxed mb-10 opacity-80">Your trusted global partner for curated quality and strategic sourcing excellence.</p>
+                <div class="flex space-x-8">
+                    <a href="#" class="text-primary hover:scale-125 transition-all duration-500 opacity-70 hover:opacity-100"><span class="material-symbols-outlined text-3xl font-bold">language</span></a>
+                    <a href="#" class="text-primary hover:scale-125 transition-all duration-500 opacity-70 hover:opacity-100"><span class="material-symbols-outlined text-3xl font-bold">hub</span></a>
+                    <a href="#" class="text-primary hover:scale-125 transition-all duration-500 opacity-70 hover:opacity-100"><span class="material-symbols-outlined text-3xl font-bold">alternate_email</span></a>
                 </div>
             </div>
-            <!-- Other footer links as per template -->
+            
             <div>
-                <h4 class="font-sans text-sm tracking-wide uppercase text-orange-800 dark:text-orange-300 mb-6">Shop Collections</h4>
-                <ul class="space-y-4">
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Home & Kitchen</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Beauty & Skincare</a></li>
+                <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Categories</h4>
+                <ul class="space-y-6">
+                    <li><a href="#categories" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Home & Living</a></li>
+                    <li><a href="#categories" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Health & Vitality</a></li>
+                    <li><a href="#categories" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Essential Care</a></li>
+                    <li><a href="#categories" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Affiliate Network</a></li>
                 </ul>
             </div>
+
             <div>
-                <h4 class="font-sans text-sm tracking-wide uppercase text-orange-800 dark:text-orange-300 mb-6">Company</h4>
-                <ul class="space-y-4">
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Our Story</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Journal</a></li>
+                <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Corporate</h4>
+                <ul class="space-y-6">
+                    <li><a href="#about" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Our Vision</a></li>
+                    <li><a href="#about" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Strategic Insight</a></li>
+                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Partnerships</a></li>
+                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Terms</a></li>
                 </ul>
             </div>
+
             <div>
-                <h4 class="font-sans text-sm tracking-wide uppercase text-orange-800 dark:text-orange-300 mb-6">Help</h4>
-                <ul class="space-y-4">
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">Contact Us</a></li>
-                    <li><a class="text-orange-800/60 dark:text-stone-500 hover:text-orange-900 transition-colors font-sans text-sm tracking-wide uppercase" href="#">FAQ</a></li>
+                <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Resources</h4>
+                <ul class="space-y-6">
+                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Shipping Policy</a></li>
+                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Privacy Policy</a></li>
+                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Help Center</a></li>
+                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Contact</a></li>
                 </ul>
             </div>
         </div>
-        <div class="px-12 py-8 border-t border-orange-200/30 text-center">
-            <p class="text-orange-800/60 dark:text-stone-500 font-sans text-sm tracking-wide uppercase">© 2026 LUXE RADIANCE Boutique. All rights reserved.</p>
+        
+        <div class="px-16 py-12 border-t border-outline-variant/10 text-center">
+            <p class="text-on-surface-variant font-body text-sm tracking-[0.3em] uppercase opacity-60">© 2024 MRT International Holding LLC. All rights reserved.</p>
         </div>
     </footer>
 
     <script type="module" src="/src/main.js"></script>
 </body>
 </html>
-

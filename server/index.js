@@ -11,22 +11,16 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middleware for security and parsing
-app.use(helmet({
-  contentSecurityPolicy: false, // For development ease
-}));
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors());
 app.use(express.json());
 
-// API Routes
 app.use('/api', apiRouter);
 
-// Health Check
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'OK', message: 'LUXE RADIANCE Server is healthy' });
+  res.status(200).json({ status: 'OK', message: 'MRT International Server is healthy' });
 });
 
-// Serve frontend in production (if needed)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../dist')));
   app.get('*', (req, res) => {
@@ -35,5 +29,5 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.listen(PORT, () => {
-  console.log(`\x1b[35m[server]\x1b[0m Node.js backend running on http://localhost:${PORT}`);
+  console.log(`[server] MRT International backend running on http://localhost:${PORT}`);
 });

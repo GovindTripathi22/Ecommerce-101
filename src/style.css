@@ -2,74 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: #1f1b17;
-  background-color: #fff8f4;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #fff8f4;
-  color: #1f1b17;
-}
-
-h1, h2, h3, .serif {
-  font-family: 'Noto Serif', serif;
-}
-
-@layer components {
-  /* Original Glassmorphism Utility */
-  .glass {
-    @apply bg-white/40 backdrop-blur-xl border border-white/20 shadow-sm;
-    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+@layer base {
+  :root {
+    --glass-blur: 20px;
   }
 
-  .glass-nav {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+  body {
+    @apply bg-surface text-on-surface font-body antialiased;
+    background-color: #fff8f4;
   }
 
-  /* Interaction & Cursor */
-  .cursor-pointer-card {
-    @apply cursor-pointer transition-all duration-300;
+  h1, h2, h3, h4, .serif {
+    @apply font-headline;
   }
-  
+
+  /* Material Symbols Configuration */
   .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     vertical-align: middle;
+    @apply inline-block;
   }
 }
 
-/* Custom Scroll Handling for Lenis */
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
+@layer components {
+  /* Glass Nav Effect */
+  .glass-nav {
+    @apply backdrop-blur-xl bg-surface/80;
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+  }
+
+  /* Logo Merge & Glow */
+  .logo-glow {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+    transition: filter 0.5s ease;
+  }
+  .logo-glow:hover {
+    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6));
+  }
+
+  /* Scrollbar hiding utility */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* 
+     PEEK STYLING 
+     The next card is partially visible to encourage scrolling.
+  */
+  .peek-container {
+    padding-right: 2rem; /* Buffer for the peek card on mobile */
+  }
+
+  .product-card {
+    /* 
+       On mobile: 85% width for peek 
+       On desktop: Fixed width 
+    */
+    @apply w-[85%] md:w-[320px] flex-none snap-start cursor-pointer transition-all duration-700 bg-surface-container-lowest rounded-3xl p-6 shadow-sm hover:shadow-2xl border border-outline-variant/10;
+  }
+
+  .product-image-container {
+    @apply relative aspect-[4/5] bg-surface-container-high rounded-2xl overflow-hidden mb-6;
+  }
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+/* Custom Scrollbar for non-hidden areas */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-.lenis.lenis-stopped {
-  overflow: hidden;
+::-webkit-scrollbar-track {
+  @apply bg-surface-container;
 }
-
-/* Original Scrollbar Hiding */
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+::-webkit-scrollbar-thumb {
+  @apply bg-outline-variant/50 rounded-full hover:bg-outline-variant;
 }
