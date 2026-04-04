@@ -1,6 +1,17 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        about: resolve(__dirname, 'about.html'),
+        categories: resolve(__dirname, 'categories.html'),
+        category: resolve(__dirname, 'category.html'),
+      },
+    },
+  },
   server: {
     proxy: {
       '/api': {

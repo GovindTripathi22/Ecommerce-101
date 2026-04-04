@@ -16,7 +16,6 @@
     @apply font-headline;
   }
 
-  /* Material Symbols Configuration */
   .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     vertical-align: middle;
@@ -25,32 +24,26 @@
 }
 
 @layer components {
-  /* Glass Nav Effect */
   .glass-nav {
-    @apply backdrop-blur-xl bg-surface/80;
+    @apply backdrop-blur-xl bg-surface/80 border-b border-outline-variant/10;
     -webkit-backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: blur(var(--glass-blur));
   }
 
-  /* 
-     LOGO ORGANIC MERGE (Definitive Fix)
-     Using mix-blend-mode and opacity to 'melt' the logo into the glass.
-  */
+  /* Logo — melts into glass navbar, no sticker effect */
   .logo-glow {
-    mix-blend-mode: multiply; /* Melts white backgrounds and integrates colors */
+    mix-blend-mode: multiply;
     opacity: 0.92;
-    filter: contrast(1.1) brightness(1.05); /* Modern sharpen */
+    filter: contrast(1.1) brightness(1.05);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .logo-glow:hover {
     opacity: 1;
     transform: scale(1.02);
   }
 
-  /* 
-     Approach Card Watermarks
-     Ensuring 'AU' 'SR' 'DD' 'SC' are clipped.
-  */
+  /* Approach card watermarks */
   .approach-card {
     @apply relative overflow-hidden bg-white/40 p-8 md:p-10 rounded-3xl border border-white backdrop-blur-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2;
   }
@@ -60,28 +53,22 @@
     @apply absolute -top-8 -right-8 text-[120px] font-headline italic opacity-[0.04] text-primary select-none pointer-events-none;
   }
 
-  /* Scrollbar hiding utility */
+  /* Hide scrollbar utility */
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
 
-  /* 
-     PEEK STYLING 
-     The next card is partially visible to encourage scrolling.
-  */
+  /* Product carousel peek */
   .peek-container {
-    padding-right: 2rem; /* Buffer for the peek card on mobile */
+    padding-right: 2rem;
   }
 
   .product-card {
-    /* 
-       On mobile: 85% width for peek 
-       On desktop: Fixed width 
-    */
     @apply w-[85%] md:w-[320px] flex-none snap-start cursor-pointer transition-all duration-700 bg-surface-container-lowest rounded-3xl p-6 shadow-sm hover:shadow-2xl border border-outline-variant/10;
   }
 
@@ -90,21 +77,20 @@
   }
 }
 
-/* Custom Scrollbar for non-hidden areas */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  @apply bg-surface-container;
+  background: #f5ece6;
 }
-  /* 
-     Logo Organic Integration 
-     Ensures logo feels 'printed' on glass rather than a sticker.
-  */
-  .logo-organic {
-    @apply h-8 md:h-10 w-auto transition-all duration-700 hover:scale-105;
-    mix-blend-mode: multiply;
-    opacity: 0.9;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
-  }
+
+::-webkit-scrollbar-thumb {
+  background: rgba(145, 77, 0, 0.3);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(145, 77, 0, 0.6);
 }
