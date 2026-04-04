@@ -31,13 +31,20 @@
     -webkit-backdrop-filter: blur(var(--glass-blur));
   }
 
-  /* Logo Merge & Glow */
+  /* 
+     LOGO ORGANIC MERGE (Definitive Fix)
+     Using mix-blend-mode and opacity to 'melt' the logo into the glass.
+  */
   .logo-glow {
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
-    transition: filter 0.5s ease;
+    mix-blend-mode: multiply; /* Melts white backgrounds and integrates colors */
+    opacity: 0.92;
+    filter: contrast(1.1) brightness(1.05); /* Modern sharpen */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
+  
   .logo-glow:hover {
-    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6));
+    opacity: 1;
+    transform: scale(1.02);
   }
 
   /* Scrollbar hiding utility */

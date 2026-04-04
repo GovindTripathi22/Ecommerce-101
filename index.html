@@ -26,14 +26,12 @@
             </div>
             
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#" class="text-on-surface border-b-2 border-primary font-medium pb-1 serif italic text-lg tracking-tight">Home</a>
-                <a href="#about" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">About</a>
+                <a href="index.html" class="text-on-surface border-b-2 border-primary font-medium pb-1 serif italic text-lg tracking-tight">Home</a>
+                <a href="about.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">About</a>
                 <a href="#categories" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Categories</a>
-                <a href="#reviews" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Reviews</a>
             </nav>
 
             <div class="flex items-center space-x-6">
-                <!-- Search -->
                 <div class="hidden lg:flex items-center bg-surface-container-high/40 rounded-lg px-3 py-1.5 border border-outline-variant/10">
                     <span class="material-symbols-outlined text-primary text-xl">search</span>
                     <input type="text" placeholder="Search curated goods..." class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body ml-2 outline-none">
@@ -46,9 +44,6 @@
                     <button class="hover:bg-surface-container-high rounded-lg p-2 transition-all duration-300 text-primary group">
                         <span class="material-symbols-outlined group-hover:scale-110 transition-transform">shopping_bag</span>
                     </button>
-                    <button class="hover:bg-surface-container-high rounded-lg p-2 transition-all duration-300 text-primary group">
-                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">person</span>
-                    </button>
                 </div>
             </div>
         </div>
@@ -56,200 +51,233 @@
 
     <main class="pt-20">
         <!-- Hero Section -->
-        <section class="relative h-[870px] flex items-center overflow-hidden">
+        <section class="relative h-[800px] flex items-center overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="/assets/mrt-hero.png" alt="Luxury Living" class="w-full h-full object-cover grayscale-[20%] sepia-[10%] contrast-[1.1]">
-                <div class="absolute inset-0 bg-gradient-to-r from-background/70 to-transparent flex"></div>
+                <img src="/assets/mrt-hero.png" alt="Global Sourcing" class="w-full h-full object-cover contrast-[1.05]">
+                <div class="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent flex"></div>
             </div>
             
             <div class="container mx-auto px-8 relative z-10">
-                <div class="max-w-2xl bg-white/5 backdrop-blur-md p-12 rounded-3xl border border-white/20 reveal-up shadow-2xl">
-                    <span class="text-primary font-label tracking-[0.3em] uppercase text-sm mb-4 block font-bold">Curated Excellence</span>
-                    <h1 class="text-7xl font-headline text-on-background leading-tight mb-8">Refining <br><i class="font-normal text-5xl italic text-primary">Global Lifestyle</i></h1>
-                    <p class="text-on-surface-variant font-body mb-8 text-xl leading-relaxed text-on-background/90">Your trusted gateway for seamless online shopping and strategic global sourcing. Connecting discerning consumers to boutique quality, worldwide.</p>
+                <div class="max-w-3xl bg-white/5 backdrop-blur-md p-14 rounded-[3rem] border border-white/20 reveal-up shadow-2xl">
+                    <span class="text-primary font-label tracking-[0.4em] uppercase text-sm mb-6 block font-bold">Smart Global Sourcing</span>
+                    <h1 class="text-6xl font-headline text-on-background leading-tight mb-8">Your Partner for <br><i class="font-normal text-5xl italic text-primary">Smarter Shopping</i></h1>
+                    <p class="text-on-surface-variant font-body mb-10 text-xl leading-relaxed text-on-background/90 italic">Bringing together quality products, competitive pricing, and a seamless digital experience — all in one place. Discover the difference today.</p>
                     <div class="flex flex-wrap gap-4">
-                        <button class="bg-primary text-on-primary px-10 py-4 rounded-xl text-sm font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl">Explore Portfolio</button>
+                        <button class="bg-primary text-on-primary px-12 py-5 rounded-2xl text-sm font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl">Explore Collection</button>
+                        <button class="bg-white/10 text-on-background px-12 py-5 rounded-2xl text-sm font-bold uppercase tracking-widest border border-white/20 hover:bg-white/20 transition-all">How We Source</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Category Bento Grid -->
+        <!-- Trust Section (Quick Highlights) -->
+        <section class="py-12 bg-surface border-y border-outline-variant/10">
+            <div class="px-8 max-w-screen-2xl mx-auto flex flex-wrap justify-center gap-12 text-sm font-bold tracking-[0.2em] uppercase text-on-surface-variant/70">
+                <div class="flex items-center space-x-3"><span class="material-symbols-outlined text-primary">verified</span><span>Quality Assured</span></div>
+                <div class="flex items-center space-x-3"><span class="material-symbols-outlined text-primary">local_shipping</span><span>Reliable Delivery</span></div>
+                <div class="flex items-center space-x-3"><span class="material-symbols-outlined text-primary">lock</span><span>Secure Payments</span></div>
+                <div class="flex items-center space-x-3"><span class="material-symbols-outlined text-primary">star</span><span>Highly Recommended</span></div>
+            </div>
+        </section>
+
+        <!-- Category Bento Grid (7 CATEGORIES) -->
         <section class="py-24 px-8 max-w-screen-2xl mx-auto" id="categories">
             <div class="mb-16 text-center reveal-up">
-                <span class="text-primary font-label text-sm uppercase tracking-[0.3em] block mb-4 font-bold tracking-widest">The Pillars</span>
-                <h2 class="text-5xl font-headline text-on-surface mb-4">A Legacy of Quality</h2>
-                <p class="text-on-surface-variant font-body max-w-xl mx-auto text-lg leading-relaxed">Discover our 7 core categories, each reflecting our commitment to strategic sourcing and premium aesthetics.</p>
+                <span class="text-primary font-label text-sm uppercase tracking-[0.4em] block mb-4 font-bold tracking-widest">7 Pillars of Excellence</span>
+                <h2 class="text-5xl font-headline text-on-surface mb-6">Discover Smarter <i>Shopping</i></h2>
+                <p class="text-on-surface-variant font-body max-w-xl mx-auto text-lg leading-relaxed">From everyday essentials to trending innovations, our 7 core categories are meticulously sourced for reliability and value.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-auto md:h-[1000px]">
-                <!-- Home & Lifestyle -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-auto md:h-[1200px]">
+                <!-- Home & Kitchen (LARGE) -->
+                <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group reveal-up min-h-[350px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/bento-home.png" alt="Home & Kitchen" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-700 flex flex-col justify-end p-10">
+                        <h3 class="text-4xl text-white font-headline drop-shadow-md italic">Home & Kitchen</h3>
+                    </div>
+                </div>
+                <!-- Health & Personal Care -->
+                <div class="relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/bento-health.png" alt="Health & Personal Care" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
+                        <h3 class="text-xl text-white font-headline drop-shadow-md uppercase tracking-widest text-xs">Health & Personal Care</h3>
+                    </div>
+                </div>
+                <!-- Beauty & Skincare -->
+                <div class="relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/bento-beauty.png" alt="Beauty & Skincare" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
+                        <h3 class="text-xl text-white font-headline drop-shadow-md uppercase tracking-widest text-xs">Beauty & Skincare</h3>
+                    </div>
+                </div>
+                <!-- Pet Supplies -->
                 <div class="md:col-span-2 relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-home.png" alt="Home Lifestyle" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-700 flex flex-col justify-end p-8">
-                        <h3 class="text-3xl text-white font-headline drop-shadow-md">Home & Lifestyle</h3>
+                    <img src="/assets/bento-pets.png" alt="Pet Supplies" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-8">
+                        <h3 class="text-3xl text-white font-headline drop-shadow-md italic">Pet Supplies</h3>
                     </div>
                 </div>
-                <!-- Health & Wellness -->
+                <!-- Baby Products -->
                 <div class="relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-health.png" alt="Health Wellness" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <img src="/assets/bento-baby.png" alt="Baby Products" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline drop-shadow-md">Health & Wellness</h3>
+                        <h3 class="text-xl text-white font-headline drop-shadow-md uppercase tracking-widest text-xs">Baby Products</h3>
                     </div>
                 </div>
-                <!-- Everyday Essentials -->
+                <!-- Electronics Accessories -->
                 <div class="relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-essentials.png" alt="Everyday Essentials" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <img src="/assets/bento-tech.png" alt="Electronics Accessories" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline drop-shadow-md">Everyday Essentials</h3>
+                        <h3 class="text-xl text-white font-headline drop-shadow-md uppercase tracking-widest text-xs">Electronics Accessories</h3>
                     </div>
                 </div>
-                <!-- Trending Online -->
-                <div class="relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-trending.png" alt="Trending Online" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline drop-shadow-md">Trending Online</h3>
-                    </div>
-                </div>
-                <!-- Affiliate Deals -->
-                <div class="md:col-span-2 relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-deals.png" alt="Affiliate Deals" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-700 flex flex-col justify-end p-8">
-                        <h3 class="text-3xl text-white font-headline drop-shadow-md">Affiliate & Deals</h3>
-                    </div>
-                </div>
-                <!-- Tech Lifestyle -->
-                <div class="relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-tech.png" alt="Tech Lifestyle" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
-                        <h3 class="text-xl text-white font-headline drop-shadow-md">Tech Lifestyle</h3>
-                    </div>
-                </div>
-                <!-- Beauty & Glow -->
-                <div class="md:col-span-4 relative rounded-3xl overflow-hidden group reveal-up min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-beauty.png" alt="Beauty & Glow" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105" style="object-position: center;">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-10">
-                        <h3 class="text-4xl text-white font-headline drop-shadow-md">Beauty & Glow</h3>
-                        <p class="text-white/80 font-body max-w-lg mt-2">Discover our minimalist collection of skin essentials curated for the discerning individual.</p>
+                <!-- Sports & Fitness (BOTTOM WIDE) -->
+                <div class="md:col-span-4 relative rounded-3xl overflow-hidden group reveal-up min-h-[350px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/bento-sports.png" alt="Sports & Fitness" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-12">
+                        <h3 class="text-5xl text-white font-headline drop-shadow-md italic">Sports & Fitness</h3>
+                        <p class="text-white/80 font-body max-w-xl mt-4 text-lg">Achieve your best with gear curated for performance, reliability, and modern training lifestyles.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Category Product Sections (Carousels) -->
-        <div id="category-product-sections">
-            <!-- Home & Lifestyle SECTION -->
+        <!-- ALL 7 CAROUSELS -->
+        <div id="category-carousels-container">
+            <!-- 1. Home & Kitchen -->
             <section class="py-24 bg-surface-container-low overflow-hidden">
                 <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Modern <i>Sanctuary</i></h2>
+                    <h2 class="text-4xl font-headline italic">Modern <i>Kitchen</i></h2>
                     <div class="flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="home-lifestyle-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="home-lifestyle-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="home-kitchen-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="home-kitchen-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
                     </div>
                 </div>
-                <div id="home-lifestyle-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container">
-                    <div class="animate-pulse flex space-x-6"><div class="min-w-[300px] h-[450px] bg-surface-container-high rounded-3xl"></div></div>
-                </div>
+                <div id="home-kitchen-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
             </section>
 
-            <!-- Health & Wellness SECTION -->
+            <!-- 2. Health & Personal Care -->
             <section class="py-24 bg-surface overflow-hidden">
                 <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Vitality & <i>Balance</i></h2>
+                    <h2 class="text-4xl font-headline italic">Personal <i>Vitality</i></h2>
                     <div class="flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="health-wellness-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="health-wellness-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="health-care-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="health-care-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
                     </div>
                 </div>
-                <div id="health-wellness-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
+                <div id="health-care-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
             </section>
 
-            <!-- Everyday Essentials SECTION -->
-            <section class="py-24 bg-surface-container-low overflow-hidden">
-                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Refined <i>Basics</i></h2>
-                    <div class="flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="everyday-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="everyday-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
-                    </div>
-                </div>
-                <div id="everyday-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
-            </section>
-
-            <!-- Beauty SECTION -->
+            <!-- 3. Beauty & Skincare -->
             <section class="py-24 bg-surface-container-low overflow-hidden">
                 <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
                     <h2 class="text-4xl font-headline italic">Artisanal <i>Beauty</i></h2>
                     <div class="flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="beauty-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="beauty-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="beauty-skincare-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="beauty-skincare-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
                     </div>
                 </div>
-                <div id="beauty-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
+                <div id="beauty-skincare-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
             </section>
 
-            <!-- Tech SECTION -->
+            <!-- 4. Pet Supplies -->
             <section class="py-24 bg-surface overflow-hidden">
                 <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Sleek <i>Performance</i></h2>
+                    <h2 class="text-4xl font-headline italic">Pet <i>Curations</i></h2>
                     <div class="flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="tech-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="tech-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="pet-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="pet-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
                     </div>
                 </div>
-                <div id="tech-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
+                <div id="pet-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
             </section>
 
-            <!-- Deals SECTION -->
+            <!-- 5. Baby Products -->
             <section class="py-24 bg-surface-container-low overflow-hidden">
                 <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
-                    <h2 class="text-4xl font-headline italic">Curated <i>Opportunities</i></h2>
+                    <h2 class="text-4xl font-headline italic">Baby <i>Essentials</i></h2>
                     <div class="flex items-center space-x-6">
-                        <button class="nav-prev hover:text-primary transition-all duration-300 hover:scale-110" data-target="deals-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
-                        <button class="nav-next hover:text-primary transition-all duration-300 hover:scale-110" data-target="deals-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="baby-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="baby-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
                     </div>
                 </div>
-                <div id="deals-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
+                <div id="baby-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
+            </section>
+
+            <!-- 6. Electronics Accessories -->
+            <section class="py-24 bg-surface overflow-hidden">
+                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
+                    <h2 class="text-4xl font-headline italic">Tech <i>Companions</i></h2>
+                    <div class="flex items-center space-x-6">
+                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="electronics-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="electronics-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                    </div>
+                </div>
+                <div id="electronics-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
+            </section>
+
+            <!-- 7. Sports & Fitness -->
+            <section class="py-24 bg-surface-container-low overflow-hidden">
+                <div class="px-8 max-w-screen-2xl mx-auto flex justify-between items-end mb-12 reveal-up">
+                    <h2 class="text-4xl font-headline italic">Peak <i>Performance</i></h2>
+                    <div class="flex items-center space-x-6">
+                        <button class="nav-prev hover:text-primary transition-all duration-300" data-target="sports-carousel"><span class="material-symbols-outlined text-[36px]">arrow_back_ios</span></button>
+                        <button class="nav-next hover:text-primary transition-all duration-300" data-target="sports-carousel"><span class="material-symbols-outlined text-[36px]">arrow_forward_ios</span></button>
+                    </div>
+                </div>
+                <div id="sports-carousel" class="flex overflow-x-auto hide-scrollbar px-8 gap-8 pb-12 snap-x snap-mandatory peek-container"></div>
             </section>
         </div>
 
-        <!-- About Us -->
-        <section class="py-32 bg-surface" id="about">
-            <div class="px-8 max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                <div class="relative reveal-up">
-                    <div class="w-full rounded-[3rem] overflow-hidden shadow-2xl transition-transform hover:scale-[1.01] duration-[2s]">
-                        <img src="/assets/bento-home.png" alt="MRT Sourcing" class="w-full h-full object-cover">
-                    </div>
-                    <div class="absolute -bottom-12 -right-8 w-4/5 bg-white/80 backdrop-blur-xl p-10 rounded-3xl shadow-2xl border border-white">
-                        <h3 class="text-3xl font-headline mb-4 text-primary italic">Global Bridge</h3>
-                        <p class="text-base text-on-surface-variant font-body leading-relaxed">Our approach focuses on scalable e-commerce solutions that prioritize boutique quality and trust across borders.</p>
-                    </div>
+        <!-- NEW: Why Choose Us (6-Point Grid) -->
+        <section class="py-32 bg-surface">
+            <div class="container mx-auto px-8 max-w-screen-xl">
+                <div class="mb-20 text-center reveal-up">
+                    <span class="text-primary font-bold uppercase tracking-[0.5em] text-xs mb-4 block">Proven Performance</span>
+                    <h2 class="text-6xl font-headline italic">Why Choose <i>MRT International</i></h2>
                 </div>
-                <div class="reveal-up">
-                    <span class="text-primary font-label text-sm uppercase tracking-[0.4em] block mb-6 font-bold">Strategic Insight</span>
-                    <h2 class="text-6xl font-headline mb-8 leading-tight">Connecting Products <br>to <i>Lifestyles</i></h2>
-                    <p class="text-xl text-on-surface-variant font-body mb-10 leading-relaxed opacity-90">Built on a strong foundation of integrity, professionalism, and strategic insight, MRT International Holding LLC simplifies the complex world of global sourcing into a curated digital experience.</p>
-                    <div class="grid grid-cols-2 gap-10 mt-12 border-t border-outline-variant/10 pt-10">
-                        <div>
-                            <h4 class="text-primary font-bold text-3xl mb-2">16+</h4>
-                            <p class="text-xs text-on-surface-variant uppercase tracking-[0.2em] font-bold">Curated Items</p>
-                        </div>
-                        <div>
-                            <h4 class="text-primary font-bold text-3xl mb-2">Infinite</h4>
-                            <p class="text-xs text-on-surface-variant uppercase tracking-[0.2em] font-bold">Connections</p>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <div class="reveal-up">
+                        <span class="material-symbols-outlined text-primary text-5xl mb-6">public</span>
+                        <h4 class="text-xl font-headline mb-4 italic">Global Sourcing Expertise</h4>
+                        <p class="text-on-surface-variant font-body">Connecting with reliable international suppliers to bring you the best products.</p>
+                    </div>
+                    <div class="reveal-up">
+                        <span class="material-symbols-outlined text-primary text-5xl mb-6">payments</span>
+                        <h4 class="text-xl font-headline mb-4 italic">Competitive Pricing</h4>
+                        <p class="text-on-surface-variant font-body">Our efficient model ensures you get great value for your money.</p>
+                    </div>
+                    <div class="reveal-up">
+                        <span class="material-symbols-outlined text-primary text-5xl mb-6">verified_user</span>
+                        <h4 class="text-xl font-headline mb-4 italic">Quality Assurance</h4>
+                        <p class="text-on-surface-variant font-body">Focused on delivering products that meet strict expectations.</p>
+                    </div>
+                    <div class="reveal-up">
+                        <span class="material-symbols-outlined text-primary text-5xl mb-6">group</span>
+                        <h4 class="text-xl font-headline mb-4 italic">Customer-Centric Approach</h4>
+                        <p class="text-on-surface-variant font-body">Your satisfaction is our priority — always.</p>
+                    </div>
+                    <div class="reveal-up">
+                        <span class="material-symbols-outlined text-primary text-5xl mb-6">electric_bolt</span>
+                        <h4 class="text-xl font-headline mb-4 italic">Fast & Reliable Process</h4>
+                        <p class="text-on-surface-variant font-body">From order to delivery, we ensure a smooth experience.</p>
+                    </div>
+                    <div class="reveal-up">
+                        <span class="material-symbols-outlined text-primary text-5xl mb-6">tips_and_updates</span>
+                        <h4 class="text-xl font-headline mb-4 italic">Continuous Innovation</h4>
+                        <p class="text-on-surface-variant font-body">Adapting to market trends to serve you better every day.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Customer Reflections -->
+        <!-- Customer Reflections (REGIONAL HERO TESTIMONIALS) -->
         <section class="py-32 bg-surface-container-low" id="reviews">
             <div class="px-8 max-w-screen-2xl mx-auto">
                 <div class="mb-20 text-center reveal-up">
-                    <span class="text-primary font-label text-sm uppercase tracking-[0.4em] block mb-6 font-bold tracking-widest">Feedback</span>
-                    <h2 class="text-6xl font-headline mb-6 italic">Global Reflections</h2>
-                    <p class="text-on-surface-variant max-w-xl mx-auto text-lg leading-relaxed">Trusted by a worldwide community for our commitment to quality and reliable delivery.</p>
+                    <span class="text-primary font-label text-sm uppercase tracking-[0.4em] block mb-6 font-bold tracking-widest">Global Feedback</span>
+                    <h2 class="text-6xl font-headline mb-6 italic">World Reflections</h2>
+                    <p class="text-on-surface-variant max-w-xl mx-auto text-lg italic opacity-80">Trusted by Customers Across the USA, UAE & Beyond.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-20">
                     <div class="p-4">
@@ -267,6 +295,10 @@
                         <div id="testimonials-ae" class="space-y-8"></div>
                     </div>
                 </div>
+                
+                <div class="max-w-4xl mx-auto text-center reveal-up py-16 border-t border-outline-variant/10">
+                    <p class="text-2xl text-on-surface-variant font-body leading-relaxed">"We take pride in serving customers across the globe. Our commitment to quality, value, and reliability speaks through the experiences of our customers."</p>
+                </div>
             </div>
         </section>
 
@@ -274,11 +306,11 @@
         <section class="py-32 px-8 mb-24 bg-primary-container/10 overflow-hidden relative" id="cta">
             <div class="max-w-screen-xl mx-auto rounded-[4rem] p-20 relative flex flex-col items-center bg-white/40 backdrop-blur-2xl border border-white shadow-2xl reveal-up">
                 <div class="relative z-10 w-full text-center">
-                    <span class="text-primary font-bold uppercase tracking-[0.5em] text-xs mb-6 block">Join the Legacy</span>
-                    <h2 class="text-6xl font-headline text-primary leading-tight mb-8 italic">The Gateway to Tomorrow</h2>
-                    <p class="text-on-surface-variant font-body mb-12 text-2xl max-w-2xl mx-auto leading-relaxed">Collaborate with us for exclusive updates and explore strategic global partnership opportunities.</p>
+                    <span class="text-primary font-bold uppercase tracking-[0.5em] text-xs mb-6 block">The Legacy</span>
+                    <h2 class="text-6xl font-headline text-primary leading-tight mb-8 italic">Your Gateway to Global Shopping</h2>
+                    <p class="text-on-surface-variant font-body mb-12 text-2xl max-w-2xl mx-auto leading-relaxed">Shop Smart. Shop Global. Shop MRT.</p>
                     <div class="flex flex-wrap gap-6 justify-center">
-                        <button class="bg-primary text-on-primary px-12 py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm hover:scale-110 hover:shadow-2xl transition-all duration-500">Explore Collection</button>
+                        <button class="bg-primary text-on-primary px-12 py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm hover:scale-110 shadow-xl transition-all duration-500">Explore Portfolio</button>
                         <button class="bg-surface text-primary border border-primary/20 px-12 py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm hover:bg-primary/5 transition-all duration-500 shadow-sm">Partner Network</button>
                     </div>
                 </div>
@@ -291,41 +323,32 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-16 px-16 py-24 max-w-screen-2xl mx-auto">
             <div class="col-span-1">
                 <img src="/assets/logo.png" alt="MRT International" class="h-10 w-auto mb-10 logo-glow">
-                <p class="text-on-surface-variant text-lg font-body leading-relaxed mb-10 opacity-80">Your trusted global partner for curated quality and strategic sourcing excellence.</p>
-                <div class="flex space-x-8">
-                    <a href="#" class="text-primary hover:scale-125 transition-all duration-500 opacity-70 hover:opacity-100"><span class="material-symbols-outlined text-3xl font-bold">language</span></a>
-                    <a href="#" class="text-primary hover:scale-125 transition-all duration-500 opacity-70 hover:opacity-100"><span class="material-symbols-outlined text-3xl font-bold">hub</span></a>
-                    <a href="#" class="text-primary hover:scale-125 transition-all duration-500 opacity-70 hover:opacity-100"><span class="material-symbols-outlined text-3xl font-bold">alternate_email</span></a>
-                </div>
+                <p class="text-on-surface-variant text-lg font-body leading-relaxed mb-10 opacity-80">Trusted by Customers Across the USA, UAE & Beyond. Delivering quality, reliability, and value.</p>
             </div>
             
             <div>
                 <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Categories</h4>
-                <ul class="space-y-6">
-                    <li><a href="#categories" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Home & Living</a></li>
-                    <li><a href="#categories" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Health & Vitality</a></li>
-                    <li><a href="#categories" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Essential Care</a></li>
-                    <li><a href="#categories" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Affiliate Network</a></li>
+                <ul class="space-y-6 text-on-surface-variant">
+                    <li><a href="#categories" class="hover:text-primary transition-colors">Home & Kitchen</a></li>
+                    <li><a href="#categories" class="hover:text-primary transition-colors">Health & Wellness</a></li>
+                    <li><a href="#categories" class="hover:text-primary transition-colors">Baby Products</a></li>
                 </ul>
             </div>
 
             <div>
                 <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Corporate</h4>
-                <ul class="space-y-6">
-                    <li><a href="#about" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Our Vision</a></li>
-                    <li><a href="#about" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Strategic Insight</a></li>
-                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Partnerships</a></li>
-                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Terms</a></li>
+                <ul class="space-y-6 text-on-surface-variant">
+                    <li><a href="about.html" class="hover:text-primary transition-colors">Our Vision</a></li>
+                    <li><a href="about.html" class="hover:text-primary transition-colors">Mission & Values</a></li>
+                    <li><a href="about.html" class="hover:text-primary transition-colors">Why Choose Us</a></li>
                 </ul>
             </div>
 
             <div>
                 <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Resources</h4>
-                <ul class="space-y-6">
-                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Shipping Policy</a></li>
-                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Privacy Policy</a></li>
-                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Help Center</a></li>
-                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Contact</a></li>
+                <ul class="space-y-6 text-on-surface-variant">
+                    <li><a href="#" class="hover:text-primary transition-colors">Customer Support</a></li>
+                    <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>

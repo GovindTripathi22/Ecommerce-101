@@ -1,207 +1,150 @@
-import './style.css';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lenis from '@studio-freight/lenis';
-
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
-
 class LuxeRadianceApp {
   constructor() {
-    this.initLenis();
-    this.initAnimations();
-    this.fetchProducts();
-    this.fetchTestimonials();
+    this.lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true
+    });
+
+    this.init();
+  }
+
+  async init() {
+    this.setupSmoothScroll();
+    await this.fetchData();
+    this.animateReveals();
     this.bindEvents();
   }
 
-  // Initialize Smooth Scroll (Lenis)
-  initLenis() {
-    const lenis = new Lenis({
-      duration: 1.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1.1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-    });
-
+  setupSmoothScroll() {
     const raf = (time) => {
-      lenis.raf(time);
+      this.lenis.raf(time);
       requestAnimationFrame(raf);
     };
-
     requestAnimationFrame(raf);
-    this.lenis = lenis;
   }
 
-  // Orchestrate GSAP Animations
-  initAnimations() {
-    // Reveal Animations
-    const revealUps = document.querySelectorAll('.reveal-up');
-    revealUps.forEach((el) => {
-      gsap.fromTo(el, 
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 90%',
-            toggleActions: 'play none none none'
-          }
-        }
-      );
+  async fetchData() {
+    try {
+      const [productsRes, testimonialsRes] = await Promise.all([
+        fetch('http://localhost:3001/api/products'),
+        fetch('http://localhost:3001/api/testimonials')
+      ]);
+
+      const products = await productsRes.json();
+      const testimonials = await testimonialsRes.json();
+
+      this.renderProducts(products);
+      this.renderTestimonials(testimonials);
+    } catch (err) {
+      console.error('Data sync failed:', err);
+    }
+  }
+
+  renderProducts(products) {
+    // 7 Category Mapping
+    const categories = [
+      { id: 'home-kitchen-carousel', slug: 'home-kitchen' },
+      { id: 'health-care-carousel', slug: 'health-personal-care' },
+      { id: 'beauty-skincare-carousel', slug: 'beauty-skincare' },
+      { id: 'pet-carousel', slug: 'pet-supplies' },
+      { id: 'baby-carousel', slug: 'baby-products' },
+      { id: 'electronics-carousel', slug: 'electronics-accessories' },
+      { id: 'sports-carousel', slug: 'sports-fitness' }
+    ];
+
+    categories.forEach(cat => {
+      const container = document.getElementById(cat.id);
+      if (!container) return;
+
+      const filtered = products.filter(p => p.category === cat.slug);
+      
+      container.innerHTML = filtered.map(product => `
+        <div class="product-card">
+          <div class="product-image-container group">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500"></div>
+            <button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md text-primary p-3 rounded-xl shadow-xl translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+              <span class="material-symbols-outlined">add_shopping_cart</span>
+            </button>
+          </div>
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-headline italic tracking-tight">${product.name}</h3>
+              <span class="text-primary font-bold">$${product.price}</span>
+            </div>
+            <div class="flex items-center text-xs text-on-surface-variant font-bold uppercase tracking-widest opacity-60">
+              <span class="material-symbols-outlined text-sm mr-2">${product.icon || 'star'}</span>
+              ${cat.slug.replace('-', ' ')}
+            </div>
+          </div>
+        </div>
+      `).join('');
     });
   }
 
-  // Fetch Products and Render into Category Containers
-  async fetchProducts() {
-    const categories = [
-        { id: 'home-lifestyle-carousel', key: 'home-lifestyle' },
-        { id: 'health-wellness-carousel', key: 'health-wellness' },
-        { id: 'everyday-carousel', key: 'everyday' },
-        // Trending carousel removed from list as requested
-        { id: 'beauty-carousel', key: 'beauty' },
-        { id: 'tech-carousel', key: 'tech' },
-        { id: 'deals-carousel', key: 'deals' }
-    ];
+  renderTestimonials(testimonials) {
+    const renderList = (targetId, region) => {
+      const container = document.getElementById(targetId);
+      if (!container) return;
 
-    try {
-      const response = await fetch('/api/products');
-      if (!response.ok) throw new Error('API Error');
-      const allProducts = await response.json();
+      const filtered = testimonials.filter(t => t.region === region);
+      container.innerHTML = filtered.map(t => `
+        <div class="reveal-up p-8 bg-surface-container rounded-3xl border border-outline-variant/10 hover:shadow-xl transition-all duration-500 group">
+          <div class="flex items-center mb-6">
+            <div class="flex text-primary">
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+              <span class="material-symbols-outlined text-sm">star</span>
+            </div>
+          </div>
+          <p class="text-xl font-headline italic mb-6 leading-relaxed group-hover:text-primary transition-colors">"${t.text}"</p>
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-sm uppercase tracking-widest opacity-80">${t.name}</span>
+            <span class="text-xs text-on-surface-variant uppercase tracking-widest font-bold opacity-40">${t.location}</span>
+          </div>
+        </div>
+      `).join('');
+    };
 
-      categories.forEach(cat => {
-          const container = document.getElementById(cat.id);
-          if (!container) return;
+    renderList('testimonials-us', 'us');
+    renderList('testimonials-ae', 'ae');
+  }
 
-          const catProducts = allProducts.filter(p => p.category === cat.key);
-          
-          if (catProducts.length > 0) {
-              container.innerHTML = catProducts.map(product => this.renderProductCard(product)).join('');
-          } else {
-              container.innerHTML = '<p class="text-on-surface-variant/50 italic px-8 py-10">Curating new items for this collection...</p>';
-          }
+  animateReveals() {
+    gsap.utils.toArray('.reveal-up').forEach((elem) => {
+      gsap.from(elem, {
+        scrollTrigger: {
+          trigger: elem,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        },
+        y: 60,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out'
       });
-
-      // Refresh ScrollTrigger after dynamic content injection
-      ScrollTrigger.refresh();
-      
-    } catch (error) {
-      console.warn('Backend connection failed or empty catalogues.', error);
-    }
-  }
-
-  renderProductCard(product) {
-      return `
-        <div class="product-card group reveal-up snap-start flex-none">
-            <div class="product-image-container relative aspect-[4/5] bg-surface-container-high rounded-2xl overflow-hidden mb-6">
-                <img src="${product.image || '/assets/cat-home.png'}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <span class="material-symbols-outlined text-[80px] text-white/20 group-hover:scale-125 group-hover:text-primary transition-all duration-700">${product.icon || 'inventory_2'}</span>
-                </div>
-                <button class="absolute bottom-6 right-6 bg-white p-4 rounded-full shadow-xl opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-primary hover:text-white">
-                    <span class="material-symbols-outlined">add_shopping_cart</span>
-                </button>
-            </div>
-            <div class="px-2">
-                <p class="text-[10px] tracking-[0.2em] text-primary font-bold uppercase mb-1">${product.category.replace('-', ' ')}</p>
-                <h4 class="font-body font-semibold text-lg text-on-surface group-hover:text-primary transition-colors mb-2">${product.name}</h4>
-                <div class="flex justify-between items-center">
-                    <span class="text-primary font-bold text-lg">$${product.price ? product.price.toFixed(2) : '199.00'}</span>
-                    <button class="bg-secondary-container p-2 rounded-full hover:bg-secondary-fixed transition-colors md:hidden">
-                        <span class="material-symbols-outlined text-on-secondary-container">add_shopping_cart</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-      `;
-  }
-
-  // Fetch Reviews from Node.js API
-  async fetchTestimonials() {
-    const containerUS = document.getElementById('testimonials-us');
-    const containerAE = document.getElementById('testimonials-ae');
-    if (!containerUS || !containerAE) return;
-
-    try {
-      const response = await fetch('/api/testimonials');
-      if (!response.ok) throw new Error('API Error');
-      const testimonials = await response.json();
-
-      const renderReview = (review) => `
-        <div class="bg-surface-container-lowest p-8 rounded-3xl reveal-up border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-            <div class="flex text-secondary mb-4">
-                ${Array(5).fill('<span class="material-symbols-outlined text-sm">star</span>').join('')}
-            </div>
-            <h4 class="font-headline text-xl mb-3">"${review.quote}"</h4>
-            <p class="text-on-surface-variant font-body mb-6 leading-relaxed text-base">"${review.text}"</p>
-            <div class="flex items-center space-x-4 border-t border-outline-variant/10 pt-4">
-                <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant font-bold text-base">
-                    ${review.name.charAt(0)}
-                </div>
-                <div>
-                    <p class="font-bold text-on-surface text-sm">${review.name}</p>
-                    <p class="text-[10px] text-on-surface-variant tracking-[0.1em] uppercase">${review.location}</p>
-                </div>
-            </div>
-        </div>
-      `;
-
-      const usaReviews = testimonials.filter(r => r.region === 'us').slice(0, 4);
-      const uaeReviews = testimonials.filter(r => r.region === 'ae').slice(0, 4);
-
-      containerUS.innerHTML = usaReviews.map(renderReview).join('');
-      containerAE.innerHTML = uaeReviews.map(renderReview).join('');
-
-      ScrollTrigger.refresh();
-      
-    } catch (error) {
-      console.warn('Testimonials fallback.', error);
-    }
+    });
   }
 
   bindEvents() {
-    // Navigation for ALL active carousels
+    // Navigation for carousels
     document.querySelectorAll('.nav-prev, .nav-next').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetId = btn.getAttribute('data-target');
-            const container = document.getElementById(targetId);
-            if (!container) return;
+      btn.addEventListener('click', (e) => {
+        const targetId = btn.dataset.target;
+        const container = document.getElementById(targetId);
+        if (!container) return;
 
-            const scrollAmount = window.innerWidth > 768 ? 450 : 320;
-            const direction = btn.classList.contains('nav-prev') ? -1 : 1;
-            
-            container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
-        });
-    });
-
-    // Anchor Smooth Scrolling via Lenis
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            const targetId = anchor.getAttribute('href');
-            if (targetId === '#') return;
-            try {
-                const target = document.querySelector(targetId);
-                if (target && this.lenis) {
-                    e.preventDefault();
-                    this.lenis.scrollTo(target, { offset: -100 });
-                }
-            } catch (err) {
-                // Ignore invalid selectors
-            }
-        });
+        const scrollAmount = btn.classList.contains('nav-prev') ? -400 : 400;
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
     });
   }
 }
 
-// Global Initialization
+// Start Lifecycle
 document.addEventListener('DOMContentLoaded', () => {
   new LuxeRadianceApp();
 });

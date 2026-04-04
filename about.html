@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | MRT International Holding LLC</title>
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <!-- Scripts & Styles -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+</head>
+<body class="bg-surface text-on-surface">
+    <!-- TopNavBar -->
+    <header class="fixed top-0 w-full z-50 glass-nav border-b border-outline-variant/10">
+        <div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="/assets/logo.png" alt="MRT International" class="h-10 w-auto logo-glow cursor-pointer hover:scale-105 transition-transform duration-500">
+                </a>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Home</a>
+                <a href="about.html" class="text-on-surface border-b-2 border-primary font-medium pb-1 serif italic text-lg tracking-tight">About</a>
+                <a href="index.html#categories" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Categories</a>
+            </nav>
+
+            <div class="flex items-center space-x-6">
+                <button class="bg-primary text-on-primary px-6 py-2 rounded-xl text-sm font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl">Contact Us</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative py-32 bg-surface-container-low overflow-hidden">
+            <div class="container mx-auto px-8 relative z-10 text-center">
+                <div class="max-w-4xl mx-auto reveal-up">
+                    <span class="text-primary font-label tracking-[0.4em] uppercase text-sm mb-6 block font-bold">Our Brand Story</span>
+                    <h1 class="text-7xl font-headline text-on-background leading-tight mb-8">Building a Bridge to <br><i class="font-normal italic text-primary">Global Excellence</i></h1>
+                    <p class="text-xl text-on-surface-variant font-body leading-relaxed max-w-2xl mx-auto">At MRT International Holding LLC, we are driven by a vision to create a seamless bridge between global products and modern consumers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About In-Depth -->
+        <section class="py-24 bg-surface">
+            <div class="container mx-auto px-8 max-w-screen-xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div class="reveal-up">
+                        <h2 class="text-5xl font-headline mb-8 italic">Trust, Innovation, and <i>Global Reach</i></h2>
+                        <p class="text-lg text-on-surface-variant font-body mb-8 leading-relaxed">Established with a forward-thinking approach, we specialize in sourcing, marketing, and delivering high-quality products across multiple categories through innovative digital platforms.</p>
+                        <p class="text-lg text-on-surface-variant font-body mb-8 leading-relaxed">Built on a strong foundation of integrity, professionalism, and strategic insight, our company focuses on scalable e-commerce solutions that prioritize customer satisfaction, operational excellence, and long-term growth.</p>
+                        <div class="p-8 bg-surface-container-high rounded-3xl border border-outline-variant/10">
+                            <p class="text-on-surface italic font-body text-lg">"We are not just selling products — we are building a brand that stands for trust and quality worldwide."</p>
+                        </div>
+                    </div>
+                    <div class="relative rounded-[3rem] overflow-hidden shadow-2xl reveal-up">
+                        <img src="/assets/mrt-hero.png" alt="Corporate Vision" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="container mx-auto px-8 max-w-screen-xl grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-white p-12 rounded-3xl shadow-sm border border-outline-variant/10 reveal-up">
+                    <span class="material-symbols-outlined text-primary text-5xl mb-6">rocket_launch</span>
+                    <h3 class="text-3xl font-headline mb-4 italic">Mission Statement</h3>
+                    <p class="text-lg text-on-surface-variant font-body leading-relaxed">To provide customers with high-quality, affordable products through efficient digital platforms while maintaining excellence in service, reliability, and customer satisfaction.</p>
+                </div>
+                <div class="bg-white p-12 rounded-3xl shadow-sm border border-outline-variant/10 reveal-up">
+                    <span class="material-symbols-outlined text-primary text-5xl mb-6">visibility</span>
+                    <h3 class="text-3xl font-headline mb-4 italic">Vision Statement</h3>
+                    <p class="text-lg text-on-surface-variant font-body leading-relaxed">To become a globally recognized e-commerce and trading company, known for innovation, trust, and delivering value-driven solutions in the digital marketplace.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="py-32 bg-surface">
+            <div class="container mx-auto px-8 max-w-screen-xl">
+                <div class="mb-20 text-center reveal-up">
+                    <span class="text-primary font-label text-sm uppercase tracking-[0.4em] block mb-4 font-bold tracking-widest">⭐ Performance Indices</span>
+                    <h2 class="text-5xl font-headline italic">Why Choose <i>MRT International</i></h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="reveal-up">
+                        <h4 class="text-primary font-bold uppercase tracking-widest text-xs mb-4">✔ Global Sourcing Expertise</h4>
+                        <p class="text-on-surface-variant font-body">We connect with reliable international suppliers to bring you the best products across every category.</p>
+                    </div>
+                    <div class="reveal-up">
+                        <h4 class="text-primary font-bold uppercase tracking-widest text-xs mb-4">✔ Competitive Pricing</h4>
+                        <p class="text-on-surface-variant font-body">Our efficient sourcing model ensures you get great value for your money without compromise.</p>
+                    </div>
+                    <div class="reveal-up">
+                        <h4 class="text-primary font-bold uppercase tracking-widest text-xs mb-4">✔ Quality Assurance</h4>
+                        <p class="text-on-surface-variant font-body">We focus on delivering products that meet and exceed global customer expectations.</p>
+                    </div>
+                    <div class="reveal-up">
+                        <h4 class="text-primary font-bold uppercase tracking-widest text-xs mb-4">✔ Customer-Centric Approach</h4>
+                        <p class="text-on-surface-variant font-body">Your satisfaction is our priority — we build relationships, not just transactions.</p>
+                    </div>
+                    <div class="reveal-up">
+                        <h4 class="text-primary font-bold uppercase tracking-widest text-xs mb-4">✔ Fast & Reliable Process</h4>
+                        <p class="text-on-surface-variant font-body">From initial order to final delivery, we ensure a smooth, worry-free shopping experience.</p>
+                    </div>
+                    <div class="reveal-up">
+                        <h4 class="text-primary font-bold uppercase tracking-widest text-xs mb-4">✔ Continuous Innovation</h4>
+                        <p class="text-on-surface-variant font-body">We constantly adapt to market trends and technology to serve you better every day.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Approach -->
+        <section class="py-32 bg-primary-container/10">
+            <div class="container mx-auto px-8 max-w-screen-xl text-center">
+                <div class="max-w-3xl mx-auto reveal-up">
+                    <h2 class="text-5xl font-headline mb-12 italic">Our Modern <i>Approach</i></h2>
+                    <p class="text-xl text-on-surface-variant font-body mb-16 leading-relaxed">We combine technology, global sourcing, and customer insights to create a modern shopping experience.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div class="bg-white/40 p-10 rounded-3xl border border-white backdrop-blur-xl">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-4">settings_auto</span>
+                            <p class="font-bold text-xs uppercase tracking-widest">Efficiency through automation</p>
+                        </div>
+                        <div class="bg-white/40 p-10 rounded-3xl border border-white backdrop-blur-xl">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-4">diversity_3</span>
+                            <p class="font-bold text-xs uppercase tracking-widest">Strong supplier relationships</p>
+                        </div>
+                        <div class="bg-white/40 p-10 rounded-3xl border border-white backdrop-blur-xl">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-4">query_stats</span>
+                            <p class="font-bold text-xs uppercase tracking-widest">Data-driven decision making</p>
+                        </div>
+                        <div class="bg-white/40 p-10 rounded-3xl border border-white backdrop-blur-xl">
+                            <span class="material-symbols-outlined text-primary text-4xl mb-4">scaling</span>
+                            <p class="font-bold text-xs uppercase tracking-widest">Scalable business operations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full rounded-t-[5rem] mt-20 bg-surface-container-high border-t border-outline-variant/10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16 px-16 py-24 max-w-screen-2xl mx-auto">
+            <div class="col-span-1">
+                <img src="/assets/logo.png" alt="MRT International" class="h-10 w-auto mb-10 logo-glow">
+                <p class="text-on-surface-variant text-lg font-body leading-relaxed mb-10 opacity-80">Your trusted global partner for curated quality and strategic sourcing excellence.</p>
+            </div>
+            
+            <div>
+                <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Categories</h4>
+                <ul class="space-y-6">
+                    <li><a href="index.html#categories" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Home & Living</a></li>
+                    <li><a href="index.html#categories" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Health & Vitality</a></li>
+                    <li><a href="index.html#categories" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Essential Care</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Corporate</h4>
+                <ul class="space-y-6">
+                    <li><a href="about.html" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Our Vision</a></li>
+                    <li><a href="about.html" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Strategic Insight</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Resources</h4>
+                <ul class="space-y-6">
+                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Privacy Policy</a></li>
+                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="px-16 py-12 border-t border-outline-variant/10 text-center">
+            <p class="text-on-surface-variant font-body text-sm tracking-[0.3em] uppercase opacity-60">© 2024 MRT International Holding LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
