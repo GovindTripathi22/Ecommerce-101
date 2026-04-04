@@ -22,11 +22,11 @@ class MRTApp {
     this.isBoutique = window.location.pathname.includes('category.html');
     this.currentCategory = new URLSearchParams(window.location.search).get('c');
 
+    this.injectLogos();
     this.init();
   }
 
   async init() {
-    this.injectLogos();
     this.initLenis();
     this.initScrollReveal();
 
