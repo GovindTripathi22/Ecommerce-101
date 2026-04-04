@@ -47,6 +47,19 @@
     transform: scale(1.02);
   }
 
+  /* 
+     Approach Card Watermarks
+     Ensuring 'AU' 'SR' 'DD' 'SC' are clipped.
+  */
+  .approach-card {
+    @apply relative overflow-hidden bg-white/40 p-8 md:p-10 rounded-3xl border border-white backdrop-blur-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  .approach-card::before {
+    content: attr(data-watermark);
+    @apply absolute -top-8 -right-8 text-[120px] font-headline italic opacity-[0.04] text-primary select-none pointer-events-none;
+  }
+
   /* Scrollbar hiding utility */
   .hide-scrollbar::-webkit-scrollbar {
     display: none;

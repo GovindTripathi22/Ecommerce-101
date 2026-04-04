@@ -29,8 +29,8 @@ class LuxeRadianceApp {
   async fetchData() {
     try {
       const [productsRes, testimonialsRes] = await Promise.all([
-        fetch('http://localhost:3001/api/products'),
-        fetch('http://localhost:3001/api/testimonials')
+        fetch('/api/products'),
+        fetch('/api/testimonials')
       ]);
 
       const products = await productsRes.json();
