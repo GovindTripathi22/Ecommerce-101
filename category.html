@@ -42,53 +42,20 @@
         </div>
     </header>
 
-    <main id="category-app" class="pt-20 min-h-screen">
-        <!-- Hero Section -->
-        <section id="category-hero" class="relative min-h-[60vh] flex items-center overflow-hidden">
-            <div id="hero-bg" class="absolute inset-0 z-0">
-                <img id="category-image" src="" alt="" class="w-full h-full object-cover opacity-30 blur-2xl scale-110">
-                <div class="absolute inset-0 bg-gradient-to-b from-surface/20 to-surface"></div>
-            </div>
-            
-            <div class="container mx-auto px-8 relative z-10 py-20 text-center md:text-left">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                    <div class="reveal-up">
-                        <span id="category-label" class="theme-text-primary font-bold uppercase tracking-[0.4em] text-xs mb-6 block">Collection Pillar</span>
-                        <h1 id="category-title" class="text-6xl md:text-8xl font-headline mb-8 italic leading-tight">Boutique <i>Pillar</i></h1>
-                        <p id="category-subtitle" class="text-xl text-on-surface-variant leading-relaxed max-w-xl">Curated excellence from the global market, brought directly to your doorstep with precision.</p>
-                        <div class="mt-12 flex space-x-6 justify-center md:justify-start">
-                            <a href="#products-grid" class="theme-bg-primary text-white px-10 py-4 rounded-2xl font-bold uppercase tracking-widest text-xs hover:scale-110 shadow-2xl transition-all">Browse Goods</a>
-                        </div>
-                    </div>
-                    <div class="hidden md:block reveal-up delay-300">
-                        <div class="relative group">
-                            <div class="absolute inset-0 theme-bg-primary rounded-[3rem] blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"></div>
-                            <img id="category-image-showcase" src="" alt="" class="w-full rounded-[3rem] shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-1000">
-                        </div>
-                    </div>
-                </div>
+    <main id="category-app" class="pt-32 min-h-screen pb-24">
+        <!-- SEO Header Section -->
+        <section class="py-12 bg-surface text-center px-8">
+            <div class="max-w-5xl mx-auto">
+                <h1 id="seo-title" class="text-4xl md:text-6xl font-headline italic text-on-surface mb-8">Top 10 Best Products</h1>
+                <p id="seo-intro" class="text-xl md:text-2xl text-on-surface-variant font-body leading-relaxed max-w-3xl mx-auto opacity-80">Discover the most useful, trending, and top-rated products carefully selected for quality and value.</p>
             </div>
         </section>
 
-        <!-- Product Grid -->
-        <section id="products-grid" class="py-24 bg-surface">
-            <div class="container mx-auto px-8 max-w-screen-2xl">
-                <div class="flex justify-between items-end mb-16 border-b border-outline-variant/10 pb-12">
-                    <div>
-                        <h2 class="text-4xl font-headline italic mb-4">The Selection</h2>
-                        <p class="text-on-surface-variant">Handpicked for quality, reliability, and modern lifestyle standards.</p>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <span class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Sort by:</span>
-                        <select class="bg-surface-container-low border border-outline-variant/10 px-4 py-2 rounded-lg text-sm font-bold tracking-tight outline-none focus:border-primary">
-                            <option>Latest</option>
-                            <option>Price Low-High</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div id="category-products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-                    <!-- Products will be injected here -->
+        <!-- Product Sections -->
+        <section class="py-16 bg-surface">
+            <div class="container mx-auto px-8 max-w-screen-xl">
+                <div id="category-products-container" class="space-y-32">
+                    <!-- Javascript will inject the 3 sections here (Top Picks, Trending, Editor's Choice) -->
                     <div class="animate-pulse col-span-full py-20 text-center">
                         <p class="text-xl serif italic opacity-40">Synchronizing boutique data...</p>
                     </div>
@@ -98,33 +65,60 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full rounded-t-[5rem] bg-surface-container-high border-t border-outline-variant/10">
+    <footer class="w-full rounded-t-[5rem] mt-20 bg-surface-container-high border-t border-outline-variant/10">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-16 px-16 py-24 max-w-screen-2xl mx-auto">
-            <div class="col-span-1">
+            <div class="flex flex-col">
                 <a href="index.html" data-logo class="flex items-center h-10 md:h-12 mb-8"></a>
-                <p class="text-on-surface-variant text-lg font-body leading-relaxed opacity-80">Your trusted global partner for curated quality and strategic sourcing excellence.</p>
+                <p class="text-on-surface-variant text-base font-body leading-relaxed opacity-70 italic">Delivering global sourcing excellence, quality reliability, and market-leading value to customers across the globe.</p>
             </div>
+            
             <div>
-                <h4 class="font-display text-sm tracking-[0.3em] uppercase theme-text-primary font-bold mb-10">Direct Navigate</h4>
-                <ul class="space-y-6">
-                    <li><a href="index.html" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Home Boutique</a></li>
-                    <li><a href="categories.html" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">All Pillars</a></li>
+                <h4 class="text-sm tracking-[0.3em] uppercase theme-text-primary font-bold mb-8">Boutique Pillars</h4>
+                <ul class="space-y-4">
+                    <li><a href="categories.html" class="text-on-surface-variant hover:theme-text-primary transition-colors text-base opacity-90 italic">Home & Kitchen</a></li>
+                    <li><a href="categories.html" class="text-on-surface-variant hover:theme-text-primary transition-colors text-base opacity-90 italic">Health & Wellness</a></li>
+                    <li><a href="categories.html" class="text-on-surface-variant hover:theme-text-primary transition-colors text-base opacity-90 italic">Essential Selection</a></li>
                 </ul>
             </div>
+
             <div>
-                <h4 class="font-display text-sm tracking-[0.3em] uppercase theme-text-primary font-bold mb-10">Resources</h4>
-                <ul class="space-y-6">
-                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Partnership</a></li>
-                    <li><a href="#" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80">Distribution</a></li>
+                <h4 class="text-sm tracking-[0.3em] uppercase theme-text-primary font-bold mb-8">Corporate</h4>
+                <ul class="space-y-4">
+                    <li><a href="about.html" class="text-on-surface-variant hover:theme-text-primary transition-all text-base opacity-90 italic">Our Story</a></li>
+                    <li><a href="about.html" class="text-on-surface-variant hover:theme-text-primary transition-all text-base opacity-90 italic">Strategic Vision</a></li>
+                    <li><a href="about.html" class="text-on-surface-variant hover:theme-text-primary transition-all text-base opacity-90 italic">Why MRT?</a></li>
                 </ul>
             </div>
+
             <div>
-                <h4 class="font-display text-sm tracking-[0.3em] uppercase theme-text-primary font-bold mb-10">Contact</h4>
-                <p class="text-on-surface-variant text-lg opacity-80 mb-6 font-body">Connect with our sourcing experts for customized corporate solutions.</p>
+                <h4 class="text-sm tracking-[0.3em] uppercase theme-text-primary font-bold mb-8">Get In Touch</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-center space-x-3 text-on-surface-variant opacity-70 italic">
+                        <span class="material-symbols-outlined text-sm theme-text-primary">location_on</span>
+                        <span>Wyoming, USA</span>
+                    </li>
+                    <li class="flex items-center space-x-3 text-on-surface-variant opacity-70 italic">
+                        <span class="material-symbols-outlined text-sm theme-text-primary">mail</span>
+                        <a href="mailto:Info@mrtinternationalholding.com" class="hover:theme-text-primary transition-colors">Info@mrtinternationalholding.com</a>
+                    </li>
+                    <li class="flex items-center space-x-3 text-on-surface-variant opacity-70 italic">
+                        <span class="material-symbols-outlined text-sm theme-text-primary">call</span>
+                        <a href="tel:+19044594398" class="hover:theme-text-primary transition-colors">+1 904 459 4398</a>
+                    </li>
+                    <li class="flex items-center space-x-3 pt-4">
+                        <a href="https://wa.me/19044594398" class="bg-primary/10 p-2 rounded-lg theme-text-primary hover:bg-primary hover:text-white transition-all duration-300" aria-label="WhatsApp">
+                            <span class="material-symbols-outlined">add_call</span>
+                        </a>
+                        <a href="#" class="bg-primary/10 p-2 rounded-lg theme-text-primary hover:bg-primary hover:text-white transition-all duration-300" aria-label="Facebook">
+                            <span class="material-symbols-outlined">facebook</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+        
         <div class="px-16 py-12 border-t border-outline-variant/10 text-center">
-            <p class="text-on-surface-variant font-body text-xs tracking-[0.3em] uppercase opacity-60">© 2024 MRT International Holding LLC. All rights reserved.</p>
+            <p class="text-on-surface-variant font-body text-xs tracking-[0.4em] uppercase opacity-40">© 2024 MRT International Holding LLC. All Rights Reserved.</p>
         </div>
     </footer>
 

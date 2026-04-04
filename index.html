@@ -26,29 +26,59 @@
                 <a href="index.html" data-logo class="flex items-center h-10 md:h-12"></a>
             </div>
             
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="text-on-surface border-b-2 border-primary font-medium pb-1 serif italic text-lg tracking-tight">Home</a>
-                <a href="about.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">About</a>
+            <nav class="hidden md:flex items-center space-x-12">
+                <a href="index.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Home</a>
+                <a href="about.html" class="text-on-surface border-b-2 border-primary font-medium pb-1 serif italic text-lg tracking-tight">About</a>
                 <a href="categories.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Categories</a>
+                <a href="#contact" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Contact</a>
             </nav>
-
             <div class="flex items-center space-x-6">
-                <div class="hidden lg:flex items-center bg-surface-container-high/40 rounded-lg px-3 py-1.5 border border-outline-variant/10">
-                    <span class="material-symbols-outlined text-primary text-xl">search</span>
-                    <input type="text" placeholder="Search curated goods..." class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body ml-2 outline-none">
                 </div>
                 
                 <div class="flex items-center space-x-4">
                     <button class="hover:bg-surface-container-high rounded-lg p-2 transition-all duration-300 text-primary group">
                         <span class="material-symbols-outlined group-hover:scale-110 transition-transform">favorite</span>
                     </button>
-                    <button class="hover:bg-surface-container-high rounded-lg p-2 transition-all duration-300 text-primary group">
+                    <button id="cart-button" class="relative hover:bg-surface-container-high rounded-lg p-2 transition-all duration-300 text-primary group">
                         <span class="material-symbols-outlined group-hover:scale-110 transition-transform">shopping_bag</span>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center opacity-0 transition-opacity">0</span>
                     </button>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full md:w-96 bg-surface shadow-2xl z-[100] translate-x-full transition-transform duration-500 ease-in-out border-l border-outline-variant/10">
+        <div class="flex flex-col h-full">
+            <div class="p-6 border-b border-outline-variant/10 flex justify-between items-center bg-surface">
+                <h2 class="text-2xl font-headline italic">Your Saved Deals</h2>
+                <button id="close-cart" class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <div id="cart-items" class="flex-grow overflow-y-auto p-6 space-y-6 bg-surface-container-lowest">
+                <!-- Cart items will be injected here -->
+                <div class="flex flex-col items-center justify-center h-full text-center opacity-40">
+                    <span class="material-symbols-outlined text-6xl mb-4">shopping_basket</span>
+                    <p class="serif italic">Your interest list is empty.</p>
+                </div>
+            </div>
+            
+            <div class="p-6 border-t border-outline-variant/10 bg-surface">
+                <div class="flex justify-between mb-4">
+                    <span class="font-bold text-on-surface-variant">Estimated Value</span>
+                    <span id="cart-total" class="font-headline italic text-xl">$0.00</span>
+                </div>
+                <button class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold uppercase tracking-[0.2em] text-xs hover:scale-[1.02] transition-transform shadow-xl">Complete Interest List</button>
+                <p class="text-[10px] text-center text-on-surface-variant opacity-40 mt-4 leading-tight italic">Saving items helps you compare deals across our partner networks.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Drawer Backdrop -->
+    <div id="drawer-backdrop" class="fixed inset-0 bg-black/40 z-[90] opacity-0 pointer-events-none transition-opacity duration-500"></div>
 
     <main class="pt-20">
         <!-- Hero Section -->
@@ -59,13 +89,13 @@
             </div>
             
             <div class="container mx-auto px-8 relative z-10">
-                <div class="max-w-3xl bg-white/10 backdrop-blur-xl p-14 rounded-[3rem] border border-white/30 shadow-2xl">
-                    <span class="text-primary font-label tracking-[0.4em] uppercase text-sm mb-6 block font-bold">Smart Global Sourcing</span>
-                    <h1 class="text-6xl font-headline text-slate-900 leading-tight mb-8">Your Partner for <br><i class="font-normal text-5xl italic text-primary">Smarter Shopping</i></h1>
-                    <p class="text-on-surface-variant font-body mb-10 text-xl leading-relaxed text-on-background/90 italic">Bringing together quality products, competitive pricing, and a seamless digital experience — all in one place. Discover the difference today.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <button class="bg-primary text-on-primary px-12 py-5 rounded-2xl text-sm font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl">Explore Collection</button>
-                        <button class="bg-white/10 text-on-background px-12 py-5 rounded-2xl text-sm font-bold uppercase tracking-widest border border-white/20 hover:bg-white/20 transition-all">How We Source</button>
+                <div class="max-w-3xl bg-white/60 backdrop-blur-2xl p-16 rounded-[4rem] border border-white shadow-2xl shadow-primary/5">
+                    <span class="text-primary font-bold uppercase tracking-[0.5em] text-xs mb-8 block">Smart Global Sourcing</span>
+                    <h1 class="text-7xl font-headline text-on-surface leading-[1.1] mb-10">Your Partner for <br><i class="font-normal text-6xl italic text-primary">Smarter Shopping</i></h1>
+                    <p class="text-on-surface-variant font-body mb-12 text-2xl leading-relaxed italic opacity-90">Bringing together quality products, competitive pricing, and a seamless digital experience — all in one boutique destination.</p>
+                    <div class="flex flex-wrap gap-6">
+                        <button class="bg-primary text-on-primary px-12 py-6 rounded-2xl text-sm font-bold uppercase tracking-[0.2em] hover:scale-110 transition-all duration-500 shadow-2xl shadow-primary/20">Explore Collections</button>
+                        <button class="bg-surface/40 backdrop-blur-md text-primary border border-primary/20 px-12 py-6 rounded-2xl text-sm font-bold uppercase tracking-[0.2em] hover:bg-primary/5 transition-all duration-500">How We Source</button>
                     </div>
                 </div>
             </div>
@@ -103,49 +133,49 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-auto md:h-[1200px]">
                 <!-- Home & Kitchen (LARGE) -->
                 <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group min-h-[350px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-home.png" alt="Home & Kitchen" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <img src="/assets/categories/home-kitchen.png" alt="Home & Kitchen" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors duration-700 flex flex-col justify-end p-10">
                         <h3 class="text-4xl text-white font-headline drop-shadow-md italic">Home & Kitchen</h3>
                     </div>
                 </div>
                 <!-- Health & Personal Care -->
                 <div class="relative rounded-3xl overflow-hidden group min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-health.png" alt="Health & Personal Care" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <img src="/assets/categories/health-wellness.png" alt="Health & Personal Care" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
                         <h3 class="text-xl text-white font-headline drop-shadow-md uppercase tracking-widest text-xs">Health & Personal Care</h3>
                     </div>
                 </div>
                 <!-- Beauty & Skincare -->
                 <div class="relative rounded-3xl overflow-hidden group min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-beauty.png" alt="Beauty & Skincare" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <img src="/assets/categories/beauty-skincare.png" alt="Beauty & Skincare" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
                         <h3 class="text-xl text-white font-headline drop-shadow-md uppercase tracking-widest text-xs">Beauty & Skincare</h3>
                     </div>
                 </div>
                 <!-- Pet Supplies -->
                 <div class="md:col-span-2 relative rounded-3xl overflow-hidden group min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-pets.png" alt="Pet Supplies" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <img src="/assets/categories/pet-supplies.png" alt="Pet Supplies" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-8">
                         <h3 class="text-3xl text-white font-headline drop-shadow-md italic">Pet Supplies</h3>
                     </div>
                 </div>
                 <!-- Baby Products -->
                 <div class="relative rounded-3xl overflow-hidden group min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-baby.png" alt="Baby Products" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <img src="/assets/categories/baby-products.png" alt="Baby Products" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
                         <h3 class="text-xl text-white font-headline drop-shadow-md uppercase tracking-widest text-xs">Baby Products</h3>
                     </div>
                 </div>
                 <!-- Electronics Accessories -->
                 <div class="relative rounded-3xl overflow-hidden group min-h-[250px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-tech.png" alt="Electronics Accessories" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                    <img src="/assets/categories/electronics.png" alt="Electronics Accessories" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-700 flex flex-col justify-end p-6">
                         <h3 class="text-xl text-white font-headline drop-shadow-md uppercase tracking-widest text-xs">Electronics Accessories</h3>
                     </div>
                 </div>
                 <!-- Sports & Fitness (BOTTOM WIDE) -->
-                <div class="md:col-span-4 relative rounded-3xl overflow-hidden group reveal-up min-h-[350px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
-                    <img src="/assets/bento-sports.png" alt="Sports & Fitness" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+                <div class="md:col-span-4 relative rounded-3xl overflow-hidden group min-h-[350px] border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-700">
+                    <img src="/assets/categories/sports-fitness.png" alt="Sports & Fitness" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-12">
                         <h3 class="text-5xl text-white font-headline drop-shadow-md italic">Sports & Fitness</h3>
                         <p class="text-white/80 font-body max-w-xl mt-4 text-lg">Achieve your best with gear curated for performance, reliability, and modern training lifestyles.</p>
@@ -286,21 +316,21 @@
         <!-- Customer Reflections (REGIONAL HERO TESTIMONIALS) -->
         <section class="py-32 bg-surface-container-low" id="reviews">
             <div class="px-8 max-w-screen-2xl mx-auto">
-                <div class="mb-20 text-center reveal-up">
-                    <span class="text-primary font-label text-sm uppercase tracking-[0.4em] block mb-6 font-bold tracking-widest">Global Feedback</span>
-                    <h2 class="text-6xl font-headline mb-6 italic">World Reflections</h2>
-                    <p class="text-on-surface-variant max-w-xl mx-auto text-lg italic opacity-80">Trusted by Customers Across the USA, UAE & Beyond.</p>
+                <div class="mb-20 text-center">
+                    <span class="text-primary font-bold uppercase tracking-[0.4em] text-xs mb-6 block">Global Feedback</span>
+                    <h2 class="text-6xl font-headline italic mb-6">World Reflections</h2>
+                    <p class="text-on-surface-variant max-w-xl mx-auto text-lg italic opacity-80 decoration-primary/20 decoration-1">Trusted by Customers Across the USA, UAE & Beyond.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-20">
                     <div class="p-4">
-                        <div class="flex items-center mb-10 reveal-up">
+                        <div class="flex items-center mb-10">
                             <span class="text-5xl mr-6 filter grayscale drop-shadow-sm">🇺🇸</span>
                             <h3 class="text-4xl font-headline tracking-tight">United States</h3>
                         </div>
                         <div id="testimonials-us" class="space-y-8"></div>
                     </div>
                     <div class="p-4">
-                        <div class="flex items-center mb-10 reveal-up">
+                        <div class="flex items-center mb-10">
                             <span class="text-5xl mr-6 filter grayscale drop-shadow-sm">🇦🇪</span>
                             <h3 class="text-4xl font-headline tracking-tight">UAE</h3>
                         </div>
@@ -308,7 +338,7 @@
                     </div>
                 </div>
                 
-                <div class="max-w-4xl mx-auto text-center reveal-up py-16 border-t border-outline-variant/10">
+                <div class="max-w-4xl mx-auto text-center py-16 border-t border-outline-variant/10">
                     <p class="text-2xl text-on-surface-variant font-body leading-relaxed">"We take pride in serving customers across the globe. Our commitment to quality, value, and reliability speaks through the experiences of our customers."</p>
                 </div>
             </div>
@@ -331,40 +361,60 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full rounded-t-[5rem] mt-20 bg-surface-container-high border-t border-outline-variant/10">
+    <footer id="contact" class="w-full rounded-t-[5rem] mt-20 bg-surface-container-high border-t border-outline-variant/10 text-on-surface">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-16 px-16 py-24 max-w-screen-2xl mx-auto">
-            <a href="index.html" data-logo class="flex items-center h-10 md:h-12"></a>
-                <p class="text-on-surface-variant text-lg font-body leading-relaxed mb-10 opacity-80">Trusted by Customers Across the USA, UAE & Beyond. Delivering quality, reliability, and value.</p>
+            <div class="flex flex-col">
+                <a href="index.html" data-logo class="flex items-center h-10 md:h-12 mb-8"></a>
+                <p class="text-on-surface-variant text-base font-body leading-relaxed opacity-70 italic">Delivering global sourcing excellence, quality reliability, and market-leading value to customers across the globe.</p>
             </div>
+            
             <div>
-                <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Categories</h4>
-                <ul class="space-y-6">
-                    <li><a href="categories.html" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Home & Kitchen</a></li>
-                    <li><a href="categories.html" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Health & Vitality</a></li>
-                    <li><a href="categories.html" class="text-on-surface-variant hover:text-primary transition-colors text-lg opacity-80 decoration-primary/20 decoration-1">Essential Care</a></li>
+                <h4 class="text-sm tracking-[0.3em] uppercase text-primary font-bold mb-8">Boutique Pillars</h4>
+                <ul class="space-y-4">
+                    <li><a href="categories.html" class="text-on-surface-variant hover:text-primary transition-colors text-base opacity-90 italic">Home & Kitchen</a></li>
+                    <li><a href="categories.html" class="text-on-surface-variant hover:text-primary transition-colors text-base opacity-90 italic">Health & Wellness</a></li>
+                    <li><a href="categories.html" class="text-on-surface-variant hover:text-primary transition-colors text-base opacity-90 italic">Essential Selection</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Corporate</h4>
-                <ul class="space-y-6 text-on-surface-variant">
-                    <li><a href="about.html" class="hover:text-primary transition-colors">Our Vision</a></li>
-                    <li><a href="about.html" class="hover:text-primary transition-colors">Mission & Values</a></li>
-                    <li><a href="about.html" class="hover:text-primary transition-colors">Why Choose Us</a></li>
+                <h4 class="text-sm tracking-[0.3em] uppercase text-primary font-bold mb-8">Corporate</h4>
+                <ul class="space-y-4">
+                    <li><a href="about.html" class="text-on-surface-variant hover:text-primary transition-all text-base opacity-90 italic">Our Story</a></li>
+                    <li><a href="about.html" class="text-on-surface-variant hover:text-primary transition-all text-base opacity-90 italic">Strategic Vision</a></li>
+                    <li><a href="about.html" class="text-on-surface-variant hover:text-primary transition-all text-base opacity-90 italic">Why MRT?</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="font-display text-sm tracking-[0.3em] uppercase text-primary font-bold mb-10">Resources</h4>
-                <ul class="space-y-6 text-on-surface-variant">
-                    <li><a href="#" class="hover:text-primary transition-colors">Customer Support</a></li>
-                    <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                <h4 class="text-sm tracking-[0.3em] uppercase text-primary font-bold mb-8">Get In Touch</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-center space-x-3 text-on-surface-variant opacity-70 italic">
+                        <span class="material-symbols-outlined text-sm text-primary">location_on</span>
+                        <span>Wyoming, USA</span>
+                    </li>
+                    <li class="flex items-center space-x-3 text-on-surface-variant opacity-70 italic">
+                        <span class="material-symbols-outlined text-sm text-primary">mail</span>
+                        <a href="mailto:Info@mrtinternationalholding.com" class="hover:text-primary transition-colors">Info@mrtinternationalholding.com</a>
+                    </li>
+                    <li class="flex items-center space-x-3 text-on-surface-variant opacity-70 italic">
+                        <span class="material-symbols-outlined text-sm text-primary">call</span>
+                        <a href="tel:+19044594398" class="hover:text-primary transition-colors">+1 904 459 4398</a>
+                    </li>
+                    <li class="flex items-center space-x-3 pt-4">
+                        <a href="https://wa.me/19044594398" class="bg-primary/10 p-2 rounded-lg text-primary hover:bg-primary hover:text-white transition-all duration-300" aria-label="WhatsApp">
+                            <span class="material-symbols-outlined">add_call</span>
+                        </a>
+                        <a href="#" class="bg-primary/10 p-2 rounded-lg text-primary hover:bg-primary hover:text-white transition-all duration-300" aria-label="Facebook">
+                            <span class="material-symbols-outlined">facebook</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
         
         <div class="px-16 py-12 border-t border-outline-variant/10 text-center">
-            <p class="text-on-surface-variant font-body text-sm tracking-[0.3em] uppercase opacity-60">© 2024 MRT International Holding LLC. All rights reserved.</p>
+            <p class="text-on-surface-variant font-body text-xs tracking-[0.4em] uppercase opacity-40">© 2024 MRT International Holding LLC. All Rights Reserved.</p>
         </div>
     </footer>
 

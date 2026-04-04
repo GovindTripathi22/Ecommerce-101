@@ -59,10 +59,10 @@
     @apply bg-white rounded-[2.5rem] p-6 shadow-sm border border-orange-100/50 hover:shadow-2xl transition-all duration-700;
   }
 
-  /* Reveal Animations Base */
+  /* Reveal Animations Base - Default to Visible for Reliability */
   .reveal-up {
-    opacity: 0;
-    transform: translateY(40px);
+    opacity: 1;
+    transform: translateY(0);
     transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
   }
 
