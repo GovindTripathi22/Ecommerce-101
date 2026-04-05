@@ -315,20 +315,44 @@ class MRTApp {
     requestAnimationFrame(raf);
   }
 
+  initScrollReveal() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Dynamic Nav Highlight
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('nav a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (currentPath.includes(href) && href !== 'index.html') {
+         link.classList.add('text-on-surface', 'border-b-2', 'border-primary');
+         link.classList.remove('text-on-surface-variant');
+      }
+    });
+  }
+
+
   async fetchData() {
     try {
-      const [productsRes, testimonialsRes] = await Promise.all([
-        fetch('/api/products'),
-        fetch('/api/testimonials')
-      ]);
-      const products = await productsRes.json();
-      const testimonials = await testimonialsRes.json();
-      this.renderProducts(products);
-      this.renderTestimonials(testimonials);
+      const productsRes = await fetch('/api/products');
+      if (productsRes.ok) {
+        const products = await productsRes.json();
+        this.renderProducts(products);
+      }
     } catch (err) {
-      console.error('Data sync failed:', err);
+      console.error('Products sync failed:', err);
+    }
+
+    try {
+      const testimonialsRes = await fetch('/api/testimonials');
+      if (testimonialsRes.ok) {
+        const testimonials = await testimonialsRes.json();
+        this.renderTestimonials(testimonials);
+      }
+    } catch (err) {
+      console.error('Testimonials sync failed:', err);
     }
   }
+
 
   renderProducts(products) {
     const categories = [
