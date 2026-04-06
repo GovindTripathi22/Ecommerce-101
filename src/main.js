@@ -38,7 +38,7 @@ const ID_MAP = {
   '7': 'sports-fitness'
 };
 
-const API_BASE = 'http://127.0.0.1:3001';
+const API_BASE = ''; // Use relative paths for Vite proxy
 
 class MRTApp {
   constructor() {
@@ -101,8 +101,8 @@ class MRTApp {
 
     try {
       const [productsRes, themesRes] = await Promise.all([
-        fetch(`${API_BASE}/api/products`),
-        fetch(`${API_BASE}/api/themes`)
+        fetch('/api/products'),
+        fetch('/api/themes')
       ]);
 
       if (!productsRes.ok || !themesRes.ok) throw new Error('API error');
@@ -145,7 +145,8 @@ class MRTApp {
     document.title = `${theme.title} | MRT International`;
   }
 
-  createProductCard(product) {
+  createProductCard(product, options = {}) {
+    const variant = options.variant || 'boutique';
     const name = product.name || 'Product';
     const badge = product.badge || 'Top Pick';
     const shortDesc = product.shortBenefit || 'Premium quality product selected for elite needs.';
@@ -153,31 +154,46 @@ class MRTApp {
     const ratingStr = product.rating || '4.8/5 Recommended';
     const image = product.image || '';
     const price = product.price || 0;
-    
-    let badgeColor = "bg-primary text-on-primary";
-    if (badge === "Trending Now") badgeColor = "bg-orange-600 text-white";
-    if (badge === "Editor's Choice") badgeColor = "bg-[#701b2f] text-white";
+    const cardClasses = variant === 'homepage'
+      ? 'product-card-premium product-card-compact group flex-shrink-0 w-[300px] md:w-[380px] snap-start'
+      : 'product-card-premium group snap-start';
+    const ratingLabel = ratingStr.replace('/5', '');
+    const specsTitle = variant === 'homepage' ? 'Highlights' : 'Elite Specifications';
+    const titleClasses = variant === 'homepage'
+      ? 'text-xl md:text-2xl font-headline italic tracking-tight leading-tight text-on-surface'
+      : 'text-2xl md:text-3xl font-headline italic tracking-tight leading-tight text-on-surface';
+    const bodyClasses = variant === 'homepage'
+      ? 'text-on-surface-variant font-body text-sm mb-5 opacity-80 line-clamp-2'
+      : 'text-on-surface-variant font-body text-sm mb-6 opacity-80 italic line-clamp-2';
+    const imageClasses = variant === 'homepage'
+      ? 'w-full h-full object-contain transition-all duration-700 group-hover:scale-105 float-animation drop-shadow-[0_18px_40px_rgba(0,0,0,0.16)]'
+      : 'w-full h-full object-contain transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1 float-animation drop-shadow-[0_25px_50px_rgba(0,0,0,0.2)]';
 
     return `
-      <div class="product-card-premium group" data-premium-card>
+      <article class="${cardClasses}" data-premium-card>
         <div class="premium-glow"></div>
-        <div class="image-glass-container mb-6">
-          <div class="absolute top-4 left-4 z-20 px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-2xl" style="background-color: var(--category-primary, #914d00); color: white;">
+        <div class="image-glass-container mb-5">
+          <div class="absolute top-4 left-4 z-20 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-xl" style="background-color: var(--category-primary, #914d00); color: white;">
             ${badge}
           </div>
+          <div class="absolute top-4 right-4 z-20 rounded-full bg-white/80 px-3 py-2 text-[11px] font-bold tracking-[0.12em] text-on-surface shadow-lg backdrop-blur-md">
+            $${price}
+          </div>
           ${image
-            ? `<img src="${image}" alt="${name}" class="w-full h-full object-contain transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1 float-animation drop-shadow-[0_25px_50px_rgba(0,0,0,0.2)]" loading="lazy">`
+            ? `<img src="${image}" alt="${name}" class="${imageClasses}" loading="lazy">`
             : `<div class="w-full h-full flex items-center justify-center opacity-20 text-on-surface"><span class="material-symbols-outlined text-6xl">image</span></div>`
           }
         </div>
         <div class="flex flex-col flex-grow">
-          <div class="flex justify-between items-start mb-3 gap-3">
-            <h3 class="text-2xl md:text-3xl font-headline italic tracking-tight leading-tight text-on-surface">${name}</h3>
-            <span class="text-xl font-bold" style="color: var(--category-primary, #914d00);">$${price}</span>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <h3 class="${titleClasses}">${name}</h3>
+            <span class="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-white shadow-md" style="background: linear-gradient(135deg, var(--category-primary, #914d00), var(--category-secondary, #f28c28));">
+              ${ratingLabel}
+            </span>
           </div>
-          <p class="text-on-surface-variant font-body text-sm mb-6 opacity-80 italic line-clamp-2">${shortDesc}</p>
-          <div class="mb-6 flex-grow">
-            <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold text-on-surface mb-3 opacity-40">Elite Specifications</h4>
+          <p class="${bodyClasses}">${shortDesc}</p>
+          <div class="mb-5 flex-grow">
+            <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold text-on-surface mb-3 opacity-40">${specsTitle}</h4>
             <ul class="space-y-2">
               ${benefits.slice(0, 2).map(b => `
                 <li class="flex items-center text-[12px] text-on-surface-variant font-semibold">
@@ -187,20 +203,20 @@ class MRTApp {
               `).join('')}
             </ul>
           </div>
-          <div class="mb-6 p-4 rounded-2xl bg-surface-variant/10 border border-white/20 flex justify-between items-center">
-            <div class="flex items-center text-orange-500 scale-75">
+          <div class="mb-5 rounded-[1.25rem] border border-white/40 bg-white/55 px-4 py-3 backdrop-blur-md flex justify-between items-center">
+            <div class="flex items-center text-orange-500 scale-75 origin-left">
               ${Array(5).fill('<span class="material-symbols-outlined text-xl">star</span>').join('')}
             </div>
-            <p class="text-[9px] font-bold uppercase tracking-[0.1em] opacity-60">${ratingStr}</p>
+            <p class="text-[9px] font-bold uppercase tracking-[0.14em] opacity-60">${ratingStr}</p>
           </div>
-          <div class="flex items-center">
-            <a href="https://wa.me/?text=I+am+interested+in+${encodeURIComponent(name)}" target="_blank" class="flex-grow flex items-center justify-center space-x-3 text-white py-4 rounded-xl font-bold uppercase tracking-widest text-[10px] hover:opacity-90 transition-all shadow-lg" style="background-color: #25D366;">
+          <div class="mt-auto flex items-center">
+            <a href="https://wa.me/?text=I+am+interested+in+${encodeURIComponent(name)}" target="_blank" class="flex-grow flex items-center justify-center space-x-3 rounded-2xl px-4 py-3 text-[10px] font-bold uppercase tracking-[0.22em] text-white transition-all hover:-translate-y-0.5 hover:opacity-95 shadow-lg" style="background: linear-gradient(135deg, #25D366, #16a34a);">
               <span class="material-symbols-outlined text-lg">add_call</span>
               <span>WhatsApp Inquiry</span>
             </a>
           </div>
         </div>
-      </div>
+      </article>
     `;
   }
 
@@ -249,18 +265,57 @@ class MRTApp {
   }
 
   initCardInteractions() {
-    document.querySelectorAll('[data-premium-card]').forEach(card => {
+    const cards = document.querySelectorAll('[data-premium-card]');
+    cards.forEach(card => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
-        card.style.setProperty('--x', `${e.clientX - rect.left}px`);
-        card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+
+        // 3D Tilt Logic
+        const xc = rect.width / 2;
+        const yc = rect.height / 2;
+        const dx = (x - xc) / (rect.width / 2);
+        const dy = (y - yc) / (rect.height / 2);
+
+        if (typeof gsap !== 'undefined') {
+          gsap.to(card, {
+            rotateY: dx * 6,
+            rotateX: -dy * 6,
+            duration: 0.6,
+            ease: 'power2.out'
+          });
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--x', `50%`);
+        card.style.setProperty('--y', `50%`);
+        if (typeof gsap !== 'undefined') {
+          gsap.to(card, {
+            rotateY: 0,
+            rotateX: 0,
+            duration: 0.8,
+            ease: 'elastic.out(1, 0.5)'
+          });
+        }
       });
     });
 
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      gsap.from('[data-premium-card]', {
-        y: 60, opacity: 0, duration: 1.5, stagger: 0.15, ease: "power4.out",
-        scrollTrigger: { trigger: '#category-products-container', start: 'top 85%' }
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && cards.length > 0) {
+      gsap.from(cards, {
+        y: 60,
+        opacity: 0,
+        duration: 1.5,
+        stagger: 0.1,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: cards[0],
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
       });
     }
   }
@@ -283,23 +338,33 @@ class MRTApp {
       }
     });
 
-    gsap.from('.category-pill', { x: 50, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out" });
+    gsap.utils.toArray('.category-pill').forEach(pill => {
+       gsap.from(pill, { x: 50, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out" });
+    });
   }
 
   async renderFeaturedSegments() {
     try {
-      const res = await fetch(`${API_BASE}/api/products`);
-      if (res.ok) {
-        const products = await res.json();
-        this.renderHomepagePicks(products);
+      const [productsRes, themesRes] = await Promise.all([
+        fetch('/api/products'),
+        fetch('/api/themes')
+      ]);
+      
+      if (productsRes.ok && themesRes.ok) {
+        const products = await productsRes.json();
+        const themes = await themesRes.json();
+        this.renderHomepagePicks(products, themes);
       }
-    } catch (err) { console.error('Featured segments sync failed:', err); }
-    finally { if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh(); }
+    } catch (err) { 
+      console.error('Featured segments sync failed:', err); 
+    } finally { 
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh(); 
+    }
   }
 
   async renderHomepageTestimonials() {
     try {
-      const res = await fetch(`${API_BASE}/api/testimonials`);
+      const res = await fetch('/api/testimonials');
       if (res.ok) {
         const data = await res.json();
         this.renderTestimonials(data);
@@ -308,24 +373,43 @@ class MRTApp {
     finally { if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh(); }
   }
 
-  renderHomepagePicks(products) {
+  renderHomepagePicks(products, themes = {}) {
      const sections = [
-       { id: 'home-kitchen-carousel', category: 'home-kitchen' },
-       { id: 'health-care-carousel', category: 'health-personal-care' },
-       { id: 'beauty-skincare-carousel', category: 'beauty-skincare' },
-       { id: 'pet-carousel', category: 'pet-supplies' },
-       { id: 'baby-carousel', category: 'baby-products' },
-       { id: 'electronics-carousel', category: 'electronics-accessories' },
-       { id: 'sports-carousel', category: 'sports-fitness' }
+        { id: 'home-kitchen-carousel', category: 'home-kitchen' },
+        { id: 'health-care-carousel', category: 'health-personal-care' },
+        { id: 'beauty-skincare-carousel', category: 'beauty-skincare' },
+        { id: 'pet-carousel', category: 'pet-supplies' },
+        { id: 'baby-carousel', category: 'baby-products' },
+        { id: 'electronics-carousel', category: 'electronics-accessories' },
+        { id: 'sports-carousel', category: 'sports-fitness' }
      ];
+
      sections.forEach(sec => {
        const el = document.getElementById(sec.id);
        if (!el) return;
-       const list = products.filter(p => p.category === sec.category);
-       el.innerHTML = list.map(p => this.createProductCard(p)).join('');
+       
+       const list = products
+         .filter(p => p.category === sec.category)
+         .slice(0, 8);
+
+       if (list.length > 0) {
+         const theme = themes[sec.category] || { primary: '#914d00', secondary: '#ff8c00' };
+         const primary = theme.primary || '#914d00';
+         el.style.setProperty('--category-primary', primary);
+         el.style.setProperty('--category-secondary', theme.secondary || '#ff8c00');
+         
+         const r = parseInt(primary.slice(1, 3), 16);
+         const g = parseInt(primary.slice(3, 5), 16);
+         const b = parseInt(primary.slice(5, 7), 16);
+         el.style.setProperty('--category-primary-glow', `rgba(${r}, ${g}, ${b}, 0.15)`);
+
+         el.innerHTML = list.map(p => this.createProductCard(p, { variant: 'homepage' })).join('');
+       } else {
+         el.innerHTML = `<div class="w-full py-20 text-center opacity-30 italic">No products currently listed in ${sec.category}</div>`;
+       }
      });
      this.initCardInteractions();
-  }
+   }
 
   renderTestimonials(testimonials) {
     const render = (id, reg) => {

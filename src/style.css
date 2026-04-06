@@ -77,18 +77,30 @@
 
   /* UI/UX Pro Max: Product Cards */
   .product-card-premium {
-    @apply relative bg-white/40 backdrop-blur-2xl border border-white/60 rounded-[2rem] p-6 transition-all duration-1000 hover:shadow-[0_45px_100px_-20px_rgba(145,77,0,0.15)] hover:-translate-y-5 flex flex-col h-full;
+    @apply relative w-full bg-white/60 backdrop-blur-[40px] border border-white/70 rounded-[2.5rem] p-6 transition-all duration-700 hover:shadow-[0_65px_120px_-25px_rgba(0,0,0,0.18)] hover:-translate-y-4 flex flex-col h-full overflow-hidden;
     transform: perspective(1000px) rotateX(0deg);
-    min-width: 380px;
-    max-width: 440px;
+    box-shadow: 0 35px 80px -22px rgba(0,0,0,0.08);
+  }
+
+  .product-card-premium::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/30 opacity-0 transition-opacity duration-700 pointer-events-none;
+  }
+
+  .product-card-premium:hover::before {
+    @apply opacity-100;
   }
 
   .product-card-premium:hover {
     @apply border-orange-500/20 bg-white/60;
   }
 
+  .product-card-compact {
+    @apply rounded-[1.75rem] p-4;
+  }
+
   .image-glass-container {
-    @apply relative h-64 w-full rounded-[1.5rem] overflow-hidden bg-gradient-to-br from-surface-variant/40 to-white/10 p-6 transition-all duration-1000 flex items-center justify-center;
+    @apply relative h-64 w-full rounded-[2rem] overflow-hidden border border-white/60 bg-gradient-to-br from-surface-variant/40 via-white/60 to-white/10 p-6 transition-all duration-700 flex items-center justify-center;
   }
 
   .premium-glow {
@@ -98,6 +110,21 @@
 
   .product-card-premium:hover .premium-glow {
     @apply opacity-100;
+  }
+
+  .peek-container {
+    @apply flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory gap-10 pb-12 cursor-grab active:cursor-grabbing;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    min-height: 520px;
+  }
+
+  .peek-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+
+  .section-nav {
+    @apply flex items-center space-x-6;
   }
 
   .social-inquiry-btn {
