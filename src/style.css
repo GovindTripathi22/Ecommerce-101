@@ -74,6 +74,45 @@
   /* Hide Scrollbar Utility */
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* UI/UX Pro Max: Product Cards */
+  .product-card-premium {
+    @apply relative bg-white/40 backdrop-blur-2xl border border-white/60 rounded-[2rem] p-6 transition-all duration-1000 hover:shadow-[0_45px_100px_-20px_rgba(145,77,0,0.15)] hover:-translate-y-5 flex flex-col h-full;
+    transform: perspective(1000px) rotateX(0deg);
+    min-width: 380px;
+    max-width: 440px;
+  }
+
+  .product-card-premium:hover {
+    @apply border-orange-500/20 bg-white/60;
+  }
+
+  .image-glass-container {
+    @apply relative h-64 w-full rounded-[1.5rem] overflow-hidden bg-gradient-to-br from-surface-variant/40 to-white/10 p-6 transition-all duration-1000 flex items-center justify-center;
+  }
+
+  .premium-glow {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-1000 pointer-events-none;
+    background: radial-gradient(800px circle at var(--x) var(--y), var(--category-primary-glow, rgba(255,140,0,0.1)), transparent 40%);
+  }
+
+  .product-card-premium:hover .premium-glow {
+    @apply opacity-100;
+  }
+
+  .social-inquiry-btn {
+    @apply p-4 rounded-2xl bg-white/80 border border-white/60 backdrop-blur-md shadow-lg transition-all duration-500 hover:scale-110 active:scale-95 flex items-center justify-center;
+  }
+
+  /* Custom Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
 }
 
 /* Custom Premium Scrollbar */

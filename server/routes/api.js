@@ -2,195 +2,65 @@ import express from 'express';
 const router = express.Router();
 
 const products = [
-  // --- HOME & KITCHEN ---
-  // Top Picks
-  { id: 101, name: 'Premium Magnetic Hand Whisk', category: 'home-kitchen', badge: 'Top Pick', shortBenefit: 'An elegantly balanced whisk for effortless mixing and aerating.', keyBenefits: ['Balanced weight for comfort', 'Polished food-grade steel', 'Magnetic handle for easy storage'], rating: '4.9/5 Recommended', image: '/assets/products/whisk-1.jpg', price: 29.99 },
-  { id: 102, name: 'Professional Rotating Whisk', category: 'home-kitchen', badge: 'Top Pick', shortBenefit: 'Achieve perfect consistency with semi-automatic rotation technology.', keyBenefits: ['Pressure-driven rotation', 'No batteries or cords required', 'Durable stainless construction'], rating: '4.8/5 Recommended', image: '/assets/products/whisk-2.jpg', price: 34.99 },
-  { id: 103, name: 'Vacuum Storage Bags', category: 'home-kitchen', badge: 'Top Pick', shortBenefit: 'Maximize your closet space by compressing bulky clothing and bedding.', keyBenefits: ['Protects against dust and moisture', 'Airtight double-zip seal', 'Compatible with standard vacuums'], rating: '4.6/5 Recommended', image: '/assets/products/placeholder.png', price: 19.99 },
-  { id: 104, name: 'Air Fryer Accessories Set', category: 'home-kitchen', badge: 'Top Pick', shortBenefit: 'Expand your air frying capabilities with multi-purpose baking tools.', keyBenefits: ['Food-grade silicone and steel', 'Dishwasher safe components', 'Includes pizza pan and skewer rack'], rating: '4.9/5 Recommended', image: '/assets/products/placeholder.png', price: 29.99 },
-  // Trending Now
-  { id: 105, name: 'Oil Spray Bottle', category: 'home-kitchen', badge: 'Trending Now', shortBenefit: 'Achieve perfectly even oil coating for healthier cooking and roasting.', keyBenefits: ['Precise portion control', 'Leak-proof and easy to refill', 'Great for air fryers and salads'], rating: '4.5/5 Highly Rated', image: '/assets/products/placeholder.png', price: 12.99 },
-  { id: 106, name: 'Smart Plug', category: 'home-kitchen', badge: 'Trending Now', shortBenefit: 'Automate your home appliances with app and voice control.', keyBenefits: ['Compatible with Alexa and Google Home', 'Set timers and schedules', 'Energy monitoring capabilities'], rating: '4.7/5 Highly Rated', image: '/assets/products/placeholder.png', price: 15.99 },
-  { id: 107, name: 'LED Motion Sensor Lights', category: 'home-kitchen', badge: 'Trending Now', shortBenefit: 'Bright, energy-efficient lighting for cabinets, stairs, and hallways.', keyBenefits: ['Automatic on/off sensing', 'Simple magnetic installation', 'Rechargeable battery power'], rating: '4.8/5 Highly Rated', image: '/assets/products/placeholder.png', price: 22.99 },
-  { id: 108, name: 'Microfiber Cleaning Cloth Pack', category: 'home-kitchen', badge: 'Trending Now', shortBenefit: 'Ultra-absorbent, lint-free cloths for streak-free cleaning everywhere.', keyBenefits: ['Traps dust and liquid instantly', 'Safe on delicate surfaces', 'Machine washable and reusable'], rating: '4.9/5 Highly Rated', image: '/assets/products/placeholder.png', price: 14.99 },
-  // Editor's Choice
-  { id: 109, name: 'Digital Kitchen Scale', category: 'home-kitchen', badge: 'Editor\'s Choice', shortBenefit: 'Precise measurements for flawless baking and portion control.', keyBenefits: ['High-precision sensors', 'Easy-to-read LCD display', 'Tare function for easy prep'], rating: '4.9/5 Premium Pick', image: '/assets/products/placeholder.png', price: 18.99 },
-  { id: 110, name: 'Under Sink Organizer', category: 'home-kitchen', badge: 'Editor\'s Choice', shortBenefit: 'Maximize vertical storage in tight spaces with sliding drawers.', keyBenefits: ['Rust-resistant materials', 'Sliding pull-out baskets', 'Quick and easy assembly'], rating: '4.8/5 Premium Pick', image: '/assets/products/placeholder.png', price: 27.99 },
-
-  // --- BEAUTY & PERSONAL CARE ---
-  // Top Picks
-  { id: 201, name: 'Ice Face Roller', category: 'beauty-skincare', badge: 'Top Pick', shortBenefit: 'Reduce puffiness and stimulate collagen production with cooling therapy.', keyBenefits: ['Calms inflammation and redness', 'Shrinks pore appearance', 'Ergonomic silicone grip'], rating: '4.7/5 Recommended', image: '/assets/products/placeholder.png', price: 14.99 },
-  { id: 202, name: 'Facial Cleansing Brush', category: 'beauty-skincare', badge: 'Top Pick', shortBenefit: 'Achieve a deeper clean and gentle exfoliation with sonic vibrations.', keyBenefits: ['Waterproof design for shower use', 'Multiple speed settings', 'Medical-grade silicone bristles'], rating: '4.8/5 Recommended', image: '/assets/products/placeholder.png', price: 34.99 },
-  { id: 203, name: 'Hair Straightener Brush', category: 'beauty-skincare', badge: 'Top Pick', shortBenefit: 'Smooth and style your hair effortlessly while brushing.', keyBenefits: ['Anti-scald safety design', 'Fast ceramic heating', 'Reduces frizz and static'], rating: '4.6/5 Recommended', image: '/assets/products/placeholder.png', price: 45.99 },
-  { id: 204, name: 'LED Makeup Mirror', category: 'beauty-skincare', badge: 'Top Pick', shortBenefit: 'Flawless makeup application with adjustable, natural-toned lighting.', keyBenefits: ['Touch-sensor dimming', 'USB rechargeable', 'Magnification panels included'], rating: '4.9/5 Recommended', image: '/assets/products/placeholder.png', price: 29.99 },
-  // Trending Now
-  { id: 205, name: 'Heatless Hair Curlers', category: 'beauty-skincare', badge: 'Trending Now', shortBenefit: 'Get bouncy, beautiful curls overnight without damaging heat.', keyBenefits: ['Comfortable to sleep in', 'Prevents hair breakage', 'Works on all hair types'], rating: '4.5/5 Highly Rated', image: '/assets/products/placeholder.png', price: 12.99 },
-  { id: 206, name: 'Blackhead Remover Vacuum', category: 'beauty-skincare', badge: 'Trending Now', shortBenefit: 'Deep clean pores and remove impurities safely at home.', keyBenefits: ['Adjustable suction levels', 'Multiple probe heads', 'LED display screen'], rating: '4.4/5 Highly Rated', image: '/assets/products/placeholder.png', price: 24.99 },
-  { id: 207, name: 'Electric Toothbrush', category: 'beauty-skincare', badge: 'Trending Now', shortBenefit: 'Superior plaque removal with advanced sonic cleaning technology.', keyBenefits: ['Built-in smart timer', 'Multiple brushing modes', 'Long-lasting battery life'], rating: '4.8/5 Highly Rated', image: '/assets/products/placeholder.png', price: 39.99 },
-  { id: 211, name: 'Hyaluronic Acid Serum', category: 'beauty-skincare', badge: 'Trending Now', shortBenefit: 'Deep hydration and skin rejuvenation with high-purity hyaluronic acid.', keyBenefits: ['Intense multi-level hydration', 'Plumps skin and reduces fine lines', 'Fast-absorbing, non-greasy formula'], rating: '4.9/5 Highly Rated', image: '/assets/products/hyaluronic-acid-serum.png', price: 18.99 },
-  { id: 212, name: 'Gua Sha Set', category: 'beauty-skincare', badge: 'Trending Now', shortBenefit: 'Promote lymphatic drainage and facial contouring with natural jade.', keyBenefits: ['Reduces morning puffiness', 'Enhances facial blood flow', 'Natural stone for cooling effect'], rating: '4.7/5 Highly Rated', image: '/assets/products/placeholder.png', price: 15.99 },
-  { id: 213, name: 'Facial Steamer', category: 'beauty-skincare', badge: 'Trending Now', shortBenefit: 'Open pores and deeply hydrate your skin with spa-grade steam.', keyBenefits: ['Deep pore purification', 'Improved absorption of serums', 'Relaxes facial tension'], rating: '4.8/5 Highly Rated', image: '/assets/products/placeholder.png', price: 32.99 },
-  // Editor's Choice
-  { id: 208, name: 'Electric Eyebrow Trimmer', category: 'beauty-skincare', badge: 'Editor\'s Choice', shortBenefit: 'Painless, precision hair removal for perfect eyebrow shaping.', keyBenefits: ['Hypoallergenic precision tip', 'Built-in LED framing light', 'Compact and travel-friendly'], rating: '4.7/5 Premium Pick', image: '/assets/products/placeholder.png', price: 18.99 },
-  { id: 209, name: 'Makeup Brush Set', category: 'beauty-skincare', badge: 'Editor\'s Choice', shortBenefit: 'A complete staple kit of professional-grade synthetic brushes.', keyBenefits: ['Cruelty-free soft bristles', 'Includes face and eye brushes', 'Durable, shedding-free handles'], rating: '4.9/5 Premium Pick', image: '/assets/products/placeholder.png', price: 22.99 },
-  { id: 210, name: 'Cosmetic Organizer', category: 'beauty-skincare', badge: 'Editor\'s Choice', shortBenefit: 'Keep your vanity clutter-free with this elegant, clear display case.', keyBenefits: ['360-degree smooth rotation', 'Adjustable shelving heights', 'Easy-to-clean acrylic build'], rating: '4.8/5 Premium Pick', image: '/assets/products/placeholder.png', price: 26.99 },
-
-  // --- HEALTH & WELLNESS ---
-  // Top Picks
-  { id: 301, name: 'Neck & Shoulder Massager', category: 'health-personal-care', badge: 'Top Pick', shortBenefit: 'Relieve deep tissue tension with heated shiatsu kneading.', keyBenefits: ['Soothing heat therapy', 'Ergonomic U-shape design', 'Adjustable speed and direction'], rating: '4.8/5 Recommended', image: '/assets/products/placeholder.png', price: 49.99 },
-  { id: 302, name: 'Posture Corrector', category: 'health-personal-care', badge: 'Top Pick', shortBenefit: 'Align your spine and relieve upper back pain instantly.', keyBenefits: ['Breathable, invisible under clothes', 'Fully adjustable fit', 'Builds muscle memory'], rating: '4.5/5 Recommended', image: '/assets/products/placeholder.png', price: 19.99 },
-  { id: 303, name: 'Massage Gun', category: 'health-personal-care', badge: 'Top Pick', shortBenefit: 'Accelerate muscle recovery and relieve soreness with percussive therapy.', keyBenefits: ['High-torque quiet motor', 'Interchangeable massage heads', 'Long battery life'], rating: '4.9/5 Recommended', image: '/assets/products/placeholder.png', price: 79.99 },
-  { id: 304, name: 'Memory Foam Pillow', category: 'health-personal-care', badge: 'Top Pick', shortBenefit: 'Optimal neck support for a pain-free, restful night\'s sleep.', keyBenefits: ['Contoured orthopedic design', 'Cooling gel infusion', 'Washable bamboo cover'], rating: '4.7/5 Recommended', image: '/assets/products/placeholder.png', price: 34.99 },
-  // Trending Now
-  { id: 305, name: 'Aromatherapy Diffuser', category: 'health-personal-care', badge: 'Trending Now', shortBenefit: 'Enhance your mood and home fragrance with quiet ultrasonic mist.', keyBenefits: ['Auto shut-off safety feature', 'Color-changing LED lights', 'Whisper-quiet operation'], rating: '4.6/5 Highly Rated', image: '/assets/products/placeholder.png', price: 24.99 },
-  { id: 306, name: 'Foam Roller', category: 'health-personal-care', badge: 'Trending Now', shortBenefit: 'Improve flexibility and release trigger points effectively.', keyBenefits: ['High-density durable foam', 'Lightweight and portable', 'Great for pre/post-workout'], rating: '4.8/5 Highly Rated', image: '/assets/products/placeholder.png', price: 16.99 },
-  { id: 307, name: 'Weighted Blanket', category: 'health-personal-care', badge: 'Trending Now', shortBenefit: 'Calm your nervous system and sleep deeper with gentle pressure therapy.', keyBenefits: ['Premium glass bead fill', 'Even weight distribution', 'Breathable cotton fabric'], rating: '4.9/5 Highly Rated', image: '/assets/products/placeholder.png', price: 65.99 },
-  // Editor's Choice
-  { id: 308, name: 'Eye Massager', category: 'health-personal-care', badge: 'Editor\'s Choice', shortBenefit: 'Relieve eye strain and migraine tension with heat and vibration.', keyBenefits: ['Soothing air compression', 'Built-in bluetooth music', 'Foldable 180° design'], rating: '4.8/5 Premium Pick', image: '/assets/products/placeholder.png', price: 55.99 },
-  { id: 309, name: 'White Noise Machine', category: 'health-personal-care', badge: 'Editor\'s Choice', shortBenefit: 'Mask disruptive noises and improve focus or sleep quality.', keyBenefits: ['Multiple soothing soundscapes', 'Adjustable volume and timers', 'Compact for travel'], rating: '4.9/5 Premium Pick', image: '/assets/products/placeholder.png', price: 29.99 },
-  { id: 310, name: 'Lumbar Support Cushion', category: 'health-personal-care', badge: 'Editor\'s Choice', shortBenefit: 'Maintain proper posture and reduce lower back pain while sitting.', keyBenefits: ['High-density memory foam', 'Adjustable chair straps', 'Breathable mesh cover'], rating: '4.7/5 Premium Pick', image: '/assets/products/placeholder.png', price: 24.99 },
-
-  // --- PET SUPPLIES ---
-  // Top Picks
-  { id: 401, name: 'Pet Hair Remover Roller', category: 'pet-supplies', badge: 'Top Pick', shortBenefit: 'Quickly trap and remove pet hair from furniture instantly.', keyBenefits: ['No sticky adhesive tape required', 'Self-cleaning lint chamber', 'Reusable and eco-friendly'], rating: '4.8/5 Recommended', image: '/assets/products/placeholder.png', price: 18.99 },
-  { id: 402, name: 'Self-Cleaning Grooming Brush', category: 'pet-supplies', badge: 'Top Pick', shortBenefit: 'Remove loose undercoat safely while massaging your pet.', keyBenefits: ['One-click hair release button', 'Gentle on sensitive skin', 'Reduces shedding by up to 90%'], rating: '4.9/5 Recommended', image: '/assets/products/placeholder.png', price: 15.99 },
-  { id: 403, name: 'Automatic Pet Feeder', category: 'pet-supplies', badge: 'Top Pick', shortBenefit: 'Ensure your pets are fed on time, even when you\'re away.', keyBenefits: ['Custom programmable meals', 'Voice recording feature', 'Anti-clog food dispenser'], rating: '4.7/5 Recommended', image: '/assets/products/placeholder.png', price: 65.99 },
-  { id: 404, name: 'Pet Water Fountain', category: 'pet-supplies', badge: 'Top Pick', shortBenefit: 'Encourage healthier hydration with constantly flowing, filtered water.', keyBenefits: ['Ultra-quiet pump system', 'Multi-layer carbon filtration', 'BPA-free construction'], rating: '4.6/5 Recommended', image: '/assets/products/placeholder.png', price: 28.99 },
-  // Trending Now
-  { id: 405, name: 'Interactive Dog Toy', category: 'pet-supplies', badge: 'Trending Now', shortBenefit: 'Keep your dog mentally stimulated and entertained for hours.', keyBenefits: ['Dispenses treats as they play', 'Durable bite-resistant material', 'Reduces anxiety and boredom'], rating: '4.5/5 Highly Rated', image: '/assets/products/placeholder.png', price: 14.99 },
-  { id: 406, name: 'Cat Laser Toy', category: 'pet-supplies', badge: 'Trending Now', shortBenefit: 'Provide endless joy and exercise with unpredictable laser patterns.', keyBenefits: ['Automatic random movement', 'Safe laser strength', 'Multiple speed settings'], rating: '4.6/5 Highly Rated', image: '/assets/products/placeholder.png', price: 22.99 },
-  { id: 407, name: 'Portable Pet Water Bottle', category: 'pet-supplies', badge: 'Trending Now', shortBenefit: 'Convenient hydration for your pet during walks and travel.', keyBenefits: ['One-hand watering operation', 'Leak-proof lock button', 'Unused water flows back in'], rating: '4.9/5 Highly Rated', image: '/assets/products/placeholder.png', price: 16.99 },
-  // Editor's Choice
-  { id: 408, name: 'Slow Feeder Bowl', category: 'pet-supplies', badge: 'Editor\'s Choice', shortBenefit: 'Prevent bloating and aid digestion by slowing down eating speed.', keyBenefits: ['Promotes healthy eating habits', 'Non-slip rubber base', 'Food-safe durable plastic'], rating: '4.8/5 Premium Pick', image: '/assets/products/placeholder.png', price: 12.99 },
-  { id: 409, name: 'Pet Nail Clipper', category: 'pet-supplies', badge: 'Editor\'s Choice', shortBenefit: 'Safely and cleanly trim your pet\'s nails at home.', keyBenefits: ['Built-in safety guard', 'Sharp stainless steel blades', 'Ergonomic non-slip handle'], rating: '4.7/5 Premium Pick', image: '/assets/products/placeholder.png', price: 10.99 },
-  { id: 410, name: 'Pet Bed', category: 'pet-supplies', badge: 'Editor\'s Choice', shortBenefit: 'Provide ultimate comfort and joint support for restful sleep.', keyBenefits: ['Orthopedic foam base', 'Machine washable cover', 'Raised rim for head support'], rating: '4.9/5 Premium Pick', image: '/assets/products/placeholder.png', price: 45.99 },
-
-  // --- BABY & KIDS ESSENTIALS ---
-  // Top Picks
-  { id: 501, name: 'Baby Nail Trimmer', category: 'baby-products', badge: 'Top Pick', shortBenefit: 'Safely file tiny nails without risk of clipping the skin.', keyBenefits: ['Whisper-quiet motor', 'Built-in LED front light', 'Multiple filing pad strengths'], rating: '4.8/5 Recommended', image: '/assets/products/placeholder.png', price: 18.99 },
-  { id: 502, name: 'Silicone Feeding Set', category: 'baby-products', badge: 'Top Pick', shortBenefit: 'Make mealtime less messy with strong suction tableware.', keyBenefits: ['100% food-grade silicone', 'Microwave and dishwasher safe', 'Strong table suction base'], rating: '4.9/5 Recommended', image: '/assets/products/placeholder.png', price: 29.99 },
-  { id: 503, name: 'Baby Diaper Bag', category: 'baby-products', badge: 'Top Pick', shortBenefit: 'Carry all baby essentials organized and securely on the go.', keyBenefits: ['Waterproof exterior fabric', 'Insulated bottle pockets', 'Included changing pad'], rating: '4.7/5 Recommended', image: '/assets/products/placeholder.png', price: 45.99 },
-  { id: 504, name: 'Portable Changing Mat', category: 'baby-products', badge: 'Top Pick', shortBenefit: 'A clean, waterproof surface for diaper changes anywhere.', keyBenefits: ['Folds compact for travel', 'Wipe-clean waterproof lining', 'Extra pockets for wipes'], rating: '4.8/5 Recommended', image: '/assets/products/placeholder.png', price: 19.99 },
-  // Trending Now
-  { id: 505, name: 'Cabinet Safety Locks', category: 'baby-products', badge: 'Trending Now', shortBenefit: 'Baby-proof your home easily with invisible magnetic locks.', keyBenefits: ['Tool-free adhesive install', 'Hidden from the outside', 'Keeps hazardous items secure'], rating: '4.7/5 Highly Rated', image: '/assets/products/placeholder.png', price: 22.99 },
-  { id: 506, name: 'Baby Bottle Warmer', category: 'baby-products', badge: 'Trending Now', shortBenefit: 'Quickly and safely heat milk and baby food to the perfect temp.', keyBenefits: ['Preserves milk nutrients', 'Automatic shut-off timer', 'Fits all bottle brands'], rating: '4.8/5 Highly Rated', image: '/assets/products/placeholder.png', price: 34.99 },
-  { id: 507, name: 'Baby Bath Support', category: 'baby-products', badge: 'Trending Now', shortBenefit: 'Keep your newborn safe, comfortable, and secure during bath time.', keyBenefits: ['Ergonomic soft mesh shape', 'Drains water quickly', 'Fits in sink or large tub'], rating: '4.9/5 Highly Rated', image: '/assets/products/placeholder.png', price: 24.99 },
-  // Editor's Choice
-  { id: 508, name: 'Stroller Organizer', category: 'baby-products', badge: 'Editor\'s Choice', shortBenefit: 'Keep your coffee, phone, and baby items right at your fingertips.', keyBenefits: ['Universal stroller fit', 'Insulated cup holders', 'Detachable wristlet pouch'], rating: '4.8/5 Premium Pick', image: '/assets/products/placeholder.png', price: 25.99 },
-  { id: 509, name: 'Baby Toy Set', category: 'baby-products', badge: 'Editor\'s Choice', shortBenefit: 'Engage sensory development with safe, colorful interactive blocks.', keyBenefits: ['Soft and chewable materials', 'Squeaks when squeezed', 'Teaches colors and numbers'], rating: '4.9/5 Premium Pick', image: '/assets/products/placeholder.png', price: 28.99 },
-  { id: 510, name: 'Baby Grooming Kit', category: 'baby-products', badge: 'Editor\'s Choice', shortBenefit: 'All the essential tools for keeping your baby clean and healthy.', keyBenefits: ['Includes comb, brush, and clippers', 'Soft bristles for delicate scalp', 'Compact storage case'], rating: '4.7/5 Premium Pick', image: '/assets/products/placeholder.png', price: 15.99 },
-
-  // --- ELECTRONICS & ACCESSORIES ---
-  // Top Picks
-  { id: 601, name: 'Wireless Earbuds', category: 'electronics-accessories', badge: 'Top Pick', shortBenefit: 'Immersive sound quality with deep bass and active noise cancellation.', keyBenefits: ['Bluetooth 5.3 connection', '30-hour playback with case', 'IPX7 waterproof rating'], rating: '4.8/5 Recommended', image: '/assets/products/placeholder.png', price: 49.99 },
-  { id: 602, name: 'Fast Wireless Charger', category: 'electronics-accessories', badge: 'Top Pick', shortBenefit: 'Power up your devices quickly without the hassle of cables.', keyBenefits: ['15W fast charging speed', 'Case-friendly charging', 'Overheat protection system'], rating: '4.7/5 Recommended', image: '/assets/products/placeholder.png', price: 24.99 },
-  { id: 603, name: 'Power Bank', category: 'electronics-accessories', badge: 'Top Pick', shortBenefit: 'Stay charged on the go with massive battery capacity.', keyBenefits: ['20,000mAh capacity', 'Charge multiple devices at once', 'LED power display'], rating: '4.9/5 Recommended', image: '/assets/products/placeholder.png', price: 35.99 },
-  { id: 604, name: 'Bluetooth Speaker', category: 'electronics-accessories', badge: 'Top Pick', shortBenefit: 'Portable, powerful audio for outdoor adventures or home listening.', keyBenefits: ['360° surround sound', 'Rugged waterproof build', '12-hour continuous battery'], rating: '4.8/5 Recommended', image: '/assets/products/placeholder.png', price: 42.99 },
-  // Trending Now
-  { id: 605, name: 'Smart LED Strip Lights', category: 'electronics-accessories', badge: 'Trending Now', shortBenefit: 'Transform any room with customizable, app-controlled lighting.', keyBenefits: ['Syncs directly to music', 'Millions of RGB colors', 'Easy adhesive installation'], rating: '4.6/5 Highly Rated', image: '/assets/products/placeholder.png', price: 29.99 },
-  { id: 606, name: 'Car Phone Mount', category: 'electronics-accessories', badge: 'Trending Now', shortBenefit: 'Secure, one-handed phone docking for safer driving navigation.', keyBenefits: ['Strong suction cup base', 'Adjustable telescopic arm', 'Fits thick phone cases'], rating: '4.8/5 Highly Rated', image: '/assets/products/placeholder.png', price: 18.99 },
-  { id: 607, name: 'Charging Hub', category: 'electronics-accessories', badge: 'Trending Now', shortBenefit: 'Consolidate your charging cables with a sleek desktop powerhouse.', keyBenefits: ['Provides 6 fast-charging USB ports', 'Smart ID power distribution', 'Compact desktop design'], rating: '4.7/5 Highly Rated', image: '/assets/products/placeholder.png', price: 32.99 },
-  // Editor's Choice
-  { id: 608, name: 'Mini Projector', category: 'electronics-accessories', badge: 'Editor\'s Choice', shortBenefit: 'Turn any wall into a massive home theater experience.', keyBenefits: ['1080P HD support', 'Built-in stereo speakers', 'Compatible with sticks and phones'], rating: '4.7/5 Premium Pick', image: '/assets/products/placeholder.png', price: 89.99 },
-  { id: 609, name: 'Laptop Stand', category: 'electronics-accessories', badge: 'Editor\'s Choice', shortBenefit: 'Improve your posture and laptop cooling with this ergonomic riser.', keyBenefits: ['Premium aluminum alloy', 'Adjustable height viewing angles', 'Folds flat for portability'], rating: '4.9/5 Premium Pick', image: '/assets/products/placeholder.png', price: 26.99 },
-  { id: 610, name: 'Phone Stand', category: 'electronics-accessories', badge: 'Editor\'s Choice', shortBenefit: 'The perfect desk companion for hands-free video calls and viewing.', keyBenefits: ['Weighted anti-tip base', 'Fully adjustable angle', 'Silicone padding prevents scratches'], rating: '4.8/5 Premium Pick', image: '/assets/products/placeholder.png', price: 14.99 },
-
-  // --- SPORTS & FITNESS ---
-  // Top Picks
-  { id: 701, name: 'Resistance Bands', category: 'sports-fitness', badge: 'Top Pick', shortBenefit: 'A complete portable gym for full-body strength training anywhere.', keyBenefits: ['Stackable tension levels', 'Includes handles and door anchor', 'Snap-resistant natural latex'], rating: '4.8/5 Recommended', image: '/assets/products/placeholder.png', price: 29.99 },
-  { id: 702, name: 'Massage Gun', category: 'sports-fitness', badge: 'Top Pick', shortBenefit: 'Professional deep tissue therapy to eliminate muscle knots.', keyBenefits: ['Ergonomic anti-slip grip', '6 specialized massage heads', 'Ultra-quiet brushless motor'], rating: '4.9/5 Recommended', image: '/assets/products/placeholder.png', price: 85.99 },
-  { id: 703, name: 'Yoga Mat', category: 'sports-fitness', badge: 'Top Pick', shortBenefit: 'Extra thick, non-slip surface for perfect balance and joint cushioning.', keyBenefits: ['Eco-friendly TPE material', 'Alignment lines for form', 'Moisture-resistant for easy cleaning'], rating: '4.7/5 Recommended', image: '/assets/products/placeholder.png', price: 35.99 },
-  { id: 704, name: 'Adjustable Dumbbells', category: 'sports-fitness', badge: 'Top Pick', shortBenefit: 'Save space and switch weights instantly with a dial turn.', keyBenefits: ['Replaces an entire weight rack', 'Smooth weight transition dial', 'Durable steel plate construction'], rating: '4.8/5 Recommended', image: '/assets/products/placeholder.png', price: 149.99 },
-  // Trending Now
-  { id: 705, name: 'Ab Roller', category: 'sports-fitness', badge: 'Trending Now', shortBenefit: 'Engage your core intensely for stronger, defined abdominal muscles.', keyBenefits: ['Ultra-wide stable wheel design', 'Ergonomic foam handles', 'Includes knee protection pad'], rating: '4.6/5 Highly Rated', image: '/assets/products/placeholder.png', price: 19.99 },
-  { id: 706, name: 'Jump Rope', category: 'sports-fitness', badge: 'Trending Now', shortBenefit: 'Maximize calorie burn with smooth, tangle-free speed rotation.', keyBenefits: ['Adjustable steel wire cable', 'Ball-bearing rotation system', 'Comfortable memory foam handles'], rating: '4.8/5 Highly Rated', image: '/assets/products/placeholder.png', price: 12.99 },
-  { id: 707, name: 'Foam Roller', category: 'sports-fitness', badge: 'Trending Now', shortBenefit: 'Speed up recovery by rolling out tight IT bands and calves.', keyBenefits: ['Deep tissue massage zones', 'Retains shape after heavy use', 'Compact 13-inch travel size'], rating: '4.7/5 Highly Rated', image: '/assets/products/placeholder.png', price: 22.99 },
-  // Editor's Choice
-  { id: 708, name: 'Push-Up Board', category: 'sports-fitness', badge: 'Editor\'s Choice', shortBenefit: 'Target specific muscle groups correctly with color-coded positions.', keyBenefits: ['Prevents wrist strain', 'Folds for compact storage', 'Targets chest, shoulders, and triceps'], rating: '4.8/5 Premium Pick', image: '/assets/products/placeholder.png', price: 34.99 },
-  { id: 709, name: 'Gym Gloves', category: 'sports-fitness', badge: 'Editor\'s Choice', shortBenefit: 'Protect your hands from calluses while improving your lifting grip.', keyBenefits: ['Integrated wrist wrap support', 'Breathable mesh back', 'Silicone gripping palm'], rating: '4.9/5 Premium Pick', image: '/assets/products/placeholder.png', price: 18.99 },
-  { id: 710, name: 'Water Bottle', category: 'sports-fitness', badge: 'Editor\'s Choice', shortBenefit: 'Stay perfectly hydrated with time markers and an easy-sip straw.', keyBenefits: ['BPA-free Tritan plastic', 'Motivational time markers', 'Leak-proof locking lid'], rating: '4.8/5 Premium Pick', image: '/assets/products/placeholder.png', price: 16.99 }
+  { id: 101, name: 'Premium Magnetic Hand Whisk', category: 'home-kitchen', badge: 'Top Pick', shortBenefit: 'Elegantly balanced for effortless aerating.', keyBenefits: ['Balanced weight', 'Polished steel', 'Magnetic storage'], rating: '4.9/5 Recommended', image: '/assets/products/magnetic-whisk.png', price: 29.99 },
+  { id: 102, name: 'Professional Rotating Whisk', category: 'home-kitchen', badge: 'Top Pick', shortBenefit: 'Semi-automatic rotation for perfect batters.', keyBenefits: ['Pressure-driven', 'Cordless design', 'Durable build'], rating: '4.8/5 Recommended', image: '/assets/products/rotating-whisk.png', price: 34.99 },
+  { id: 103, name: 'Precision Balloon Whisk', category: 'home-kitchen', badge: 'Top Pick', shortBenefit: 'Refined design for aerating delicate sauces.', keyBenefits: ['Ultra-fine wire', 'Non-slip grip', 'Max efficiency'], rating: '4.7/5 Recommended', image: '/assets/products/balloon-whisk.png', price: 24.99 },
+  { id: 104, name: 'Stainless Dough Whisk', category: 'home-kitchen', badge: 'Top Pick', shortBenefit: 'Ideal for thick bread doughs and heavy batters.', keyBenefits: ['Efficient loops', 'Heavy duty steel', 'Easy clean'], rating: '4.9/5 Recommended', image: '/assets/products/dough-whisk.png', price: 29.99 },
+  { id: 105, name: 'Mini Dressings Whisk', category: 'home-kitchen', badge: 'Trending Now', shortBenefit: 'Compact precision for small batches.', keyBenefits: ['Space-saving', 'Fine control', 'Polished finish'], rating: '4.6/5 Highly Rated', image: '/assets/products/mini-whisk.png', price: 12.99 },
+  { id: 106, name: 'Flat Roux Whisk', category: 'home-kitchen', badge: 'Trending Now', shortBenefit: 'Flat profile for seamless pan deglazing.', keyBenefits: ['Covers edges', 'Heat resistant', 'Prevents lumps'], rating: '4.8/5 Highly Rated', image: '/assets/products/flat-whisk.png', price: 19.99 },
+  { id: 107, name: 'Coil Spring Whisk', category: 'home-kitchen', badge: 'Trending Now', shortBenefit: 'Vertical pumping action for fast frothing.', keyBenefits: ['Spring-loaded', 'Fast aeration', 'Compact storage'], rating: '4.7/5 Highly Rated', image: '/assets/products/coil-whisk.png', price: 15.99 },
+  { id: 108, name: 'Silicone Tipped Whisk', category: 'home-kitchen', badge: 'Trending Now', shortBenefit: 'Gentle protection for non-stick cookware.', keyBenefits: ['Coated wires', 'Heat resistant', 'Dishwasher safe'], rating: '4.9/5 Highly Rated', image: '/assets/products/silicone-whisk.png', price: 22.99 },
+  { id: 113, name: 'Bent Handle Saucier', category: 'home-kitchen', badge: 'Editor\'s Choice', shortBenefit: 'Ergonomic handle for low-fatigue slow stirring.', keyBenefits: ['Reduced wrist fatigue', 'Ideal for custards', 'Chef grade handle'], rating: '4.9/5 Premium Pick', image: '/assets/products/modern-kitchen-kettle-lifestyle.jpg', price: 24.99 },
+  { id: 114, name: 'Silver Gooseneck Kettle', category: 'home-kitchen', badge: 'Editor\'s Choice', shortBenefit: 'Precision pour for artisan coffee bloom.', keyBenefits: ['Matte silver', 'Thermometer lid', 'Flow control'], rating: '4.8/5 Premium Pick', image: '/assets/products/matte-silver-gooseneck-kettle.jpg', price: 45.99 },
+  { id: 115, name: 'Precision Black Kettle', category: 'home-kitchen', badge: 'Editor\'s Choice', shortBenefit: 'Sleek matte black for professional pour control.', keyBenefits: ['Black steel body', 'Rapid boil', 'Ergonomic grip'], rating: '4.9/5 Premium Pick', image: '/assets/products/matte-black-precision-kettle.jpg', price: 49.99 },
+  { id: 116, name: 'Artisan Walnut Board', category: 'home-kitchen', badge: 'Editor\'s Choice', shortBenefit: 'Hand-crafted American Walnut surface.', keyBenefits: ['Solid wood', 'Beveled edges', 'Stays beautiful'], rating: '4.9/5 Premium Pick', image: '/assets/products/walnut-artisan-cutting-board.jpg', price: 65.00 },
+  { id: 207, name: 'Sonic Toothbrush Pro', category: 'beauty-skincare', badge: 'Trending Now', shortBenefit: 'Professional cleaning with ultra-sonic technology.', keyBenefits: ['40,000 VPM', '4 modes', '8 brush heads'], rating: '4.8/5 Highly Rated', image: '/assets/products/sonic-toothbrush-premium.jpg', price: 34.99 },
+  { id: 208, name: 'Sonic Facial Cleanser', category: 'beauty-skincare', badge: 'Top Pick', shortBenefit: 'Deeply cleanses for a radiant, healthy glow.', keyBenefits: ['Medical silicone', 'Waterproof', 'USB charging'], rating: '4.7/5 Highly Rated', image: '/assets/products/sonic-facial-cleansing-brush.jpg', price: 24.99 },
+  { id: 211, name: 'Pure Hyaluronic Serum', category: 'beauty-skincare', badge: 'Editor\'s Choice', shortBenefit: 'Intense hydration for a youthful complexion.', keyBenefits: ['99% pure', 'Non-greasy', 'Natural botanicals'], rating: '4.9/5 Premium Pick', image: '/assets/products/hyaluronic-acid-serum-studio.jpg', price: 18.99 },
+  { id: 212, name: 'Jade Roller & Gua Sha', category: 'beauty-skincare', badge: 'Trending Now', shortBenefit: 'Promote lymphatic drainage and facial contouring.', keyBenefits: ['Natural jade stone', 'Cooling effect', 'Contour set'], rating: '4.7/5 Highly Rated', image: '/assets/products/hyaluronic-serum-jade-roller-set.jpg', price: 15.99 },
+  { id: 301, name: 'Wellness Tech Trio', category: 'health-personal-care', badge: 'Top Pick', shortBenefit: 'Integrated recovery tools for physical excellence.', keyBenefits: ['High-perf trio', 'Charging case', 'Feedback sensors'], rating: '4.8/5 Recommended', image: '/assets/products/wellness-tech-essentials-trio.jpg', price: 89.99 },
+  { id: 302, name: 'Orthopedic Back Belt', category: 'health-personal-care', badge: 'Top Pick', shortBenefit: 'Adjustable support for improved alignment.', keyBenefits: ['Breathable mesh', 'Invisible under shirt', 'Adjustable fit'], rating: '4.7/5 Recommended', image: '/assets/products/orthopedic-back-support-belt.jpg', price: 19.99 },
+  { id: 303, name: 'Massage Gun Pro Set', category: 'health-personal-care', badge: 'Top Pick', shortBenefit: 'Percussive therapy for deep muscle recovery.', keyBenefits: ['Quiet motor', 'Interchangeable heads', 'Long battery'], rating: '4.9/5 Recommended', image: '/assets/products/massage-gun-pro-attachments.jpg', price: 79.99 },
+  { id: 305, name: 'Ash Wood Aroma Diffuser', category: 'health-personal-care', badge: 'Trending Now', shortBenefit: 'Transform any room into a calming spa.', keyBenefits: ['Natural ash wood', 'Ultrasonic mist', 'Auto-shutoff'], rating: '4.8/5 Highly Rated', image: '/assets/products/ash-wood-aroma-diffuser.jpg', price: 28.99 },
+  { id: 307, name: 'Massage Gun Slate', category: 'health-personal-care', badge: 'Trending Now', shortBenefit: 'Premium slate percussive physical relief.', keyBenefits: ['Slate finish', 'Even weight', 'Quiet glide'], rating: '4.9/5 Highly Rated', image: '/assets/products/massage-gun-pro-slate.jpg', price: 65.99 },
+  { id: 405, name: 'Pet Track Smart Collar', category: 'pet-supplies', badge: 'Top Pick', shortBenefit: 'Precision GPS and health tracking for pets.', keyBenefits: ['Real-time GPS', 'Health metrics', 'Durable strap'], rating: '4.5/5 Highly Rated', image: '/assets/products/pet-track-smart-collar.jpg', price: 14.99 },
+  { id: 406, name: 'Pet Track Premium', category: 'pet-supplies', badge: 'Top Pick', shortBenefit: 'High-visibility tracking for active dogs.', keyBenefits: ['Reflective edges', 'Waterproof', 'Max range'], rating: '4.6/5 Highly Rated', image: '/assets/products/pet-track-premium-collar.jpg', price: 22.99 },
+  { id: 501, name: 'Baby Safety Clipper', category: 'baby-products', badge: 'Top Pick', shortBenefit: 'Stress-free grooming with whisper-quiet tech.', keyBenefits: ['Night light', '6 safety heads', 'Adjustable spin'], rating: '4.9/5 Recommended', image: '/assets/products/baby-clipper-premium.png', price: 19.99 },
+  { id: 502, name: 'Infant Bath Support', category: 'baby-products', badge: 'Top Pick', shortBenefit: 'Ergonomic, non-slip bath safety for newborns.', keyBenefits: ['Soft mesh', 'Quick dry', 'Fits any tub'], rating: '4.8/5 Recommended', image: '/assets/products/baby-bath-support.png', price: 26.99 },
+  { id: 505, name: 'Muslin Swaddle Bundle', category: 'baby-products', badge: 'Trending Now', shortBenefit: 'Organic, breathable bamboo swaddle sets.', keyBenefits: ['Organic bamboo', 'Extra large size', 'Breathable weave'], rating: '4.7/5 Highly Rated', image: '/assets/products/baby-muslin-swaddle-bundle.jpg', price: 22.99 },
+  { id: 606, name: 'Phone Dash Mount', category: 'electronics-accessories', badge: 'Trending Now', shortBenefit: 'Minimalist, secure magnetic docking for cars.', keyBenefits: ['Strong suction', 'Telescopic arm', 'Minimal profile'], rating: '4.8/5 Highly Rated', image: '/assets/products/magnetic-phone-mount.png', price: 18.99 },
+  { id: 607, name: 'Carbon Fiber Charging Hub', category: 'electronics-accessories', badge: 'Top Pick', shortBenefit: 'Sleek carbon fiber multi-device station.', keyBenefits: ['15W charging', 'Anti-slip', 'Modern look'], rating: '4.8/5 Highly Rated', image: '/assets/products/carbon-fiber-charging-hub.jpg', price: 42.99 },
+  { id: 610, name: '3-in-1 Charging Base', category: 'electronics-accessories', badge: 'Editor\'s Choice', shortBenefit: 'Hands-free charging for phone, watch, and pods.', keyBenefits: ['Full station', 'Adjustable angle', 'Weighted base'], rating: '4.8/5 Premium Pick', image: '/assets/products/3-in-1-charging-station.png', price: 44.99 },
+  { id: 611, name: 'Leather Watch Band', category: 'electronics-accessories', badge: 'Trending Now', shortBenefit: 'Genuine leather band with signature stitching.', keyBenefits: ['Genuine leather', 'Polished buckles', 'Universal Series fit'], rating: '4.9/5 Premium Pick', image: '/assets/products/leather-watch-band.png', price: 35.00 },
+  { id: 701, name: 'Elite Resistance Set', category: 'sports-fitness', badge: 'Top Pick', shortBenefit: 'Portable strength station for gym-quality results.', keyBenefits: ['Stackable tension', 'Snap-resistant', 'Portable kit'], rating: '4.8/5 Recommended', image: '/assets/products/resistance-band-set.png', price: 29.99 },
+  { id: 703, name: 'Emerald TPE Yoga Mat', category: 'sports-fitness', badge: 'Top Pick', shortBenefit: 'Extra-thick cushioning with non-slip texture.', keyBenefits: ['Non-slip grip', 'Alignment lines', 'Eco-TPE build'], rating: '4.7/5 Recommended', image: '/assets/products/tpe-yoga-mat.png', price: 35.99 },
+  { id: 706, name: 'Weighted Jump Rope', category: 'sports-fitness', badge: 'Trending Now', shortBenefit: 'High-speed rotation with ergonomic control.', keyBenefits: ['Steel wire cable', 'Ball bearings', 'Memory foam grips'], rating: '4.8/5 Highly Rated', image: '/assets/products/weighted-jump-rope.png', price: 12.99 },
+  { id: 708, name: 'Pro Lumbar Lifting Belt', category: 'sports-fitness', badge: 'Editor\'s Choice', shortBenefit: 'Heavy-duty lumbar support for elite training.', keyBenefits: ['Double prong steel', 'High-density pad', 'Reduced strain'], rating: '4.8/5 Premium Pick', image: '/assets/products/pro-lifting-support-belt.jpg', price: 34.99 },
+  { id: 801, name: 'Elite Sourcing Kit', category: 'global-trade', badge: 'Premium Service', shortBenefit: 'Luxury toolkit for global trade and sourcing events.', keyBenefits: ['Leather notebook', 'Premium pen set', 'Logistics access'], rating: '5.0/5 Top Choice', image: '/assets/products/elite-sourcing-kit.png', price: 199.00 }
 ];
 
 const testimonials = [
-  { id: 1, name: 'Michael T.', location: 'Texas, USA', quote: 'Impressed with the Quality', text: 'I wasn\'t expecting this level of quality at this price point. Everything arrived in perfect condition. Will definitely order again.', region: 'us' },
-  { id: 2, name: 'Jessica L.', location: 'California, USA', quote: 'Smooth & Reliable Experience', text: 'The ordering process was simple, and the delivery was faster than expected. Great service overall.', region: 'us' },
-  { id: 3, name: 'David R.', location: 'New York, USA', quote: 'Great Online Store', text: 'I\'ve tried several online stores, but this one stands out for its professionalism and product selection. Highly recommended.', region: 'us' },
-  { id: 4, name: 'Emily S.', location: 'Florida, USA', quote: 'Excellent Value for Money', text: 'Affordable pricing without compromising on quality. Exactly what I was looking for.', region: 'us' },
-  
-  { id: 5, name: 'Ahmed K.', location: 'Abu Dhabi', quote: 'Very Professional Service', text: 'The team was very responsive, and the entire process was handled professionally. Great experience.', region: 'ae' },
-  { id: 6, name: 'Sara M.', location: 'Dubai', quote: 'Fast Delivery & Good Quality', text: 'Product quality exceeded expectations, and delivery was on time. Will recommend to others.', region: 'ae' },
-  { id: 7, name: 'Hassan A.', location: 'Sharjah', quote: 'Reliable & Trustworthy', text: 'Everything was exactly as described. It\'s good to see a company that delivers what it promises.', region: 'ae' },
-  { id: 8, name: 'Fatima R.', location: 'Al Ain', quote: 'Seamless Shopping Experience', text: 'Easy to navigate website and smooth checkout process. Very satisfied.', region: 'ae' }
+  { id: 1, name: 'Michael T.', location: 'Texas, USA', quote: 'Superior Craftsmanship', text: 'Superior craftsmanship and world-class logistics. MRT International delivers excellence in every shipment.', region: 'us' },
+  { id: 2, name: 'Jessica L.', location: 'California, USA', quote: 'Boutique Curation', text: 'The boutique catalog is curated with extreme care. Every product feels like a luxury item tailored for elite needs.', region: 'us' },
+  { id: 3, name: 'David R.', location: 'New York, USA', quote: 'Reliable Global Trade', text: 'MRT has transformed our supply chain. Their products are not just items, they are assets for our business.', region: 'us' },
+  { id: 4, name: 'Emma W.', location: 'London, UK', quote: 'High-Fidelity Service', text: 'Fast, secure, and incredibly professional. The social inquiry model makes elite sourcing feel personal.', region: 'us' },
+  { id: 5, name: 'Ahmed K.', location: 'Abu Dhabi, UAE', quote: 'Professional Sourcing', text: 'Their Elite Sourcing Kit is a game changer for our trade delegations. Truly professional and localized excellence.', region: 'ae' },
+  { id: 6, name: 'Sara M.', location: 'Dubai, UAE', quote: 'World-Class Delivery', text: 'Exceptional delivery speed to the UAE. The product quality exceeded our high standards for artisanal skincare.', region: 'ae' },
+  { id: 7, name: 'Omar F.', location: 'Riyadh, SA', quote: 'Strategic Partnership', text: 'MRT is more than a supplier; they are a strategic partner in our luxury retail expansion.', region: 'ae' },
+  { id: 8, name: 'Layla H.', location: 'Doha, Qatar', quote: 'Aesthetic Brilliance', text: 'The glassmorphism design mirrors the quality of their products. Clear, premium, and highly efficient.', region: 'ae' }
 ];
 
 const categoryThemes = {
-  'home-kitchen': {
-    primary: '#914d00',
-    secondary: '#f28c28',
-    title: 'Modern Kitchen',
-    subtitle: 'Culinary excellence & lifestyle essentials',
-    image: '/assets/categories/home-kitchen.png',
-    seoTitle: 'Top 10 Best Home & Kitchen Products (2026)',
-    seoIntro: 'Discover the most useful, trending, and top-rated home & kitchen products carefully selected for quality and value.'
-  },
-  'health-personal-care': {
-    primary: '#006a6a',
-    secondary: '#00cfcf',
-    title: 'Personal Vitality',
-    subtitle: 'Advanced wellness & health curations',
-    image: '/assets/categories/health-wellness.png',
-    seoTitle: 'Top 10 Best Health & Wellness Products (2026)',
-    seoIntro: 'Discover the most useful, trending, and top-rated health products carefully selected for quality and value.'
-  },
-  'beauty-skincare': {
-    primary: '#701b2f',
-    secondary: '#ffb2bd',
-    title: 'Artisanal Beauty',
-    subtitle: 'Pristine formulas for a radiant glow',
-    image: '/assets/categories/beauty-skincare.png',
-    seoTitle: 'Top 10 Best Beauty & Personal Care Products (2026)',
-    seoIntro: 'Discover the most useful, trending, and top-rated beauty products carefully selected for quality and value.'
-  },
-  'pet-supplies': {
-    primary: '#3a6a00',
-    secondary: '#8ce33a',
-    title: 'Pet Curations',
-    subtitle: 'Sophisticated gear for your loyal companions',
-    image: '/assets/categories/pet-supplies.png',
-    seoTitle: 'Top 10 Best Pet Supplies Products (2026)',
-    seoIntro: 'Discover the most useful, trending, and top-rated pet supply products carefully selected for quality and value.'
-  },
-  'baby-products': {
-    primary: '#004a77',
-    secondary: '#7fbaff',
-    title: 'Baby Essentials',
-    subtitle: 'Nordic design for the next generation',
-    image: '/assets/categories/baby-products.png',
-    seoTitle: 'Top 10 Best Baby & Kids Essentials Products (2026)',
-    seoIntro: 'Discover the most useful, trending, and top-rated baby essential products carefully selected for quality and value.'
-  },
-  'electronics-accessories': {
-    primary: '#1f1b17',
-    secondary: '#bf8f00',
-    title: 'Tech Companions',
-    subtitle: 'High-performance digital essentials',
-    image: '/assets/categories/electronics.png',
-    seoTitle: 'Top 10 Best Electronics & Accessories (2026)',
-    seoIntro: 'Discover the most useful, trending, and top-rated electronics and accessories carefully selected for quality and value.'
-  },
-  'sports-fitness': {
-    primary: '#006e2a',
-    secondary: '#55f985',
-    title: 'Peak Performance',
-    subtitle: 'Minimalist gear for elite training',
-    image: '/assets/categories/sports-fitness.png',
-    seoTitle: 'Top 10 Best Sports & Fitness Products (2026)',
-    seoIntro: 'Discover the most useful, trending, and top-rated sports & fitness products carefully selected for quality and value.'
-  }
+  'home-kitchen': { primary: '#914d00', secondary: '#f28c28', title: 'Modern Kitchen', subtitle: 'Culinary brilliance and lifestyle essentials', image: '/assets/categories/home-kitchen.png', seoTitle: 'Elite Best Home & Kitchen Collection (2026)', seoIntro: 'Curated selection of premium kitchenware and home essentials for the modern lifestyle.' },
+  'beauty-skincare': { primary: '#701b2f', secondary: '#ffb2bd', title: 'Artisanal Beauty', subtitle: 'Pristine formulas for radiant maintenance', image: '/assets/categories/beauty-skincare.png', seoTitle: 'Premium Beauty & Skincare Essentials (2026)', seoIntro: 'Discover professional-grade skincare and beauty tools designed for lasting radiance.' },
+  'health-personal-care': { primary: '#006a6a', secondary: '#00cfcf', title: 'Personal Vitality', subtitle: 'Advanced recovery and wellness curations', image: '/assets/categories/health-wellness.png', seoTitle: 'High-Performance Health & Wellness Gear (2026)', seoIntro: 'Advanced recovery tools and wellness essentials tailored for elite physical maintenance.' },
+  'pet-supplies': { primary: '#3a6a00', secondary: '#8ce33a', title: 'Pet Curations', subtitle: 'Sophisticated gear for companions', image: '/assets/categories/pet-supplies.png', seoTitle: 'World-Class Pet Supplies & Tracking (2026)', seoIntro: 'Precision tracking and professional grooming gear for your loyal companions.' },
+  'baby-products': { primary: '#004a77', secondary: '#7fbaff', title: 'Baby Essentials', subtitle: 'Nordic design for modern parents', image: '/assets/categories/baby-products.png', seoTitle: 'Safe & Sustainable Baby Essentials (2026)', seoIntro: 'Ergonimic designs and safety-first grooming tools for the next generation.' },
+  'electronics-accessories': { primary: '#1f1b17', secondary: '#bf8f00', title: 'Tech Companions', subtitle: 'Performance-driven digital gear', image: '/assets/categories/electronics.png', seoTitle: 'Elite Tech Accessories & Charging Hubs (2026)', seoIntro: 'High-performance digital essentials and minimalist charging solutions for the tech-savvy professional.' },
+  'sports-fitness': { primary: '#006e2a', secondary: '#55f985', title: 'Peak Performance', subtitle: 'Minimalist gear for elite training', image: '/assets/categories/sports-fitness.png', seoTitle: 'Professional-Grade Sports & Fitness Gear (2026)', seoIntro: 'Minimalist equipment and heavy-duty support gear designed for maximum training efficiency.' }
 };
 
 router.get('/products', (req, res) => res.json(products));
 router.get('/testimonials', (req, res) => res.json(testimonials));
 router.get('/themes', (req, res) => res.json(categoryThemes));
-
 export default router;

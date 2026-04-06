@@ -12,10 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     
     <!-- Scripts & Styles -->
+    <link rel="stylesheet" href="/src/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    <link rel="stylesheet" href="/src/style.css">
+    <script type="module" src="/src/main.js"></script>
+    <style>body { opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1); } body.loaded { opacity: 1; }</style>
 </head>
 <body class="bg-surface text-on-surface">
     <!-- TopNavBar -->
@@ -34,11 +36,12 @@
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="index.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Home</a>
                 <a href="about.html" class="text-on-surface border-b-2 border-primary font-medium pb-1 serif italic text-lg tracking-tight">About</a>
-                <a href="index.html#categories" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Categories</a>
+                <a href="categories.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Categories</a>
+                <a href="contact.html" class="text-on-surface-variant font-medium hover:text-primary transition-colors serif italic text-lg tracking-tight">Contact</a>
             </nav>
 
             <div class="flex items-center space-x-6">
-                <button class="bg-primary text-on-primary px-6 py-2 rounded-xl text-sm font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl">Contact Us</button>
+                <a href="contact.html" class="bg-primary text-on-primary px-6 py-2 rounded-xl text-sm font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl">Contact Us</a>
             </div>
         </div>
     </header>
